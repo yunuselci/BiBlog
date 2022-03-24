@@ -1,18 +1,5 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
-</head>
-<body class="border-t-8 border-blue-600 w-screen">
-<!-- navbar goes here -->
 <nav class="mobile-nav">
-    <div class="max-w-5xl   px-16">
+    <div class="max-w-6xl mx-auto px-16">
         <div class="flex justify-between">
 
             <div class="flex space-x-2">
@@ -27,7 +14,7 @@
                     </a>
                 </div>
                 <!-- primary nav -->
-                <div class="hidden md:flex items-center space-x-1">
+                <div class="hidden lg:flex items-center space-x-1">
                     <a href="#" class="py-5 px-3 text-xl font-semibold hover:text-blue-600">About </a>
                     <a href="#" class="py-5 px-3 text-xl font-semibold hover:text-blue-600">Articles </a>
                     <a href="#" class="py-5 px-3 text-xl font-semibold hover:text-blue-600">Snippets </a>
@@ -36,7 +23,7 @@
                 </div>
             </div>
             <!-- secondary nav -->
-            <div class="hidden md:flex items-center space-x-1">
+            <div class="hidden lg:flex items-center space-x-1">
                 <a href="#" class="py-5 px-3">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                         <path
@@ -55,7 +42,7 @@
 
             </div>
             <!-- Mobile Button goes here -->
-            <div class="md:hidden flex items-center space-x-6">
+            <div class="lg:hidden flex items-center space-x-6">
                 <button>
                     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="24" height="24"
                          viewBox="0 0 32 32">
@@ -82,8 +69,9 @@
 
     <div>
         <button class="text-white pt-8 container flex justify-end">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" stroke="currentColor"
+                 stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
             </svg>
         </button>
     </div>
@@ -91,13 +79,13 @@
     <div class="flex flex-col justify-center items-center space-y-6 h-full text-2xl font-bold text-white">
         <div>
 
-        <a href="#">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 595.3 841.9" class="hover:opacity-90 h-12 w-12">
-                <path
-                    d="M567.2 324.4c-43-131.5-185.8-203.9-317.3-160.9L189 183.4C57.5 226.4-14.9 369.2 28.1 500.7s185.8 203.9 317.3 160.9l60.8-19.9c131.5-43 204-185.8 161-317.3zm-159 197.2c-37 14.7-73.9 29.4-110.6 44-36.7 14.6-73.6 29.3-110.6 44v-71.1c19.9-7.5 39.7-15 59.4-22.3 19.7-7.4 39.4-14.8 59.4-22.3-20-8.4-39.7-16.4-59.4-24.1-19.7-7.7-39.5-15.7-59.4-24.1v-70.2c37 14.7 73.8 29.4 110.6 44 36.7 14.6 73.5 29.3 110.6 44v58.1zm0-235.1c-19.9 7.5-39.7 15-59.4 22.3-19.7 7.4-39.4 14.8-59.4 22.3 20 8.4 39.7 16.4 59.4 24.1 19.7 7.7 39.5 15.7 59.4 24.1v70.2c-37-14.7-73.8-29.4-110.6-44-36.7-14.6-73.5-29.3-110.6-44v-58.1c37-14.7 73.9-29.4 110.6-44 36.7-14.6 73.6-29.3 110.6-44v71.1z"
-                    fill="#FFFFFF"/>
-            </svg>
-        </a>
+            <a href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 595.3 841.9" class="hover:opacity-90 h-12 w-12">
+                    <path
+                        d="M567.2 324.4c-43-131.5-185.8-203.9-317.3-160.9L189 183.4C57.5 226.4-14.9 369.2 28.1 500.7s185.8 203.9 317.3 160.9l60.8-19.9c131.5-43 204-185.8 161-317.3zm-159 197.2c-37 14.7-73.9 29.4-110.6 44-36.7 14.6-73.6 29.3-110.6 44v-71.1c19.9-7.5 39.7-15 59.4-22.3 19.7-7.4 39.4-14.8 59.4-22.3-20-8.4-39.7-16.4-59.4-24.1-19.7-7.7-39.5-15.7-59.4-24.1v-70.2c37 14.7 73.8 29.4 110.6 44 36.7 14.6 73.5 29.3 110.6 44v58.1zm0-235.1c-19.9 7.5-39.7 15-59.4 22.3-19.7 7.4-39.4 14.8-59.4 22.3 20 8.4 39.7 16.4 59.4 24.1 19.7 7.7 39.5 15.7 59.4 24.1v70.2c-37-14.7-73.8-29.4-110.6-44-36.7-14.6-73.5-29.3-110.6-44v-58.1c37-14.7 73.9-29.4 110.6-44 36.7-14.6 73.6-29.3 110.6-44v71.1z"
+                        fill="#FFFFFF"/>
+                </svg>
+            </a>
 
         </div>
         <a href="#" class="hover:underline">Home </a>
@@ -108,14 +96,6 @@
     </div>
 
 </nav>
-</body>
-<!-- content goes here -->
-
-<div class="py-32 text-center">
-
-    <h2 class="font-extrabold text-4xl"> Test yazısı </h2>
-
-</div>
 
 <script>
 
@@ -128,6 +108,3 @@
         menu.classList.toggle("hidden");
     });
 </script>
-
-
-</html>

@@ -18,5 +18,5 @@ Route::get('/laravel', function () {
 });
 
 Route::get('/', function () {
-    return view('tailwind');
+    return view('home');
 });
