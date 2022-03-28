@@ -14,8 +14,14 @@
 @include('header')
 
 @yield('home')
+@yield('articles')
+@yield('snippets')
+@yield('about')
+@yield('snippet')
 
+@include('footer')
 </body>
+
 
 <script>
 

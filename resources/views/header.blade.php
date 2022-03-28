@@ -5,7 +5,7 @@
             <div class="flex space-x-2">
                 <!-- logo -->
                 <div>
-                    <a href="#" class="flex py-5 px-2">
+                    <a href="/" class="flex py-5 px-2">
                         <svg class="h-12 w-12 mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 595.3 841.9">
                             <path
                                 d="M567.2 324.4c-43-131.5-185.8-203.9-317.3-160.9L189 183.4C57.5 226.4-14.9 369.2 28.1 500.7s185.8 203.9 317.3 160.9l60.8-19.9c131.5-43 204-185.8 161-317.3zm-159 197.2c-37 14.7-73.9 29.4-110.6 44-36.7 14.6-73.6 29.3-110.6 44v-71.1c19.9-7.5 39.7-15 59.4-22.3 19.7-7.4 39.4-14.8 59.4-22.3-20-8.4-39.7-16.4-59.4-24.1-19.7-7.7-39.5-15.7-59.4-24.1v-70.2c37 14.7 73.8 29.4 110.6 44 36.7 14.6 73.5 29.3 110.6 44v58.1zm0-235.1c-19.9 7.5-39.7 15-59.4 22.3-19.7 7.4-39.4 14.8-59.4 22.3 20 8.4 39.7 16.4 59.4 24.1 19.7 7.7 39.5 15.7 59.4 24.1v70.2c-37-14.7-73.8-29.4-110.6-44-36.7-14.6-73.5-29.3-110.6-44v-58.1c37-14.7 73.9-29.4 110.6-44 36.7-14.6 73.6-29.3 110.6-44v71.1z"
@@ -15,10 +15,10 @@
                 </div>
                 <!-- primary nav -->
                 <div class="hidden lg:flex items-center space-x-1">
-                    <a href="#" class="py-5 px-3 text-xl font-semibold hover:text-blue-600">About </a>
-                    <a href="#" class="py-5 px-3 text-xl font-semibold hover:text-blue-600">Articles </a>
-                    <a href="#" class="py-5 px-3 text-xl font-semibold hover:text-blue-600">Snippets </a>
-                    <a href="#" class="py-5 px-3 text-xl font-semibold hover:text-blue-600">Contact </a>
+                    <a href="/about" class="header-links">About </a>
+                    <a href="/articles" class="header-links">Articles </a>
+                    <a href="/snippets" class="header-links">Snippets </a>
+                    <a href="/contact" class="header-links">Contact </a>
 
                 </div>
             </div>

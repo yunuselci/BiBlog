@@ -1,6 +1,6 @@
 @extends('theme')
 @section('title')
-    Home
+    Home | Web Development Blog
 @endsection
 
 
@@ -91,7 +91,8 @@
             <div class="flex flex-col rounded-xl shadow-lg overflow-hidden">
                 <div class="flex-1 bg-white p-6 flex flex-col justify-between">
                     <a href="">
-                        <h3 class="text-blue-600 font-bold text-xl text-center">High CPU usage with Docker on M1 Macs</h3>
+                        <h3 class="text-blue-600 font-bold text-xl text-center">High CPU usage with Docker on M1
+                            Macs</h3>
                         <p class="text-gray-500 mt-3 text-center">These are the settings I used to avoid this issue</p>
                     </a>
                 </div>
@@ -99,20 +100,58 @@
             <div class="flex flex-col rounded-xl shadow-lg overflow-hidden">
                 <div class="flex-1 bg-white p-6 flex flex-col justify-between">
                     <a href="">
-                        <h3 class="text-blue-600 font-bold text-xl text-center">Passing arguments to get_template_part</h3>
-                        <p class="text-gray-500 mt-3 text-center">Using the built-in WordPress function to encourage reusable components</p>
+                        <h3 class="text-blue-600 font-bold text-xl text-center">Passing arguments to
+                            get_template_part</h3>
+                        <p class="text-gray-500 mt-3 text-center">Using the built-in WordPress function to encourage
+                            reusable components</p>
                     </a>
                 </div>
             </div>
             <div class="flex flex-col rounded-xl shadow-lg overflow-hidden">
                 <div class="flex-1 bg-white p-6 flex flex-col justify-between">
                     <a href="">
-                        <h3 class="text-blue-600 font-bold text-xl text-center">Refactoring Laravel models into a dedicated folder</h3>
+                        <h3 class="text-blue-600 font-bold text-xl text-center">Refactoring Laravel models into a
+                            dedicated folder</h3>
                         <p class="text-gray-500 mt-3 text-center">Improve the organisation of your projects</p>
                     </a>
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="container max-w-5xl mx-auto">
+        <div>
+            <h3 class="font-bold text-4xl mb-8">Get in touch</h3>
+            <p class="text-gray-500 text-l">Feel free to send me a message using the form below. I respond to all
+                comments and will get back to you as soon as possible!</p>
+        </div>
+        <form class="mb-6">
+            <div class="flex flex-wrap mt-4">
+                <div class="w-full md:w-1/2 mb-3">
+                    <label class="block font-bold" for="name">NAME</label>
+                    <input
+                        class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                        type="text" name="name" placeholder="Your Name">
+                </div>
+                <div class="w-full md:w-1/2 px-3">
+                    <label class="block font-bold" for="email">EMAIL</label>
+                    <input
+                        class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                        type="email" name="email" placeholder="Your Email">
+                </div>
+            </div>
+
+
+            <label class="block font-bold" for="message">MESSAGE</label>
+            <textarea
+                class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                name="message" rows="4" cols="50" placeholder="Your Message"></textarea>
+
+            <button class="rounded-full text-white font-bold bg-blue-500 hover:bg-blue-700 py-3 px-6 mt-4">
+                Send Message
+            </button>
+        </form>
+
     </div>
 
 @endsection

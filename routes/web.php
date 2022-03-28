@@ -20,3 +20,19 @@ Route::get('/laravel', function () {
 Route::get('/', function () {
     return view('home');
 });
+
+Route::get('/articles', function () {
+    return view('articles');
+});
+
+Route::get('/snippets', function () {
+    return view('snippets');
+});
+
+Route::get('/about', function () {
+    return view('about');
+});
+
+Route::get('/snippet', function () {
+    return view('snippet');
+});

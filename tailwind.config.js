@@ -5,7 +5,11 @@ module.exports = {
       "./resources/**/*.vue",
   ],
   theme: {
-    extend: {},
+    extend: {
+        content: {
+            'link': 'url("/icons/link.svg")',
+        },
+    },
   },
   plugins: [],
 }
