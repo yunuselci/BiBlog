@@ -5,17 +5,14 @@
 @layer base {
 
     p{
-        @apply block text-xl text-left text-gray-600 my-6 mx-auto max-w-5xl;
+        @apply block mx-auto max-w-5xl;
     }
 
-    h2{
-        @apply block text-4xl font-bold mb-8 mt-14 mx-auto max-w-5xl text-left;
-    }
     ul{
-        @apply marker:text-gray-500 list-inside list-disc pl-2 mx-auto max-w-5xl;
+        @apply mx-auto max-w-5xl;
     }
     li{
-        @apply text-xl text-gray-600 text-left mx-auto my-4 max-w-5xl;
+        @apply mx-auto my-4 max-w-5xl;
 
     }
 

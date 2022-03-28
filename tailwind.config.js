@@ -5,11 +5,9 @@ module.exports = {
       "./resources/**/*.vue",
   ],
   theme: {
-    extend: {
-        content: {
-            'link': 'url("/icons/link.svg")',
-        },
-    },
+    extend: {},
   },
-  plugins: [],
+  plugins: [
+      require('@tailwindcss/typography'),
+  ],
 }
