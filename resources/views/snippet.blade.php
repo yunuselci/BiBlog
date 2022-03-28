@@ -27,5 +27,27 @@
                 <li><a class="underline text-blue-700" href="https://developer.wordpress.org/cli/commands/plugin/update" target="_blank" rel="nofollow noopener noreferrer">wp plugin update</a></li>
                 <li><a class="underline text-blue-700" href="https://developer.wordpress.org/cli/commands/language/core/update" target="_blank" rel="nofollow noopener noreferrer">wp core language update</a></li>
             </ul></div>
+        <hr class="my-10 mx-auto max-w-5xl">
+
+        <form class="max-w-5xl mb-14 mx-auto">
+            <div class="text-white rounded-3xl bg-blue-600 lg:p-20 lg:flex lg:items-center">
+                <div class="lg:w-0 lg:flex-1 text-white">
+                    <h2 class="text-3xl tracking-tight">Sign up for my newsletter</h2>
+                    <p class="mt-4 max-w-3xl text-lg text-white">Get notified when I post a new article. Unsubscribe
+                        at any time, and I promise not to send any spam :)</p>
+
+                </div>
+                <div class="mt-12 sm:w-full sm:max-w-md lg:mt-0 lg:ml-8 md:flex"><label for="email" class="sr-only">Email
+                        address</label><input id="email" name="EMAIL" type="email" autocomplete="email" required=""
+                                              class="w-full border-white text-black px-5 py-3 placeholder-gray-500 focus:outline-none rounded-md"
+                                              placeholder="Your email">
+                    <button type="submit"
+                            class="bg-indigo-500 hover:bg-indigo-400 w-40 rounded-md w-20 ml-3">
+                        Sign up
+                    </button>
+                </div>
+            </div>
+
+        </form>
     </div>
 @endsection
