@@ -15,16 +15,17 @@
             <p>The WP-CLI simplifies many repetitive processes during development and provides functionality which isn't available in the admin area.</p>
             <p>This is a small one-liner which I find myself using all the time. It allows me to update a website locally (including core WordPress, all plugins and translations) without even logging in, and get to testing the updates as quickly as possible.</p>
             <p>You must already have WP-CLI installed, either locally or globally. Open your terminal of choice and change directory to your WordPress install:</p>
-            <div class="bg-black-600 mx-auto max-w-5xl" data-language="bash">
-                <pre class="language-bash"><code class="language-bash">wp core update <span class="token operator">&amp;&amp;</span> wp plugin update --all <span class="token operator">&amp;&amp;</span> wp core language update</code></pre>
+            <div class="mx-auto max-w-5xl" data-language="bash">
+                <pre class="shiki" style="background-color: #2e3440ff"><code><span class="line"><span style="color: #81A1C1">&lt;?</span><span style="color: #D8DEE9FF">php </span><span style="color: #81A1C1">echo</span><span style="color: #D8DEE9FF"> </span><span style="color: #ECEFF4">&quot;</span><span style="color: #A3BE8C">Hello World</span><span style="color: #ECEFF4">&quot;</span><span style="color: #81A1C1">;</span><span style="color: #D8DEE9FF"> </span><span style="color: #81A1C1">?&gt;</span></span></code></pre>
             </div>
             <p>Here is some example output from running the command:</p>
 
+
             <p>There are a number of options available for each of these commands. They can be seen here:</p>
             <ul>
-                <li><a href="https://developer.wordpress.org/cli/commands/core/update" target="_blank" rel="nofollow noopener noreferrer">wp core update</a></li>
-                <li><a href="https://developer.wordpress.org/cli/commands/plugin/update" target="_blank" rel="nofollow noopener noreferrer">wp plugin update</a></li>
-                <li><a href="https://developer.wordpress.org/cli/commands/language/core/update" target="_blank" rel="nofollow noopener noreferrer">wp core language update</a></li>
+                <li><a class="underline text-blue-700" href="https://developer.wordpress.org/cli/commands/core/update" target="_blank" rel="nofollow noopener noreferrer">wp core update</a></li>
+                <li><a class="underline text-blue-700" href="https://developer.wordpress.org/cli/commands/plugin/update" target="_blank" rel="nofollow noopener noreferrer">wp plugin update</a></li>
+                <li><a class="underline text-blue-700" href="https://developer.wordpress.org/cli/commands/language/core/update" target="_blank" rel="nofollow noopener noreferrer">wp core language update</a></li>
             </ul></div>
     </div>
 @endsection

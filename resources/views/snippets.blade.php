@@ -14,7 +14,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div class="flex flex-col rounded-xl shadow-lg overflow-hidden">
                 <div class="flex-1 bg-white p-6 flex flex-col justify-between">
-                    <a href="">
+                    <a href="/snippet">
                         <h3 class="text-blue-600 font-bold text-xl text-center">syntax in Vue 3</h3>
                         <p class="text-gray-500 mt-3 text-center">Reduce code and improve performance</p>
                     </a>

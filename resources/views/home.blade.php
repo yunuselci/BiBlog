@@ -119,7 +119,7 @@
         </div>
     </div>
 
-    <div class="container max-w-5xl mx-auto">
+    <div id="contact" class="container max-w-5xl mx-auto">
         <div>
             <h3 class="font-bold text-4xl mb-8">Get in touch</h3>
             <p class="text-gray-500 text-l">Feel free to send me a message using the form below. I respond to all
