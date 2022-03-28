@@ -22,6 +22,10 @@
     .header-links{
         @apply py-5 px-3 text-xl font-semibold hover:text-blue-600 text-black;
     }
+
+    .mobile{
+        @apply px-4 md:px-0;
+    }
 }
 
 

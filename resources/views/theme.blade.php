@@ -10,7 +10,7 @@
     @yield('css')
 </head>
 
-<body class="border-t-8 border-blue-600 w-screen">
+<body class="border-t-8 border-blue-600">
 @include('header')
 
 @yield('home')

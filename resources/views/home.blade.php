@@ -12,7 +12,7 @@
         <h2 class="font-bold text-2xl"> Latest Articles </h2>
 
     </div>
-    <div class="container max-w-5xl mx-auto mb-14">
+    <div class="container max-w-5xl mx-auto mb-14 mobile">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div class="flex flex-col rounded-xl shadow-lg overflow-hidden">
                 <div class="flex-shrink-0">
@@ -72,62 +72,63 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="mt-10 mb-10 text-center">
+        <div class="mt-10 mb-10 text-center">
 
-        <h2 class="font-bold text-2xl"> Latest Snippets</h2>
+            <h2 class="font-bold text-2xl"> Latest Snippets</h2>
 
-    </div>
-    <div class="container max-w-5xl mx-auto mb-14">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div class="flex flex-col rounded-xl shadow-lg overflow-hidden">
-                <div class="flex-1 bg-white p-6 flex flex-col justify-between">
-                    <a href="">
-                        <h3 class="text-blue-600 font-bold text-xl text-center">syntax in Vue 3</h3>
-                        <p class="text-gray-500 mt-3 text-center">Reduce code and improve performance</p>
-                    </a>
+        </div>
+        <div class="container max-w-5xl mx-auto mb-14">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="flex flex-col rounded-xl shadow-lg overflow-hidden">
+                    <div class="flex-1 bg-white p-6 flex flex-col justify-between">
+                        <a href="">
+                            <h3 class="text-blue-600 font-bold text-xl text-center">syntax in Vue 3</h3>
+                            <p class="text-gray-500 mt-3 text-center">Reduce code and improve performance</p>
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="flex flex-col rounded-xl shadow-lg overflow-hidden">
-                <div class="flex-1 bg-white p-6 flex flex-col justify-between">
-                    <a href="">
-                        <h3 class="text-blue-600 font-bold text-xl text-center">High CPU usage with Docker on M1
-                            Macs</h3>
-                        <p class="text-gray-500 mt-3 text-center">These are the settings I used to avoid this issue</p>
-                    </a>
+                <div class="flex flex-col rounded-xl shadow-lg overflow-hidden">
+                    <div class="flex-1 bg-white p-6 flex flex-col justify-between">
+                        <a href="">
+                            <h3 class="text-blue-600 font-bold text-xl text-center">High CPU usage with Docker on M1
+                                Macs</h3>
+                            <p class="text-gray-500 mt-3 text-center">These are the settings I used to avoid this issue</p>
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="flex flex-col rounded-xl shadow-lg overflow-hidden">
-                <div class="flex-1 bg-white p-6 flex flex-col justify-between">
-                    <a href="">
-                        <h3 class="text-blue-600 font-bold text-xl text-center">Passing arguments to
-                            get_template_part</h3>
-                        <p class="text-gray-500 mt-3 text-center">Using the built-in WordPress function to encourage
-                            reusable components</p>
-                    </a>
+                <div class="flex flex-col rounded-xl shadow-lg overflow-hidden">
+                    <div class="flex-1 bg-white p-6 flex flex-col justify-between">
+                        <a href="">
+                            <h3 class="text-blue-600 font-bold text-xl text-center">Passing arguments to
+                                get_template_part</h3>
+                            <p class="text-gray-500 mt-3 text-center">Using the built-in WordPress function to encourage
+                                reusable components</p>
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="flex flex-col rounded-xl shadow-lg overflow-hidden">
-                <div class="flex-1 bg-white p-6 flex flex-col justify-between">
-                    <a href="">
-                        <h3 class="text-blue-600 font-bold text-xl text-center">Refactoring Laravel models into a
-                            dedicated folder</h3>
-                        <p class="text-gray-500 mt-3 text-center">Improve the organisation of your projects</p>
-                    </a>
+                <div class="flex flex-col rounded-xl shadow-lg overflow-hidden">
+                    <div class="flex-1 bg-white p-6 flex flex-col justify-between">
+                        <a href="">
+                            <h3 class="text-blue-600 font-bold text-xl text-center">Refactoring Laravel models into a
+                                dedicated folder</h3>
+                            <p class="text-gray-500 mt-3 text-center">Improve the organisation of your projects</p>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="contact" class="container max-w-5xl mx-auto">
+
+    <div id="contact" class="container max-w-5xl mx-auto mobile">
         <div>
             <h3 class="font-bold text-4xl mb-8">Get in touch</h3>
             <p class="text-gray-500 text-l">Feel free to send me a message using the form below. I respond to all
                 comments and will get back to you as soon as possible!</p>
         </div>
-        <form class="mb-6">
-            <div class="flex flex-wrap mt-4">
-                <div class="w-full md:w-1/2 mb-3">
+        <form>
+            <div class="flex flex-wrap -mx-3 my-6">
+                <div class="w-full md:w-1/2 px-3 mb-3">
                     <label class="block font-bold" for="name">NAME</label>
                     <input
                         class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
@@ -136,7 +137,7 @@
                 <div class="w-full md:w-1/2 px-3">
                     <label class="block font-bold" for="email">EMAIL</label>
                     <input
-                        class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                        class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 pl-4 mb-3 leading-tight focus:outline-none focus:bg-white"
                         type="email" name="email" placeholder="Your Email">
                 </div>
             </div>

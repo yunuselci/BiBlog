@@ -10,7 +10,7 @@
 
     </div>
 
-    <div class="container max-w-5xl mx-auto mb-14">
+    <div class="container max-w-5xl mx-auto mb-14 mobile">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div class="flex flex-col rounded-xl shadow-lg overflow-hidden">
                 <div class="flex-shrink-0">
