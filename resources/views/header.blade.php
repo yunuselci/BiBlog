@@ -61,7 +61,7 @@
         </button>
     </div>
     <!-- mobile menu -->
-    <div class="flex flex-col justify-center items-center space-y-6 h-full text-2xl font-bold text-white">
+    <div class="flex flex-col pt-8 items-center space-y-6 h-full text-2xl font-bold text-white">
         <div>
             <button>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 595.3 841.9" class="hover:opacity-90 h-12 w-12">
