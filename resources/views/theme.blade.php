@@ -10,26 +10,37 @@
     @yield('css')
 </head>
 
-<body class="border-t-8 border-blue-600">
-@include('header')
+<body class="border-t-8 border-blue-600 flex flex-col min-h-screen">
+<div class="flex-1">
+    @include('header')
 
-@yield('home')
-@yield('articles')
-@yield('snippets')
-@yield('about')
-@yield('snippet')
+    @yield('home')
+    @yield('articles')
+    @yield('snippets')
+    @yield('about')
+    @yield('snippet')
 
+
+</div>
 @include('footer')
 </body>
 
 
 <script>
 
+
     const btn = document.querySelector('button.mobile-menu-button');
     const menu = document.querySelector('.mobile-menu');
     const nav = document.querySelector('.mobile-nav');
 
     btn.addEventListener("click", () => {
+        nav.classList.toggle("hidden");
+        menu.classList.toggle("hidden");
+    });
+
+    const closeBtn = document.querySelector('button.mobile-menu-close-button');
+
+    closeBtn.addEventListener("click", () => {
         nav.classList.toggle("hidden");
         menu.classList.toggle("hidden");
     });

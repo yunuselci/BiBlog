@@ -4,11 +4,11 @@
 @endsection
 
 @section('snippet')
-    <div class="container mx-auto max-w-5xl mobile">
+    <div class="container mt-10 mx-auto max-w-5xl mobile">
 
 
-    <div class="text-center mb-8 px-8">
-        <h1 class="font-bold text-3xl">&lt;script setup&gt; syntax in Vue 3</h1>
+    <div class="text-center mb-8 ">
+        <h1 class="font-bold text-2xl">&lt;script setup&gt; syntax in Vue 3</h1>
         <h2 class="text-center text-xl mt-2 font-bold mb-5">Reduce code and improve performance</h2>
         <p class="text-sm text-center">November 2021</p>
 

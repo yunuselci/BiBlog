@@ -1,6 +1,6 @@
 <nav class="mobile-nav">
-    <div class="max-w-6xl mx-auto px-16">
-        <div class="flex justify-between">
+    <div class="max-w-5xl mx-auto border-b">
+        <div class="flex justify-between ">
 
             <div class="flex space-x-2">
                 <!-- logo -->
@@ -36,7 +36,7 @@
             </div>
             <!-- Mobile Button goes here -->
             <div class="lg:hidden flex items-center space-x-6">
-                <button class="mobile-menu-button">
+                <button class="mobile-menu-button py-5 px-2">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 fill-blue-600" viewBox="0 0 20 20">
                         <path fill-rule="evenodd"
                               d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
@@ -45,15 +45,17 @@
                 </button>
 
             </div>
+
+
         </div>
     </div>
 
 
 </nav>
-<nav class="mobile-menu hidden bg-blue-600  w-screen h-screen fixed z-50 top-0 bg-primary text-center">
+<nav class="mobile-menu hidden bg-blue-600 w-screen h-screen fixed z-50 top-0 bg-primary text-center">
 
     <div>
-        <button class="mobile-menu-close-button text-white pt-8 pr-16 container flex justify-end">
+        <button class="mobile-menu-close-button text-white pt-8 pr-2 container flex justify-end">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" stroke="currentColor"
                  stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
@@ -81,21 +83,3 @@
 
 </nav>
 
-<script>
-
-    const btn = document.querySelector('button.mobile-menu-button');
-    const menu = document.querySelector('.mobile-menu');
-    const nav = document.querySelector('.mobile-nav');
-
-    btn.addEventListener("click", () => {
-        nav.classList.toggle("hidden");
-        menu.classList.toggle("hidden");
-    });
-
-    const closeBtn = document.querySelector('button.mobile-menu-close-button');
-
-    closeBtn.addEventListener("click", () => {
-        nav.classList.toggle("hidden");
-        menu.classList.toggle("hidden");
-    });
-</script>
