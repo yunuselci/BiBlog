@@ -19,7 +19,7 @@
             <p>The WP-CLI simplifies many repetitive processes during development and provides functionality which isn't available in the admin area.</p>
             <p>This is a small one-liner which I find myself using all the time. It allows me to update a website locally (including core WordPress, all plugins and translations) without even logging in, and get to testing the updates as quickly as possible.</p>
             <p>You must already have WP-CLI installed, either locally or globally. Open your terminal of choice and change directory to your WordPress install:</p>
-            <div class="mx-auto max-w-5xl" data-language="bash">
+            <div class="mx-auto max-w-5xl" data-language="php">
                 <pre class="shiki" style="background-color: #2e3440ff"><code><span class="line"><span style="color: #81A1C1">&lt;?</span><span style="color: #D8DEE9FF">php </span><span style="color: #81A1C1">echo</span><span style="color: #D8DEE9FF"> </span><span style="color: #ECEFF4">&quot;</span><span style="color: #A3BE8C">Hello World</span><span style="color: #ECEFF4">&quot;</span><span style="color: #81A1C1">;</span><span style="color: #D8DEE9FF"> </span><span style="color: #81A1C1">?&gt;</span></span></code></pre>
             </div>
             <p>Here is some example output from running the command:</p>
