@@ -24,7 +24,7 @@
     }
 
     .mobile{
-        @apply px-4 md:px-0;
+        @apply px-8 2xl:px-0;
     }
 }
 

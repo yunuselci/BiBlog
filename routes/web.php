@@ -36,3 +36,7 @@ Route::get('/about', function () {
 Route::get('/snippet', function () {
     return view('snippet');
 });
+
+Route::get('/article', function () {
+    return view('article');
+});

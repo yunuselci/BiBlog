@@ -74,11 +74,11 @@
             </button>
 
         </div>
-        <a href="#" class="hover:underline">Home </a>
-        <a href="#" class="hover:underline">About </a>
-        <a href="#" class="hover:underline">Articles </a>
-        <a href="#" class="hover:underline">Snippets </a>
-        <a href="#" class="hover:underline">Contact </a>
+        <a href="/" class="hover:underline">Home </a>
+        <a href="/about" class="hover:underline">About </a>
+        <a href="/articles" class="hover:underline">Articles </a>
+        <a href="/snippets" class="hover:underline">Snippets </a>
+        <a href="/#contact" class="hover:underline">Contact </a>
     </div>
 
 </nav>

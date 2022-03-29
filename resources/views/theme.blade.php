@@ -19,6 +19,7 @@
     @yield('snippets')
     @yield('about')
     @yield('snippet')
+    @yield('article')
 
 
 </div>
