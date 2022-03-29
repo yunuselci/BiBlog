@@ -5,7 +5,7 @@
 
 @section('article')
 
-    <div class="container mt-10 mx-auto max-w-5xl mobile">
+    <div class="container mt-10">
         <div class="mb-8">
             <img class="shadow-lg rounded-xl min-w-full max-h-80 border-none"
                  src="{{ asset("vue3autocomplate.png") }}" alt="vue 3 resmi">

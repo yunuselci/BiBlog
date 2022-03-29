@@ -4,7 +4,7 @@
 @endsection
 
 @section('snippet')
-    <div class="container mt-10 mx-auto max-w-5xl mobile">
+    <div class="container mt-10">
 
 
     <div class="text-center mb-8 ">

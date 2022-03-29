@@ -4,7 +4,7 @@
 @endsection
 
 @section('about')
-    <div class="container mx-auto max-w-5xl mobile">
+    <div class="container">
         <div class="mt-10 mb-10 text-center">
             <h1 class="font-bold text-2xl"> About </h1>
             <h2 class="pt-4 mb-4 mt-0 font-bold text-center text-xl"> A bit about me and what I do

@@ -1,5 +1,5 @@
 <nav class="mobile-nav">
-    <div class="max-w-5xl mx-auto border-b">
+    <div class="container border-b">
         <div class="flex justify-between ">
 
             <div class="flex space-x-2">
