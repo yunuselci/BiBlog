@@ -18,25 +18,25 @@ Route::get('/laravel', function () {
 });
 
 Route::get('/', function () {
-    return view('home');
+    return view('blog/include/home');
 });
 
 Route::get('/articles', function () {
-    return view('articles');
+    return view('blog/include/articles');
 });
 
 Route::get('/snippets', function () {
-    return view('snippets');
+    return view('blog/include/snippets');
 });
 
 Route::get('/about', function () {
-    return view('about');
+    return view('blog/include/about');
 });
 
 Route::get('/snippet', function () {
-    return view('snippet');
+    return view('blog/include/snippet');
 });
 
 Route::get('/article', function () {
-    return view('article');
+    return view('blog/include/article');
 });

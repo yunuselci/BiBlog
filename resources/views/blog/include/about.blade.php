@@ -1,4 +1,4 @@
-@extends('theme')
+@extends('blog.theme')
 @section('title')
     About | Web Development Blog
 @endsection

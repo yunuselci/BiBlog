@@ -12,7 +12,7 @@
 
 <body class="border-t-8 border-blue-600 flex flex-col min-h-screen">
 <div class="flex-1">
-    @include('header')
+    @include('blog.data.header')
 
     @yield('home')
     @yield('articles')
@@ -23,7 +23,7 @@
 
 
 </div>
-@include('footer')
+@include('blog.data.footer')
 </body>
 
 

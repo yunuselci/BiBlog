@@ -1,4 +1,4 @@
-@extends('theme')
+@extends('blog.theme')
 @section('title')
     Snippet Name | Web Development Blog
 @endsection
@@ -13,7 +13,7 @@
         <p class="text-sm text-center">November 2021</p>
 
     </div>
-    <div class="prose prose-indigo lg:prose-xl max-w-none">
+    <div class="markdown-body">
         <div>
             <p>"<a href="https://wp-cli.org" target="_blank" rel="nofollow noopener noreferrer">WP-CLI</a> is the command-line interface for WordPress. You can update plugins, configure multisite installs and much more, without using a web browser."</p>
             <p>The WP-CLI simplifies many repetitive processes during development and provides functionality which isn't available in the admin area.</p>

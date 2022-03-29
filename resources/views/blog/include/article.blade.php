@@ -1,4 +1,4 @@
-@extends('theme')
+@extends('blog.theme')
 @section('title')
     Article Name | Web Development Blog
 @endsection
@@ -17,7 +17,7 @@
             <p class="text-sm text-center">November 2021</p>
 
         </div>
-        <div class="prose prose-indigo lg:prose-xl max-w-none">
+        <div class="markdown-body">
             <!-- Data goes here -->
             <div>
                 <ul>
@@ -29,6 +29,13 @@
                     <li><a href="#selecting-a-result">Selecting a result</a></li>
                     <li><a href="#result">Result</a></li>
                 </ul>
+                <h1> TEST</h1>
+                <div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> s <span
+                            class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>JavaScript syntax highlighting<span
+                                class="pl-pds">"</span></span>;
+<span class="pl-c1">alert</span>(s);</pre>
+                </div>
+
                 <h2 id="intro" style="position:relative;"><a href="#intro" aria-label="intro permalink"
                                                              class="anchor before">
                         <svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16"
