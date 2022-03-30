@@ -11,7 +11,7 @@
                 <div class="text-center mb-8 ">
                     <h1 class="font-bold text-2xl">{{ $snippet->title }}</h1>
                     <h2 class="text-center text-xl mt-2 font-bold mb-5">{{ $snippet->subtitle }}</h2>
-                    <p class="text-sm text-center">{{ $snippet->created_at }}</p>
+                    <p class="text-sm text-center">{{ $snippet->created_at->toFormattedDateString() }}</p>
 
                 </div>
                 <div class="markdown-body">
