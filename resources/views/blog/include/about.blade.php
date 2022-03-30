@@ -10,7 +10,7 @@
             <h2 class="pt-4 mb-4 mt-0 font-bold text-center text-xl"> A bit about me and what I do
             </h2>
         </div>
-        <div class="prose prose-indigo lg:prose-xl max-w-none">
+        <div class="markdown-body">
             <div>
                 <p>Hi! I am a Web Developer based in Belfast, Northern Ireland.</p>
                 <p>The majority of my daily work focuses on back-end development using PHP. I have extensive
