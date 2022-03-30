@@ -60,6 +60,8 @@ class Post extends Resource
 
             Trix::make('Description'),
 
+            Text::make('Link')->nullable(),
+
             Slug::make('Slug')->from('Title'),
 
 

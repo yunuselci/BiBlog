@@ -22,11 +22,13 @@
                     <div>
                         {!! $post->description !!}
                     </div>
-                    <a href="#">
+                    @isset($post->link)
+                    <a href="{{ $post->link }}">
                         <button class="rounded-full text-white font-bold bg-blue-500 hover:bg-blue-700 py-3 px-6 mt-4">
                             See On Github
                         </button>
                     </a>
+                    @endisset
                     <hr class="max-w-5xl mx-auto">
 
 

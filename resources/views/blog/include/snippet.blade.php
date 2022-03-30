@@ -18,11 +18,13 @@
                     <div>
                         {!! $snippet->description !!}
                     </div>
-                    <a href="#">
+                    @isset($snippet->link)
+                    <a href="{{ $snippet->link }}">
                         <button class="rounded-full text-white font-bold bg-blue-500 hover:bg-blue-700 py-3 px-6 mt-4">
                             See On Github
                         </button>
                     </a>
+                    @endisset
                     <hr class="my-10 mx-auto max-w-5xl">
                     <div class="flex flex-wrap sm:flex-no-wrap justify-between">
                         @isset($previousSnippet)
