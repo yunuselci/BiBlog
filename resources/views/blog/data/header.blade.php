@@ -16,8 +16,8 @@
                 <!-- primary nav -->
                 <div class="hidden lg:flex items-center space-x-1">
                     <a href="/about" class="header-links">About </a>
-                    <a href="/articles" class="header-links">Articles </a>
-                    <a href="/snippets" class="header-links">Snippets </a>
+                    <a href="{{ route('articles') }}" class="header-links">Articles </a>
+                    <a href="{{ route('snippets') }}" class="header-links">Snippets </a>
                     <a href="/#contact" class="header-links">Contact </a>
 
                 </div>
