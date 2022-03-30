@@ -25,8 +25,7 @@
 </div>
 @include('blog.data.footer')
 </body>
-
-
+<script src="{{ mix('js/hljs.js') }}" defer></script>
 <script>
 
 

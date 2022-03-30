@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\SnippetController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,26 +21,14 @@ Route::get('/laravel', function () {
     return view('welcome');
 });
 
-Route::get('/', function () {
-    return view('blog/include/home');
-});
+Route::get('/', [HomeController::class,'index'])->name('home');
 
-Route::get('/articles', function () {
-    return view('blog/include/articles');
-});
+Route::get('/articles',[PostController::class,'index'])->name('articles');
+Route::get('/articles/{slug}',[PostController::class,'show'])->name('article');
 
-Route::get('/snippets', function () {
-    return view('blog/include/snippets');
-});
+Route::get('/snippets',[SnippetController::class,'index'])->name('snippets');
+Route::get('/snippets/{slug}',[SnippetController::class,'show'])->name('snippet');
 
-Route::get('/about', function () {
-    return view('blog/include/about');
-});
+Route::get('/about',[AboutController::class,'index'])->name('about');
 
-Route::get('/snippet', function () {
-    return view('blog/include/snippet');
-});
 
-Route::get('/article', function () {
-    return view('blog/include/article');
-});
