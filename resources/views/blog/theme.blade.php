@@ -20,6 +20,7 @@
     @yield('about')
     @yield('snippet')
     @yield('article')
+    @yield('404')
 
 
 </div>

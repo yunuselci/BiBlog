@@ -19,11 +19,15 @@ class PostController extends Controller
     public function show($slug)
     {
         $posts = Post::where('slug', $slug)->get();
+        if(!empty($posts->all())){
+            $previous = Post::where('id','<', $posts->pluck('id'))->max('id');
+            $next = Post::where('id','>', $posts->pluck('id'))->min('id');
+            $previousPost = Post::where('id', $previous)->get();
+            $nextPost = Post::where('id',$next)->get();
+            return view('blog.include.article', compact('posts', 'previousPost', 'nextPost'));
+        }else{
+            abort(404);
+        }
 
-        $previous = Post::where('id','<', $posts->pluck('id'))->max('id');
-        $next = Post::where('id','>', $posts->pluck('id'))->min('id');
-        $previousPost = Post::where('id', $previous)->get();
-        $nextPost = Post::where('id',$next)->get();
-        return view('blog.include.article', compact('posts', 'previousPost', 'nextPost'));
     }
 }
