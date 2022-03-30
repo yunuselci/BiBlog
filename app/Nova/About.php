@@ -2,26 +2,22 @@
 
 namespace App\Nova;
 
-
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
-use Laravel\Nova\Fields\Code;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Slug;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Timezone;
 use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class Post extends Resource
+class About extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Models\Post::class;
+    public static $model = \App\Models\About::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -56,14 +52,7 @@ class Post extends Resource
 
             Text::make('Subtitle'),
 
-            Image::make('Image'),
-
             Trix::make('Description'),
-
-            Slug::make('Slug')->from('Title'),
-
-
-
         ];
     }
 

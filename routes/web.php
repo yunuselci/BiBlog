@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\SnippetController;
@@ -28,8 +29,6 @@ Route::get('/articles/{slug}',[PostController::class,'show'])->name('article');
 Route::get('/snippets',[SnippetController::class,'index'])->name('snippets');
 Route::get('/snippets/{slug}',[SnippetController::class,'show'])->name('snippet');
 
-Route::get('/about', function () {
-    return view('blog/include/about');
-});
+Route::get('/about',[AboutController::class,'index'])->name('about');
 
 

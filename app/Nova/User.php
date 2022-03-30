@@ -5,6 +5,7 @@ namespace App\Nova;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Gravatar;
 use Laravel\Nova\Fields\HasMany;
+use Laravel\Nova\Fields\HasOne;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Password;
 use Laravel\Nova\Fields\Text;
@@ -48,6 +49,8 @@ class User extends Resource
             HasMany::make('Posts'),
 
             HasMany::make('Snippets'),
+
+            HasOne::make('About'),
 
             Gravatar::make()->maxWidth(50),
 
