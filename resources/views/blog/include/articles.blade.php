@@ -13,7 +13,7 @@
     <div class="container mb-14">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
 
-            <!-- Home Article item -->
+
             @isset($posts)
                 @foreach($posts as $post)
                     <div class="flex flex-col rounded-xl shadow-lg overflow-hidden">
@@ -31,7 +31,7 @@
                     </div>
                 @endforeach
              @endisset
-            <!-- Home Article item end -->
+
         </div>
     </div>
 @endsection

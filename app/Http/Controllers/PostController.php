@@ -18,7 +18,12 @@ class PostController extends Controller
 
     public function show($slug)
     {
-        $article = Post::where('slug', $slug)->get();
-        return view('blog.include.article', compact('article'));
+        $posts = Post::where('slug', $slug)->get();
+
+        $previous = Post::where('id','<', $posts->pluck('id'))->max('id');
+        $next = Post::where('id','>', $posts->pluck('id'))->min('id');
+        $previousPost = Post::where('id', $previous)->get();
+        $nextPost = Post::where('id',$next)->get();
+        return view('blog.include.article', compact('posts', 'previousPost', 'nextPost'));
     }
 }

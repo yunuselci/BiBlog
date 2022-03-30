@@ -17,8 +17,14 @@ class SnippetController extends Controller
 
     public function show($slug)
     {
-        $snippet = Snippet::where('slug', $slug)->get();
-        return view('blog.include.snippet', compact('snippet'));
+        $snippets = Snippet::where('slug', $slug)->get();
+
+        $previous = Snippet::where('id','<', $snippets->pluck('id'))->max('id');
+        $next = Snippet::where('id','>', $snippets->pluck('id'))->min('id');
+        $previousSnippet = Snippet::where('id', $previous)->get();
+        $nextSnippet = Snippet::where('id',$next)->get();
+
+        return view('blog.include.snippet', compact('snippets', 'previousSnippet', 'nextSnippet'));
     }
 
 }
