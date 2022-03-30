@@ -5,7 +5,7 @@
             <div class="flex space-x-2">
                 <!-- logo -->
                 <div>
-                    <a href="/" class="flex py-5 px-2">
+                    <a href="{{ route('home') }}" class="flex py-5 px-2">
                         <svg class="h-12 w-12 mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 595.3 841.9">
                             <path
                                 d="M567.2 324.4c-43-131.5-185.8-203.9-317.3-160.9L189 183.4C57.5 226.4-14.9 369.2 28.1 500.7s185.8 203.9 317.3 160.9l60.8-19.9c131.5-43 204-185.8 161-317.3zm-159 197.2c-37 14.7-73.9 29.4-110.6 44-36.7 14.6-73.6 29.3-110.6 44v-71.1c19.9-7.5 39.7-15 59.4-22.3 19.7-7.4 39.4-14.8 59.4-22.3-20-8.4-39.7-16.4-59.4-24.1-19.7-7.7-39.5-15.7-59.4-24.1v-70.2c37 14.7 73.8 29.4 110.6 44 36.7 14.6 73.5 29.3 110.6 44v58.1zm0-235.1c-19.9 7.5-39.7 15-59.4 22.3-19.7 7.4-39.4 14.8-59.4 22.3 20 8.4 39.7 16.4 59.4 24.1 19.7 7.7 39.5 15.7 59.4 24.1v70.2c-37-14.7-73.8-29.4-110.6-44-36.7-14.6-73.5-29.3-110.6-44v-58.1c37-14.7 73.9-29.4 110.6-44 36.7-14.6 73.6-29.3 110.6-44v71.1z"
@@ -73,11 +73,10 @@
             </button>
 
         </div>
-        <a href="/" class="hover:underline">Home </a>
-        <a href="/about" class="hover:underline">About </a>
-        <a href="/articles" class="hover:underline">Articles </a>
-        <a href="/snippets" class="hover:underline">Snippets </a>
-        <a href="/#contact" class="hover:underline">Contact </a>
+        <a href="{{ route('home') }}" class="hover:underline">Home </a>
+        <a href="{{ route('about') }}" class="hover:underline">About </a>
+        <a href="{{ route('articles') }}" class="hover:underline">Articles </a>
+        <a href="{{ route('snippets') }}" class="hover:underline">Snippets </a>
     </div>
 
 </nav>
