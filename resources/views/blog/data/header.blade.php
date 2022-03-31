@@ -56,16 +56,16 @@
             <div class="lg:hidden flex items-center space-x-4">
                 @if ( Config::get('app.locale') == 'en')
 
-                    <a href="locale/tr" class="header-links">
-                        <img class="rounded-full" src="{{ asset('/images/tr.png') }}" alt="Turkish flag" width="36"
-                             height="36">
+                    <a href="{{ LaravelLocalization::getLocalizedURL('tr') }}" class="header-links">
+                        <img class="rounded-full" src="{{ asset('/images/tr.png') }}" alt="Turkish flag" width="24"
+                             height="24">
                     </a>
 
                 @elseif ( Config::get('app.locale') == 'tr' )
 
-                    <a href="locale/en" class="header-links">
-                        <img class="rounded-full" src="{{ asset('/images/en.png') }}" alt="Us flag" width="36"
-                             height="36">
+                    <a href="{{ LaravelLocalization::getLocalizedURL('en') }}" class="header-links">
+                        <img class="rounded-full" src="{{ asset('/images/en.png') }}" alt="Us flag" width="24"
+                             height="24">
 
                     </a>
 
