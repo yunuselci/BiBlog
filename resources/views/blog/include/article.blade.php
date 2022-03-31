@@ -13,6 +13,7 @@
     <div class="container mt-10">
         @isset($posts)
             @foreach($posts as $post)
+                @if($post->published)
                 <div class="mb-8">
                     <img class="shadow-lg rounded-xl min-w-full max-h-80 border-none"
                          src="{{ asset('storage/'.$post->image) }}" alt="{{ $post->title }}">
@@ -56,6 +57,9 @@
                     </div>
 
                 </div>
+                @else
+                    <h3> Post Yayında Degil</h3>
+                @endif
             @endforeach
         @endisset
 

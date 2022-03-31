@@ -18,6 +18,7 @@
             <!-- Home Article item -->
             @isset($posts)
                 @foreach($posts as $post)
+                    @if($post->published)
             <div class="flex flex-col rounded-xl shadow-lg overflow-hidden">
                 <div class="flex-shrink-0">
                     <img class="object-cover h-48 w-full"
@@ -31,6 +32,7 @@
                     </a>
                 </div>
             </div>
+                @endif
                 @endforeach
             @endisset
             <!-- Home Article item end -->
@@ -43,6 +45,7 @@
         <!-- Home Snippet item -->
         @isset($snippets)
             @foreach($snippets as $snippet)
+                @if($snippet->published)
         <div class="container max-w-5xl mx-auto mb-14">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 <div class="flex flex-col rounded-xl shadow-lg overflow-hidden">
@@ -55,6 +58,7 @@
                 </div>
             </div>
         </div>
+            @endif
             @endforeach
         @endisset
         <!-- Home Snippet item end -->
