@@ -9,6 +9,6 @@ class PostTranslation extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'subtitle', 'description', 'slug', 'isPublished'];
+    protected $fillable = ['title', 'subtitle', 'description', 'slug', 'published'];
     public $timestamps = false;
 }
