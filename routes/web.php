@@ -39,5 +39,3 @@ Route::group(
 });
 
 
-//Localization Route
-//Route::get('locale/{lang}',[LocalizationController::class,'setLang']);
