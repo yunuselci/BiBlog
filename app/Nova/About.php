@@ -4,6 +4,7 @@ namespace App\Nova;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Slug;
 use Laravel\Nova\Fields\Text;
@@ -48,11 +49,17 @@ class About extends Resource
 
             BelongsTo::make('User'),
 
-            Text::make('Title'),
+            Text::make('Title')
+                ->translatable(),
 
-            Text::make('Subtitle'),
+            Text::make('Subtitle')
+                ->translatable(),
 
-            Trix::make('Description'),
+            Trix::make('Description')
+                ->translatable(),
+
+            Boolean::make('Published')
+                ->translatable(),
         ];
     }
 

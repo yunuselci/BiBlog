@@ -14,6 +14,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
             @isset($snippets)
                 @foreach($snippets as $snippet)
+                    @if($snippet->published)
                     <div class="flex flex-col rounded-xl shadow-lg overflow-hidden">
                         <div class="flex-1 bg-white p-6 flex flex-col justify-between">
                             <a href="{{ route('snippet', $snippet->slug) }}">
@@ -22,6 +23,7 @@
                             </a>
                         </div>
                     </div>
+                    @endif
                 @endforeach
             @endisset
         </div>

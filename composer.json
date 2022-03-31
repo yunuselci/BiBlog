@@ -6,12 +6,14 @@
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
+        "astrotomic/laravel-translatable": "^11.10",
         "guzzlehttp/guzzle": "^7.2",
+        "kraenkvisuell/nova-astrotranslatable": "^2.0",
         "laravel/framework": "^9.2",
+        "laravel/nova": "*",
         "laravel/sanctum": "^2.14.1",
         "laravel/tinker": "^2.7",
-        "laravel/nova": "*"
-
+        "mcamara/laravel-localization": "^1.7"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

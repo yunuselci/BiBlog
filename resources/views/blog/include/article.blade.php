@@ -13,6 +13,7 @@
     <div class="container mt-10">
         @isset($posts)
             @foreach($posts as $post)
+                @if($post->published)
                 <div class="mb-8">
                     <img class="shadow-lg rounded-xl min-w-full max-h-80 border-none"
                          src="{{ asset('storage/'.$post->image) }}" alt="{{ $post->title }}">
@@ -21,6 +22,7 @@
                     <h1 class="font-bold text-2xl">{{ $post->title }}</h1>
                     <h2 class="text-center text-xl mt-2 font-bold mb-5">{{ $post->subtitle }}</h2>
                     <p class="text-sm text-center">{{ $post->created_at->toFormattedDateString() }}</p>
+
 
                 </div>
                 <div class="markdown-body">
@@ -55,6 +57,9 @@
                     </div>
 
                 </div>
+                @else
+                    <h3> Post Yayında Degil</h3>
+                @endif
             @endforeach
         @endisset
 

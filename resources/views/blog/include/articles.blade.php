@@ -17,6 +17,7 @@
 
             @isset($posts)
                 @foreach($posts as $post)
+                    @if($post->published)
                     <div class="flex flex-col rounded-xl shadow-lg overflow-hidden">
                         <div class="flex-shrink-0">
                             <img class="object-cover h-48 w-full"
@@ -30,6 +31,7 @@
                             </a>
                         </div>
                     </div>
+                    @endif
                 @endforeach
              @endisset
 

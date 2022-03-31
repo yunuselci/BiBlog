@@ -15,9 +15,6 @@ return new class extends Migration
     {
         Schema::create('abouts', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('subtitle')->nullable();
-            $table->longText('description');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')
                 ->on('users')->onDelete('cascade');
