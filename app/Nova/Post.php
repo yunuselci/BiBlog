@@ -14,6 +14,7 @@ use Laravel\Nova\Fields\Timezone;
 use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
+
 class Post extends Resource
 {
     /**
@@ -52,17 +53,17 @@ class Post extends Resource
 
             BelongsTo::make('User'),
 
-            Text::make('Title'),
+            Text::make('Title')->translatable(),
 
-            Text::make('Subtitle'),
+            Text::make('Subtitle')->translatable(),
 
             Image::make('Image'),
 
-            Trix::make('Description'),
+            Trix::make('Description')->translatable(),
 
             Text::make('Link')->nullable(),
 
-            Slug::make('Slug')->from('Title'),
+            Slug::make('Slug')->from('Title')->translatable(),
 
 
 

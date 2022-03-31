@@ -22,6 +22,7 @@
                     <h2 class="text-center text-xl mt-2 font-bold mb-5">{{ $post->subtitle }}</h2>
                     <p class="text-sm text-center">{{ $post->created_at->toFormattedDateString() }}</p>
 
+
                 </div>
                 <div class="markdown-body">
                     <div>
