@@ -13,7 +13,12 @@ class Post extends Model
     use HasFactory;
     use Translatable;
     protected $guarded = [];
-    public $translatedAttributes = ['title', 'subtitle', 'description', 'slug'];
+
+    protected $casts = [
+        'published' => 'boolean',
+    ];
+
+    public $translatedAttributes = ['title', 'subtitle', 'description', 'slug', 'published'];
 
     public function user(): BelongsTo
     {

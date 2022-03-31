@@ -13,18 +13,19 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('post_translations', function (Blueprint $table) {
+        Schema::create('snippet_translations', function (Blueprint $table) {
             $table->id();
             $table->string('locale')->index();
-            $table->unsignedBigInteger('post_id');
-            $table->unique(['post_id','locale']);
-            $table->foreign('post_id')->references('id')->on('posts')
+            $table->unsignedBigInteger('snippet_id');
+            $table->unique(['snippet_id','locale']);
+            $table->foreign('snippet_id')->references('id')->on('snippets')
                 ->onDelete('cascade');
             $table->string('title');
             $table->string('subtitle')->nullable();
             $table->longText('description');
             $table->string('slug');
             $table->boolean('published')->default(0);
+
         });
     }
 
@@ -35,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('post_translations');
+        Schema::dropIfExists('snippet_translations');
     }
 };

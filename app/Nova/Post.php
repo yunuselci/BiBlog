@@ -5,6 +5,7 @@ namespace App\Nova;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Code;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Image;
@@ -43,7 +44,7 @@ class Post extends Resource
     /**
      * Get the fields displayed by the resource.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return array
      */
     public function fields(Request $request)
@@ -53,18 +54,24 @@ class Post extends Resource
 
             BelongsTo::make('User'),
 
-            Text::make('Title')->translatable(),
+            Text::make('Title')
+                ->translatable(),
 
-            Text::make('Subtitle')->translatable(),
+            Text::make('Subtitle')
+                ->translatable(),
 
             Image::make('Image'),
 
-            Trix::make('Description')->translatable(),
+            Trix::make('Description')
+                ->translatable(),
 
             Text::make('Link')->nullable(),
 
-            Slug::make('Slug')->from('Title')->translatable(),
+            Slug::make('Slug')->from('Title')
+                ->translatable(),
 
+            Boolean::make('Published')
+                ->translatable(),
 
 
         ];
@@ -73,7 +80,7 @@ class Post extends Resource
     /**
      * Get the cards available for the request.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return array
      */
     public function cards(Request $request)
@@ -84,7 +91,7 @@ class Post extends Resource
     /**
      * Get the filters available for the resource.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return array
      */
     public function filters(Request $request)
@@ -95,7 +102,7 @@ class Post extends Resource
     /**
      * Get the lenses available for the resource.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return array
      */
     public function lenses(Request $request)
@@ -106,7 +113,7 @@ class Post extends Resource
     /**
      * Get the actions available for the resource.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return array
      */
     public function actions(Request $request)

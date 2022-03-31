@@ -15,10 +15,6 @@ return new class extends Migration
     {
         Schema::create('snippets', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('subtitle')->nullable();
-            $table->longText('description');
-            $table->string('slug');
             $table->string('link')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')
