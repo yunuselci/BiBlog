@@ -53,7 +53,23 @@
 
             </div>
             <!-- Mobile Button goes here -->
-            <div class="lg:hidden flex items-center space-x-6">
+            <div class="lg:hidden flex items-center space-x-4">
+                @if ( Config::get('app.locale') == 'en')
+
+                    <a href="locale/tr" class="header-links">
+                        <img class="rounded-full" src="{{ asset('/images/tr.png') }}" alt="Turkish flag" width="36"
+                             height="36">
+                    </a>
+
+                @elseif ( Config::get('app.locale') == 'tr' )
+
+                    <a href="locale/en" class="header-links">
+                        <img class="rounded-full" src="{{ asset('/images/en.png') }}" alt="Us flag" width="36"
+                             height="36">
+
+                    </a>
+
+                @endif
                 <button class="mobile-menu-button py-5 px-2">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 fill-blue-600" viewBox="0 0 20 20">
                         <path fill-rule="evenodd"
@@ -73,6 +89,7 @@
 <nav class="mobile-menu hidden bg-blue-600 w-screen h-screen fixed z-50 top-0 bg-primary text-center">
 
     <div>
+
         <button class="mobile-menu-close-button text-white pt-8 pr-2 container flex justify-end">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" stroke="currentColor"
                  stroke-width="2">
