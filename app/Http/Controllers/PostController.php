@@ -21,8 +21,7 @@ class PostController extends Controller
     {
         $postTranslation = PostTranslation::where('slug', $slug)->get();
         $postId = $postTranslation->pluck('post_id');
-        $postNoTranslation = Post::where('id', $postId[0])->get();
-        $posts = $postNoTranslation->merge($postNoTranslation);
+        $posts = Post::where('id', $postId[0])->get();
         if(!empty($postTranslation->all())){
             $previous = Post::where('id','<', $postId)->max('id');
             $next = Post::where('id','>', $postId)->min('id');
