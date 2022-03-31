@@ -15,14 +15,33 @@
                 </div>
                 <!-- primary nav -->
                 <div class="hidden lg:flex items-center space-x-1">
-                    <a href="{{ route('about') }}" class="header-links">About </a>
-                    <a href="{{ route('articles') }}" class="header-links">Articles </a>
-                    <a href="{{ route('snippets') }}" class="header-links">Snippets </a>
+                    <a href="{{ route('about') }}" class="header-links"> {{ __('header.about') }} </a>
+                    <a href="{{ route('articles') }}" class="header-links"> {{ __('header.articles') }} </a>
+                    <a href="{{ route('snippets') }}" class="header-links"> {{ __('header.snippets') }} </a>
+
 
                 </div>
             </div>
             <!-- secondary nav -->
             <div class="hidden lg:flex items-center space-x-1">
+                @if ( Config::get('app.locale') == 'en')
+
+                    <a href="locale/tr" class="header-links">
+                        <img class="rounded-full" src="{{ asset('/images/tr.png') }}" alt="Turkish flag" width="24"
+                             height="24">
+                    </a>
+
+                @elseif ( Config::get('app.locale') == 'tr' )
+
+                    <a href="locale/en" class="header-links">
+                        <img class="rounded-full" src="{{ asset('/images/en.png') }}" alt="Us flag" width="24"
+                             height="24">
+
+                    </a>
+
+                @endif
+
+
                 <a href="#" class="py-5 px-3">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                         <path
@@ -73,10 +92,10 @@
             </button>
 
         </div>
-        <a href="{{ route('home') }}" class="hover:underline">Home </a>
-        <a href="{{ route('about') }}" class="hover:underline">About </a>
-        <a href="{{ route('articles') }}" class="hover:underline">Articles </a>
-        <a href="{{ route('snippets') }}" class="hover:underline">Snippets </a>
+        <a href="{{ route('home') }}" class="hover:underline"> {{ __('header.home') }} </a>
+        <a href="{{ route('about') }}" class="hover:underline">{{ __('header.about') }} </a>
+        <a href="{{ route('articles') }}" class="hover:underline">{{ __('header.articles') }} </a>
+        <a href="{{ route('snippets') }}" class="hover:underline">{{ __('header.snippets') }} </a>
     </div>
 
 </nav>

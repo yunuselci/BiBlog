@@ -1,12 +1,13 @@
 @extends('blog.theme')
 @section('title')
-    Articles | Web Development Blog
+{{ __('articles.title') }}
 @endsection
 
 @section('articles')
     <div class="mt-10 mb-10 text-center">
 
-        <h2 class="font-bold text-2xl"> Articles </h2>
+        <h2 class="font-bold text-2xl"> {{ __('articles.articles') }}
+        </h2>
 
     </div>
 

@@ -1,6 +1,6 @@
 @extends('blog.theme')
 @section('title')
-    About | Web Development Blog
+    {{ __('about.title') }}
 @endsection
 
 @section('about')

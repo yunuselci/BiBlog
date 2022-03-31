@@ -1,6 +1,6 @@
 @extends('blog.theme')
 @section('title')
-    Home | Web Development Blog
+    {{ __('home.title') }}
 @endsection
 
 
@@ -9,7 +9,7 @@
 
     <div class="mt-10 mb-10 text-center">
 
-        <h2 class="font-bold text-2xl"> Latest Articles </h2>
+        <h2 class="font-bold text-2xl"> {{ __('home.latestArticles') }} </h2>
 
     </div>
     <div class="container mb-14">
@@ -37,7 +37,7 @@
         </div>
         <div class="mt-10 mb-10 text-center">
 
-            <h2 class="font-bold text-2xl"> Latest Snippets</h2>
+            <h2 class="font-bold text-2xl">{{ __('home.latestSnippets') }}</h2>
 
         </div>
         <!-- Home Snippet item -->
