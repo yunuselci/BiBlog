@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LocalizationController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\SnippetController;
 use Illuminate\Support\Facades\Route;
@@ -17,18 +18,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/laravel', function () {
-    return view('welcome');
-});
 
 Route::get('/', [HomeController::class,'index'])->name('home');
-
+//articles ( posts )
 Route::get('/articles',[PostController::class,'index'])->name('articles');
 Route::get('/articles/{slug}',[PostController::class,'show'])->name('article');
-
+//snippets
 Route::get('/snippets',[SnippetController::class,'index'])->name('snippets');
 Route::get('/snippets/{slug}',[SnippetController::class,'show'])->name('snippet');
-
+//about page
 Route::get('/about',[AboutController::class,'index'])->name('about');
 
-
+//Localization Route
+Route::get('locale/{lang}',[LocalizationController::class,'setLang']);

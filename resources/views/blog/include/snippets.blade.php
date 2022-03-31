@@ -1,12 +1,12 @@
 @extends('blog.theme')
 @section('title')
-    Snippets | Web Development Blog
+    {{__('snippets.title')}}
 @endsection
 
 @section('snippets')
     <div class="mt-10 mb-10 text-center">
 
-        <h2 class="font-bold text-2xl"> Snippets </h2>
+        <h2 class="font-bold text-2xl"> {{__('snippets.snippets')}} </h2>
 
     </div>
 

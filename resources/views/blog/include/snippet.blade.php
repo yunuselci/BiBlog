@@ -1,6 +1,10 @@
 @extends('blog.theme')
 @section('title')
-    Snippet Name | Web Development Blog
+    @isset($snippets)
+        @foreach($snippets as $snippet)
+            {{ $snippet->title }} | Web Development Blog
+        @endforeach
+    @endisset
 @endsection
 
 @section('snippet')
@@ -19,11 +23,12 @@
                         {!! $snippet->description !!}
                     </div>
                     @isset($snippet->link)
-                    <a href="{{ $snippet->link }}">
-                        <button class="rounded-full text-white font-bold bg-blue-500 hover:bg-blue-700 py-3 px-6 mt-4">
-                            See On Github
-                        </button>
-                    </a>
+                        <a href="{{ $snippet->link }}">
+                            <button
+                                class="rounded-full text-white font-bold bg-blue-500 hover:bg-blue-700 py-3 px-6 mt-4">
+                                See On Github
+                            </button>
+                        </a>
                     @endisset
                     <hr class="my-10 mx-auto max-w-5xl">
                     <div class="flex flex-wrap sm:flex-no-wrap justify-between">
