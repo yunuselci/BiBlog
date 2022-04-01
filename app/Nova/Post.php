@@ -14,10 +14,14 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Timezone;
 use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use KraenkVisuell\NovaAstrotranslatable\HandlesTranslatable;
+
 
 
 class Post extends Resource
 {
+    use HandlesTranslatable;
+
     /**
      * The model the resource corresponds to.
      *
@@ -54,13 +58,16 @@ class Post extends Resource
 
             BelongsTo::make('User'),
 
-            Text::make('Title')
-                ->translatable(),
+            Text::make(__('Title'), 'title')
+                ->translatable()
+                ->rulesFor('en', [
+                    'required',
+                ]),
 
             Text::make('Subtitle')
                 ->translatable(),
 
-            Image::make('Image'),
+            Image::make('Image')->rules('required'),
 
             Trix::make('Description')
                 ->translatable(),
