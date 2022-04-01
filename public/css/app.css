@@ -1934,21 +1934,17 @@ li{
   --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
-
 .hover\:bg-blue-700:hover{
   --tw-bg-opacity: 1;
   background-color: rgb(29 78 216 / var(--tw-bg-opacity));
 }
-
 .hover\:underline:hover{
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;
 }
-
 .hover\:opacity-90:hover{
   opacity: 0.9;
 }
-
 @media (prefers-color-scheme: dark){
 
   .dark\:border-gray-700{
@@ -1981,7 +1977,6 @@ li{
     color: rgb(156 163 175 / var(--tw-text-opacity));
   }
 }
-
 @media (min-width: 640px){
 
   .sm\:ml-0{
@@ -2029,7 +2024,6 @@ li{
     text-align: right;
   }
 }
-
 @media (min-width: 768px){
 
   .md\:grid-cols-2{
@@ -2054,7 +2048,6 @@ li{
     line-height: 1.75rem;
   }
 }
-
 @media (min-width: 1024px){
 
   .lg\:flex{

@@ -61,7 +61,7 @@ class Snippet extends Resource
 
             Text::make('Link')->nullable(),
 
-            Slug::make('Slug')->from('Title')
+            Slug::make('Slug')
                 ->translatable(),
 
             Boolean::make('Published')
