@@ -2,7 +2,7 @@
 return [
     "about"    =>  "about",
     "articles" => "articles",
-    "snippets" => "sippets",
+    "snippets" => "snippets",
     "article"  =>  "article/{slug}",
     "snippet"  =>  "snippet/{slug}",
 ];
