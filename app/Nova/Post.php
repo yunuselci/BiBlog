@@ -58,11 +58,9 @@ class Post extends Resource
 
             BelongsTo::make('User'),
 
-            Text::make(__('Title'), 'title')
-                ->translatable()
-                ->rulesFor('en', [
-                    'required',
-                ]),
+            Text::make('Title')
+                ->translatable(),
+
 
             Text::make('Subtitle')
                 ->translatable(),
@@ -74,12 +72,11 @@ class Post extends Resource
 
             Text::make('Link')->nullable(),
 
-            Slug::make('Slug')->from('Title')
+            Slug::make('Slug')
                 ->translatable(),
 
             Boolean::make('Published')
                 ->translatable(),
-
 
         ];
     }

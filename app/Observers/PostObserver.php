@@ -28,7 +28,7 @@ class PostObserver
      */
     public function updated(Post $post)
     {
-        //
+        $post->slug = Str::slug($post->title);
     }
 
     /**
