@@ -2,6 +2,7 @@
 
 namespace App\Nova;
 
+use Ek0519\Quilljs\Quilljs;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Boolean;
@@ -11,6 +12,7 @@ use Laravel\Nova\Fields\Slug;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use YesWeDev\Nova\Translatable\Translatable;
 
 class Snippet extends Resource
 {
@@ -50,23 +52,17 @@ class Snippet extends Resource
 
             BelongsTo::make('User'),
 
-            Text::make('Title')
-                ->translatable(),
+            Translatable::make('Title')->singleLine(),
 
-            Text::make('Subtitle')
-                ->translatable(),
+            Translatable::make('Subtitle')->singleLine(),
 
-            Trix::make('Description')
-                ->translatable(),
+            Quilljs::make('Description')->withFiles('public'),
 
             Text::make('Link')->nullable(),
 
-            Slug::make('Slug')
-                ->translatable(),
+            Translatable::make('Slug')->singleLine(),
 
-            Boolean::make('Published')
-                ->translatable(),
-
+            Boolean::make('Published'),
 
         ];
     }

@@ -3,6 +3,7 @@
 namespace App\Nova;
 
 
+use Ek0519\Quilljs\Quilljs;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Boolean;
@@ -14,13 +15,11 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Timezone;
 use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Http\Requests\NovaRequest;
-use KraenkVisuell\NovaAstrotranslatable\HandlesTranslatable;
-
+use YesWeDev\Nova\Translatable\Translatable;
 
 
 class Post extends Resource
 {
-    use HandlesTranslatable;
 
     /**
      * The model the resource corresponds to.
@@ -58,25 +57,19 @@ class Post extends Resource
 
             BelongsTo::make('User'),
 
-            Text::make('Title')
-                ->translatable(),
+            Translatable::make('Title')->singleLine(),
 
-
-            Text::make('Subtitle')
-                ->translatable(),
+            Translatable::make('Subtitle')->singleLine(),
 
             Image::make('Image')->rules('required'),
 
-            Trix::make('Description')
-                ->translatable(),
+            Quilljs::make('Description')->withFiles('public'),
 
             Text::make('Link')->nullable(),
 
-            Slug::make('Slug')
-                ->translatable(),
+            Translatable::make('Slug')->singleLine(),
 
-            Boolean::make('Published')
-                ->translatable(),
+            Translatable::make(__('Published (1 True/ 0 False)'), 'published')->singleLine(),
 
         ];
     }
