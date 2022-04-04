@@ -6,6 +6,10 @@
         @endforeach
     @endisset
 @endsection
+@section('head')
+    <link rel="alternate" hreflang="tr" href="{{ LaravelLocalization::getLocalizedURL('tr', null, [] ,true) }}}"/>
+    <link rel="alternate" hreflang="en" href="{{ LaravelLocalization::getLocalizedURL('en', null, [] ,true) }}"/>
+@endsection
 
 @section('snippet')
     <div class="container mt-10">

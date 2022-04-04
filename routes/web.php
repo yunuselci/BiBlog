@@ -23,19 +23,19 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 Route::group(
     [
         'prefix' => LaravelLocalization::setLocale(),
-        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+        'middleware' => [ 'localize', 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
     ],
     function()
 {
     Route::get('/', [HomeController::class,'index'])->name('home');
 //articles ( posts )
-    Route::get('/articles',[PostController::class,'index'])->name('articles');
-    Route::get('/articles/{slug}',[PostController::class,'show'])->name('article');
+    Route::get(LaravelLocalization::transRoute('routes.articles'),[PostController::class,'index'])->name('articles');
+    Route::get(LaravelLocalization::transRoute('routes.article'),[PostController::class,'show'])->name('article');
 //snippets
-    Route::get('/snippets',[SnippetController::class,'index'])->name('snippets');
-    Route::get('/snippets/{slug}',[SnippetController::class,'show'])->name('snippet');
+    Route::get(LaravelLocalization::transRoute('routes.snippets'),[SnippetController::class,'index'])->name('snippets');
+    Route::get(LaravelLocalization::transRoute('routes.snippet'),[SnippetController::class,'show'])->name('snippet');
 //about page
-    Route::get('/about',[AboutController::class,'index'])->name('about');
+    Route::get(LaravelLocalization::transRoute('routes.about'),[AboutController::class,'index'])->name('about');
 });
 
 

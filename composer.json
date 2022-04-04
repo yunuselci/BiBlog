@@ -2,18 +2,22 @@
     "name": "laravel/laravel",
     "type": "project",
     "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "keywords": [
+        "framework",
+        "laravel"
+    ],
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
         "astrotomic/laravel-translatable": "^11.10",
+        "ek0519/quilljs": "dev-master",
         "guzzlehttp/guzzle": "^7.2",
-        "kraenkvisuell/nova-astrotranslatable": "^2.0",
         "laravel/framework": "^9.2",
         "laravel/nova": "*",
         "laravel/sanctum": "^2.14.1",
         "laravel/tinker": "^2.7",
-        "mcamara/laravel-localization": "^1.7"
+        "mcamara/laravel-localization": "^1.7",
+        "yeswedev/nova-translatable": "^0.9.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
@@ -58,12 +62,19 @@
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
-        "sort-packages": true
+        "sort-packages": true,
+        "github-oauth": {
+            "github.com": "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"
+        }
     },
     "repositories": [
         {
             "type": "path",
             "url": "./nova"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/aliozgurr/nova-quilljs"
         }
     ],
     "minimum-stability": "dev",
