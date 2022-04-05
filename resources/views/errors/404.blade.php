@@ -4,9 +4,10 @@
 @endsection
 
 @section('404')
-    <div class="flex items-center justify-center w-screen h-screen">
+    <div class="flex items-center justify-center h-screen">
         <div class="px-40 py-20 bg-white rounded-md shadow-xl">
             <div class="flex flex-col items-center">
+
                 <h1 class="font-bold text-blue-600 text-9xl">{{ __('404.404') }}</h1>
 
                 <h6 class="mb-2 text-2xl font-bold text-center text-gray-800 md:text-3xl">

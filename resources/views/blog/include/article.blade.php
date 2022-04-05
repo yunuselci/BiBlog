@@ -17,51 +17,79 @@
         @isset($posts)
             @foreach($posts as $post)
                 @if($post->published)
-                <div class="mb-8">
-                    <img class="shadow-lg rounded-xl min-w-full max-h-80 border-none"
-                         src="{{ asset('storage/'.$post->image) }}" alt="{{ $post->title }}">
-                </div>
-                <div class="text-center mb-8 ">
-                    <h1 class="font-bold text-2xl">{{ $post->title }}</h1>
-                    <h2 class="text-center text-xl mt-2 font-bold mb-5">{{ $post->subtitle }}</h2>
-                    <p class="text-sm text-center">{{ $post->created_at->toFormattedDateString() }}</p>
-
-
-                </div>
-                <div class="markdown-body">
-                    <div>
-                        {!! $post->description !!}
+                    <div class="mb-8">
+                        <img class="shadow-lg rounded-xl min-w-full max-h-80 border-none"
+                             src="{{ asset('storage/'.$post->image) }}" alt="{{ $post->title }}">
                     </div>
-                    @isset($post->link)
-                        <a href="{{ $post->link }}">
-                            <button
-                                class="rounded-full text-white font-bold bg-blue-500 hover:bg-blue-700 py-3 px-6 mt-4">
-                                See On Github
-                            </button>
-                        </a>
-                    @endisset
-                    <hr class="max-w-5xl mx-auto">
+                    <div class="text-center mb-8 ">
+                        <h1 class="font-bold text-2xl">{{ $post->title }}</h1>
+                        <h2 class="text-center text-xl mt-2 font-bold mb-5">{{ $post->subtitle }}</h2>
+                        <p class="text-sm text-center">{{ $post->created_at->toFormattedDateString() }}</p>
 
-
-                    <div class="flex flex-wrap sm:flex-no-wrap justify-between">
-                        @isset($previousPost)
-                            @foreach($previousPost as $prev)
-                                <a class="m-2"
-                                   href="{{ route('article', $prev->slug) }}">«
-                                    {{ $prev->title }}</a>
-                            @endforeach
-                        @endisset
-                        @isset($nextPost)
-                            @foreach($nextPost as $next)
-                                <a class="m-2" href="{{ route('article', $next->slug) }}">{{ $next->title }} »</a>
-                            @endforeach
-                        @endisset
 
                     </div>
+                    <div class="markdown-body">
+                        <div>
+                            {!! $post->description !!}
+                        </div>
+                        @isset($post->link)
+                            <a href="{{ $post->link }}">
+                                <button
+                                    class="rounded-full text-white font-bold bg-blue-500 hover:bg-blue-700 py-3 px-6 mt-4">
+                                    See On Github
+                                </button>
+                            </a>
+                        @endisset
+                        <hr class="max-w-5xl mx-auto">
 
-                </div>
+
+                        <div class="flex flex-wrap sm:flex-no-wrap justify-between">
+                            @isset($previousPost)
+                                @foreach($previousPost as $prev)
+                                    @if(!empty($prev->slug))
+                                        <a class="m-2"
+                                           href="{{ route('article', $prev->slug) }}">«
+                                            {{ $prev->title }}</a>
+                                    @endif
+                                @endforeach
+                            @endisset
+                            @isset($nextPost)
+                                @if(!empty($next->slug))
+                                    @foreach($nextPost as $next)
+                                        <a class="m-2" href="{{ route('article', $next->slug) }}">{{ $next->title }}
+                                            »</a>
+                                    @endforeach
+                                @endif
+                            @endisset
+
+                        </div>
+
+                    </div>
                 @else
-                    <h3> Post Yayında Degil</h3>
+                    <div class=" max-w-5xl mx-auto flex items-center justify-center h-screen">
+                        <div class="px-40 py-20 bg-white rounded-md shadow-xl">
+                            <div class="flex flex-col items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-60 w-60 text-blue-600" fill="none"
+                                     viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                          d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+
+                                <h6 class="mb-2 text-2xl font-bold text-center text-gray-800 md:text-3xl">
+                                    <span
+                                        class="text-red-500">{{ __('articlePublished.oops') }}</span> {{ __('articlePublished.postNotPublished') }}
+                                </h6>
+
+                                <p class="mb-8 text-center text-gray-500 md:text-lg">
+                                    {{ __('articlePublished.editing') }}
+                                </p>
+
+                                <a href="{{ route('home') }}"
+                                   class="px-6 py-2 text-sm font-semibold text-blue-800 bg-blue-100">
+                                    {{ __('articlePublished.home') }}</a>
+                            </div>
+                        </div>
+                    </div>
                 @endif
             @endforeach
         @endisset
