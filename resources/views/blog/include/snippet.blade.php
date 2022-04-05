@@ -63,7 +63,7 @@
 
                                 <h6 class="mb-2 text-2xl font-bold text-center text-gray-800 md:text-3xl">
                                     <span
-                                        class="text-red-500">{{ __('snippetPublished.oops') }}</span> {{ __('snippetPublished.postNotPublished') }}
+                                        class="text-red-500">{{ __('snippetPublished.oops') }}</span> {{ __('snippetPublished.snippetNotPublished') }}
                                 </h6>
 
                                 <p class="mb-8 text-center text-gray-500 md:text-lg">

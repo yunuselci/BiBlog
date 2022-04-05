@@ -2,6 +2,7 @@
 
 namespace App\Nova;
 
+use Ek0519\Quilljs\Quilljs;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Boolean;
@@ -10,6 +11,7 @@ use Laravel\Nova\Fields\Slug;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use YesWeDev\Nova\Translatable\Translatable;
 
 class About extends Resource
 {
@@ -49,17 +51,14 @@ class About extends Resource
 
             BelongsTo::make('User'),
 
-            Text::make('Title')
-                ->translatable(),
+            Translatable::make('Title')->singleLine(),
 
-            Text::make('Subtitle')
-                ->translatable(),
+            Translatable::make('Subtitle')->singleLine(),
 
-            Trix::make('Description')
-                ->translatable(),
+            Quilljs::make('Description')->withFiles('public'),
 
-            Boolean::make('Published')
-                ->translatable(),
+            Translatable::make(__('Published (1 True/ 0 False)'), 'published')->singleLine(),
+
         ];
     }
 
