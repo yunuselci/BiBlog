@@ -7,60 +7,23 @@ use Illuminate\Support\Str;
 
 class PostObserver
 {
-    /**
-     * Handle the Post "created" event.
-     *
-     * @param  \App\Models\Post  $post
-     * @return void
-     */
-    public function created(Post $post)
+
+    public function creating(Post $post)
     {
         if(empty($post->slug)){
-            $post->slug = Str::slug($post->title);
+            foreach ($post->translations as $translation){
+                $post->translateOrNew($translation->locale)->slug= Str::slug($translation->title);
+            }
         }
     }
 
-    /**
-     * Handle the Post "updated" event.
-     *
-     * @param  \App\Models\Post  $post
-     * @return void
-     */
-    public function updated(Post $post)
+    public function updating(Post $post)
     {
-        $post->slug = Str::slug($post->title);
+
+        foreach ($post->translations as $translation){
+            $post->translateOrNew($translation->locale)->slug= Str::slug($translation->title);
+        }
     }
 
-    /**
-     * Handle the Post "deleted" event.
-     *
-     * @param  \App\Models\Post  $post
-     * @return void
-     */
-    public function deleted(Post $post)
-    {
-        //
-    }
 
-    /**
-     * Handle the Post "restored" event.
-     *
-     * @param  \App\Models\Post  $post
-     * @return void
-     */
-    public function restored(Post $post)
-    {
-        //
-    }
-
-    /**
-     * Handle the Post "force deleted" event.
-     *
-     * @param  \App\Models\Post  $post
-     * @return void
-     */
-    public function forceDeleted(Post $post)
-    {
-        //
-    }
 }
