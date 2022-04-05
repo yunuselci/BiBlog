@@ -8,11 +8,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
 use Astrotomic\Translatable\Translatable;
 
-class About extends Model
+class About extends Model implements TranslatableContract
 {
-    use HasFactory;
     use Translatable;
-    protected $guarded = [];
 
     protected $casts = [
         'published' => 'boolean',
