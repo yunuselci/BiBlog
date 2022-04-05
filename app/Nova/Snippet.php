@@ -62,7 +62,7 @@ class Snippet extends Resource
 
             Translatable::make('Slug')->singleLine(),
 
-            Boolean::make('Published'),
+            Translatable::make(__('Published (1 True/ 0 False)'), 'published')->singleLine(),
 
         ];
     }
