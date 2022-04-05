@@ -61,7 +61,7 @@ class Post extends Resource
 
             Translatable::make('Subtitle')->singleLine(),
 
-            Image::make('Image')->rules('required'),
+            Image::make('Image')->disk('public')->required(),
 
             Quilljs::make('Description')->withFiles('public'),
 
