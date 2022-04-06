@@ -74,7 +74,7 @@
         },
         {
             "type": "vcs",
-            "url": "https://github.com/aliozgurr/nova-quilljs"
+            "url": "https://github.com/yunuselci/nova-quilljs"
         }
     ],
     "minimum-stability": "dev",
