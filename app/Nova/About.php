@@ -51,13 +51,20 @@ class About extends Resource
 
             BelongsTo::make('User'),
 
-            Translatable::make('Title')->singleLine(),
+            Translatable::make('Title')
+                ->singleLine()
+                ->rules('required'),
 
-            Translatable::make('Subtitle')->singleLine(),
+            Translatable::make('Subtitle')
+                ->singleLine(),
 
-            Quilljs::make('Description')->withFiles('public'),
+            Quilljs::make('Description')
+                ->withFiles('public')
+                ->rules('required'),
 
-            Translatable::make(__('Published (1 True/ 0 False)'), 'published')->singleLine(),
+            Translatable::make(__('Published (1 True/ 0 False)'), 'published')
+                ->nullable()
+                ->singleLine(),
 
         ];
     }

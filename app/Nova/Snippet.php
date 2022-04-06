@@ -52,17 +52,26 @@ class Snippet extends Resource
 
             BelongsTo::make('User'),
 
-            Translatable::make('Title')->singleLine(),
+            Translatable::make('Title')
+                ->singleLine()
+                ->rules('required'),
 
-            Translatable::make('Subtitle')->singleLine(),
+            Translatable::make('Subtitle')
+                ->singleLine(),
 
-            Quilljs::make('Description')->withFiles('public'),
+            Quilljs::make('Description')
+                ->withFiles('public')
+                ->rules('required'),
 
-            Text::make('Link')->nullable(),
+            Text::make('Link')
+                ->nullable(),
 
-            Translatable::make('Slug')->singleLine(),
+            Translatable::make('Slug')
+                ->singleLine(),
 
-            Translatable::make(__('Published (1 True/ 0 False)'), 'published')->singleLine(),
+            Translatable::make(__('Published (1 True/ 0 False)'), 'published')
+                ->nullable()
+                ->singleLine(),
 
         ];
     }
