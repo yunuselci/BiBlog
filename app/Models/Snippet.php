@@ -15,7 +15,7 @@ class Snippet extends Model implements TranslatableContract
         'published' => 'boolean',
     ];
 
-    public $translatedAttributes = ['title', 'subtitle', 'description', 'slug', 'published'];
+    public $translatedAttributes = ['title', 'subtitle', 'slug', 'description', 'published'];
 
     public function user(): BelongsTo
     {
