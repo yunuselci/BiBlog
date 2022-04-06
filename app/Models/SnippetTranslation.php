@@ -9,6 +9,6 @@ class SnippetTranslation extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'subtitle', 'description', 'slug', 'published'];
+    protected $fillable = ['title', 'subtitle', 'slug', 'description', 'published'];
     public $timestamps = false;
 }

@@ -52,11 +52,22 @@ class Snippet extends Resource
 
             BelongsTo::make('User'),
 
+            Text::make('Url', function (){
+                $link = route('snippet', $this->slug);
+                return "<a href='{$link}'>Go to the Snippet</a>";
+            })
+                ->asHtml()
+                ->showOnIndex()
+                ->showOnDetail(),
+
             Translatable::make('Title')
                 ->singleLine()
                 ->rules('required'),
 
             Translatable::make('Subtitle')
+                ->singleLine(),
+
+            Translatable::make('Slug')
                 ->singleLine(),
 
             Quilljs::make('Description')
@@ -65,9 +76,6 @@ class Snippet extends Resource
 
             Text::make('Link')
                 ->nullable(),
-
-            Translatable::make('Slug')
-                ->singleLine(),
 
             Translatable::make(__('Published (1 True/ 0 False)'), 'published')
                 ->nullable()

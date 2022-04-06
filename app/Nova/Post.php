@@ -57,11 +57,22 @@ class Post extends Resource
 
             BelongsTo::make('User'),
 
+            Text::make('Url', function (){
+                $link = route('article', $this->slug);
+                return "<a href='{$link}'>Go to the Post</a>";
+            })
+                ->asHtml()
+                ->showOnIndex()
+                ->showOnDetail(),
+
             Translatable::make('Title')
                 ->singleLine()
                 ->rules('required'),
 
             Translatable::make('Subtitle')
+                ->singleLine(),
+
+            Translatable::make('Slug')
                 ->singleLine(),
 
             Image::make('Image')
@@ -74,9 +85,6 @@ class Post extends Resource
 
             Text::make('Link')
                 ->nullable(),
-
-            Translatable::make('Slug')
-                ->singleLine(),
 
             Translatable::make(__('Published (1 True/ 0 False)'), 'published')
                 ->nullable()
