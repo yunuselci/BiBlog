@@ -14,15 +14,13 @@ class PostObserver
                 $post->translateOrNew($translation->locale)->slug = Str::slug($translation->title);
             }
         }
-        foreach ($post->translations as $translationForIf) {
+        foreach ($post->translations as $translation) {
             if (
-                $post->translateOrNew($translationForIf->locale)->isDirty('title')
-                and
-                $post->translateOrNew($translationForIf->locale)->isClean('slug')
+                $post->translateOrNew($translation->locale)->isDirty('title')
+                &&
+                $post->translateOrNew($translation->locale)->isClean('slug')
             ) {
-                foreach ($post->translations as $translation) {
-                    $post->translateOrNew($translation->locale)->slug = Str::slug($translation->title);
-                }
+                $post->translateOrNew($translation->locale)->slug = Str::slug($translation->title);
             }
         }
     }
