@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9a56f576b3047c7629555c0c0e84d703",
+    "content-hash": "b5f5bb607040a5eae9e1324994a227cf",
     "packages": [
         {
             "name": "astrotomic/laravel-translatable",
@@ -1109,6 +1109,52 @@
                 }
             ],
             "time": "2022-02-20T15:07:15+00:00"
+        },
+        {
+            "name": "ganyicz/nova-callbacks",
+            "version": "1.1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ganyicz/nova-callbacks.git",
+                "reference": "e9c3892046b5754d5bb64021144092bdd42e39d9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ganyicz/nova-callbacks/zipball/e9c3892046b5754d5bb64021144092bdd42e39d9",
+                "reference": "e9c3892046b5754d5bb64021144092bdd42e39d9",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/nova": "^3.0",
+                "php": "^7.2.5|^8.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Ganyicz\\NovaCallbacks\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Filip Ganyicz",
+                    "email": "ganyicz.filip@gmail.com"
+                }
+            ],
+            "description": "Add after-save callbacks to your Laravel Nova resources.",
+            "keywords": [
+                "callbacks",
+                "laravel",
+                "nova"
+            ],
+            "support": {
+                "issues": "https://github.com/ganyicz/nova-callbacks/issues",
+                "source": "https://github.com/ganyicz/nova-callbacks/tree/1.1.3"
+            },
+            "time": "2021-08-08T10:19:14+00:00"
         },
         {
             "name": "graham-campbell/result-type",

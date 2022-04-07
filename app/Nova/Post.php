@@ -3,24 +3,23 @@
 namespace App\Nova;
 
 
+use App\Events\PostCreatedEvent;
+use App\Events\PostUpdatedEvent;
 use Ek0519\Quilljs\Quilljs;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
-use Laravel\Nova\Fields\Boolean;
-use Laravel\Nova\Fields\Code;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Image;
-use Laravel\Nova\Fields\Slug;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Timezone;
-use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use YesWeDev\Nova\Translatable\Translatable;
+use Ganyicz\NovaCallbacks\HasCallbacks;
+
 
 
 class Post extends Resource
 {
-
+    use HasCallbacks;
     /**
      * The model the resource corresponds to.
      *
@@ -91,6 +90,16 @@ class Post extends Resource
                 ->singleLine(),
 
         ];
+    }
+
+    public static function afterCreate(Request $request, $model)
+    {
+        event(new PostCreatedEvent($model));
+    }
+
+    public static function afterUpdate(Request $request, $model)
+    {
+        event(new PostUpdatedEvent($model));
     }
 
     /**
