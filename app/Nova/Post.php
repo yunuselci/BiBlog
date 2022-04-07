@@ -102,9 +102,8 @@ class Post extends Resource
 
     public static function afterUpdate(Request $request, $model)
     {
-        if ($model->publish_to_dev_to) {
-            event(new PostUpdatedEvent($model));
-        }
+        event(new PostUpdatedEvent($model));
+
     }
 
     /**

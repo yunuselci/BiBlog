@@ -29,7 +29,7 @@ class PostObserver
     }
 
     /**
-     * Handle the User "deleted" event.
+     * Handle the Post "deleted" event.
      *
      * @param Post $post
      * @return void

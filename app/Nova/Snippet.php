@@ -95,9 +95,8 @@ class Snippet extends Resource
 
     public static function afterUpdate(Request $request, $model)
     {
-        if ($model->publish_to_dev_to) {
-            event(new SnippetUpdatedEvent($model));
-        }
+        event(new SnippetUpdatedEvent($model));
+
     }
 
 

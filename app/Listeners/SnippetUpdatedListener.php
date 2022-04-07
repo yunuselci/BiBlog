@@ -23,13 +23,13 @@ class SnippetUpdatedListener
     /**
      * Handle the event.
      *
-     * @param  \App\Events\SnippetUpdatedEvent  $event
+     * @param \App\Events\SnippetUpdatedEvent $event
      * @return void
      */
-    public function handle(SnippetUpdatedEvent $event, ?bool $publish_to_dev_to= null)
+    public function handle(SnippetUpdatedEvent $event, ?bool $publish_to_dev_to = null)
     {
         foreach ($event->snippet->translations as $translation) {
-            if(blank($publish_to_dev_to)){
+            if (is_null($publish_to_dev_to)) {
                 $publish_to_dev_to = $event->snippet->translateOrNew($translation->locale)->publish_to_dev_to;
             }
             $secret = User::pluck('dev_to_secret')[0];
@@ -40,7 +40,7 @@ class SnippetUpdatedListener
             ])->put('https://dev.to/api/articles/' . $event->snippet->translateOrNew($translation->locale)->dev_to_article_id, [
                 'article' => [
                     'title' => $event->snippet->translateOrNew($translation->locale)->title,
-                    'published' => $event->snippet->translateOrNew($translation->locale)->$publish_to_dev_to,
+                    'published' => $publish_to_dev_to,
                     "body_markdown" => $event->snippet->translateOrNew($translation->locale)->description
                 ]
             ]);

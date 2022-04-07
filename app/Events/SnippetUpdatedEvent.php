@@ -15,7 +15,7 @@ class SnippetUpdatedEvent
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     public $snippet;
-    public bool $publish_to_dev_to;
+    public ?bool $publish_to_dev_to;
 
 
     /**

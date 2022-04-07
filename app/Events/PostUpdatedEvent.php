@@ -15,7 +15,7 @@ class PostUpdatedEvent
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     public $post;
-    public bool $publish_to_dev_to;
+    public ?bool $publish_to_dev_to;
 
     /**
      * Create a new event instance.
@@ -27,6 +27,7 @@ class PostUpdatedEvent
         $this->post = $post;
         $this->publish_to_dev_to = $publish_to_dev_to;
     }
+
 
     /**
      * Get the channels the event should broadcast on.
