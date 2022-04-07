@@ -4,7 +4,6 @@ namespace App\Observers;
 
 use App\Events\SnippetUpdatedEvent;
 use App\Models\Snippet;
-use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
 
 class SnippetObserver
