@@ -15,7 +15,7 @@ class SnippetUpdatedEvent
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     public $snippet;
-    public ?bool $publish_to_dev_to;
+    public $publish_to_dev_to;
 
 
     /**
@@ -23,7 +23,7 @@ class SnippetUpdatedEvent
      *
      * @return void
      */
-    public function __construct($snippet, ?bool $publish_to_dev_to = null)
+    public function __construct($snippet,$publish_to_dev_to = null)
     {
         $this->snippet = $snippet;
         $this->publish_to_dev_to = $publish_to_dev_to;

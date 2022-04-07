@@ -27,8 +27,9 @@ class PostUpdatedListener
      * @param \App\Events\PostUpdatedEvent $event
      * @return void
      */
-    public function handle(PostUpdatedEvent $event, ?bool $publish_to_dev_to = null)
+    public function handle(PostUpdatedEvent $event)
     {
+        $publish_to_dev_to = $event->publish_to_dev_to;
         foreach ($event->post->translations as $translation) {
             if (is_null($publish_to_dev_to)) {
                 $publish_to_dev_to = $event->post->translateOrNew($translation->locale)->publish_to_dev_to;

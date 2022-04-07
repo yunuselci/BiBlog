@@ -26,8 +26,9 @@ class SnippetUpdatedListener
      * @param \App\Events\SnippetUpdatedEvent $event
      * @return void
      */
-    public function handle(SnippetUpdatedEvent $event, ?bool $publish_to_dev_to = null)
+    public function handle(SnippetUpdatedEvent $event)
     {
+        $publish_to_dev_to = $event->publish_to_dev_to;
         foreach ($event->snippet->translations as $translation) {
             if (is_null($publish_to_dev_to)) {
                 $publish_to_dev_to = $event->snippet->translateOrNew($translation->locale)->publish_to_dev_to;
