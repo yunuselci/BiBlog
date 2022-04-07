@@ -10,6 +10,14 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
+use App\Events\PostCreatedEvent;
+use App\Listeners\PostCreatedListener;
+use App\Events\PostUpdatedEvent;
+use App\Listeners\PostUpdatedListener;
+use App\Events\SnippetCreatedEvent;
+use App\Listeners\SnippetCreatedListener;
+use App\Events\SnippetUpdatedEvent;
+use App\Listeners\SnippetUpdatedListener;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -22,6 +30,18 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
+        PostCreatedEvent::class => [
+            PostCreatedListener::class,
+        ],
+        PostUpdatedEvent::class => [
+            PostUpdatedListener::class,
+        ],
+        SnippetCreatedEvent::class => [
+            SnippetCreatedListener::class,
+        ],
+        SnippetUpdatedEvent::class => [
+            SnippetUpdatedListener::class,
+        ]
     ];
 
     /**
@@ -31,9 +51,7 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Post::observe(PostObserver::class);
-        Snippet::observe(SnippetObserver::class);
-
+        //
     }
 
     /**
