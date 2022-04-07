@@ -15,7 +15,7 @@ class Post extends Model implements TranslatableContract
         'published' => 'boolean',
     ];
 
-    public $translatedAttributes = ['title', 'subtitle', 'slug', 'description', 'published'];
+    public $translatedAttributes = ['title', 'subtitle', 'slug', 'description', 'published', 'dev_to_article_id'];
 
     public function user(): BelongsTo
     {

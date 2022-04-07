@@ -14,14 +14,16 @@ class SnippetUpdatedEvent
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
+    public $snippet;
+
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($snippet)
     {
-        //
+        $this->snippet = $snippet;
     }
 
     /**

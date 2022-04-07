@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('subtitle')->nullable();
             $table->longText('description');
             $table->string('slug');
+            $table->integer('dev_to_article_id')->nullable();
             $table->boolean('published')->nullable()->default(0);
         });
     }
