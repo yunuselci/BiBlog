@@ -15,10 +15,10 @@ use YesWeDev\Nova\Translatable\Translatable;
 use Ganyicz\NovaCallbacks\HasCallbacks;
 
 
-
 class Post extends Resource
 {
     use HasCallbacks;
+
     /**
      * The model the resource corresponds to.
      *
@@ -55,7 +55,7 @@ class Post extends Resource
 
             BelongsTo::make('User'),
 
-            Text::make('Url', function (){
+            Text::make('Url', function () {
                 $link = route('article', $this->slug);
                 return "<a href='{$link}'>Go to the Post</a>";
             })
@@ -88,6 +88,10 @@ class Post extends Resource
                 ->nullable()
                 ->singleLine(),
 
+            Translatable::make(__('Publish to Dev.to (1 True/ 0 False)'), 'publish_to_dev_to')
+                ->nullable()
+                ->singleLine(),
+
         ];
     }
 
@@ -98,7 +102,9 @@ class Post extends Resource
 
     public static function afterUpdate(Request $request, $model)
     {
-        event(new PostUpdatedEvent($model));
+        if ($model->publish_to_dev_to) {
+            event(new PostUpdatedEvent($model));
+        }
     }
 
     /**

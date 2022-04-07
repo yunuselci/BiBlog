@@ -15,6 +15,7 @@ use Ganyicz\NovaCallbacks\HasCallbacks;
 class Snippet extends Resource
 {
     use HasCallbacks;
+
     /**
      * The model the resource corresponds to.
      *
@@ -51,7 +52,7 @@ class Snippet extends Resource
 
             BelongsTo::make('User'),
 
-            Text::make('Url', function (){
+            Text::make('Url', function () {
                 $link = route('snippet', $this->slug);
                 return "<a href='{$link}'>Go to the Snippet</a>";
             })
@@ -80,6 +81,10 @@ class Snippet extends Resource
                 ->nullable()
                 ->singleLine(),
 
+            Translatable::make(__('Publish to Dev.to (1 True/ 0 False)'), 'publish_to_dev_to')
+                ->nullable()
+                ->singleLine(),
+
         ];
     }
 
@@ -90,7 +95,9 @@ class Snippet extends Resource
 
     public static function afterUpdate(Request $request, $model)
     {
-        event(new SnippetUpdatedEvent($model));
+        if ($model->publish_to_dev_to) {
+            event(new SnippetUpdatedEvent($model));
+        }
     }
 
 

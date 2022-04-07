@@ -15,15 +15,17 @@ class PostUpdatedEvent
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     public $post;
+    public bool $publish_to_dev_to;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($post)
+    public function __construct($post, ?bool $publish_to_dev_to = null)
     {
         $this->post = $post;
+        $this->publish_to_dev_to = $publish_to_dev_to;
     }
 
     /**

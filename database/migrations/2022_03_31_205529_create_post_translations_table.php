@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('slug');
             $table->integer('dev_to_article_id')->nullable();
             $table->boolean('published')->nullable()->default(0);
+            $table->boolean('publish_to_dev_to')->nullable()->default(0);
         });
     }
 
