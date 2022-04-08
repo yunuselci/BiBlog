@@ -35,6 +35,6 @@ APP_URL=http://localhost:8000
 
 ## Dev.to Api Configuration
 
-- After loading and running the project run the path /nova/resources/users
-- In this path you need to install your dev.to secret key by editing current user
+- After loading the project and running it successfully, go to the /nova/resources/users path.
+- In this path you need to install your dev.to secret key by editing current user.
 
