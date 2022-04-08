@@ -7,6 +7,7 @@ use App\Events\PostCreatedEvent;
 use App\Events\PostUpdatedEvent;
 use Ek0519\Quilljs\Quilljs;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Image;
@@ -56,8 +57,13 @@ class Post extends Resource
             BelongsTo::make('User'),
 
             Text::make('Url', function () {
-                $link = route('article', $this->slug);
-                return "<a href='{$link}'>Go to the Post</a>";
+                foreach ($this->translations as $translation) {
+                    if (!empty($this->translateOrNew($translation->locale)->slug)) {
+                        $link = route('article', $this->translateOrNew($translation->locale)->slug);
+                        return "<a href='{$link}'>Go to the Post</a>";
+                    }
+                }
+                return "No Link!";
             })
                 ->asHtml()
                 ->showOnIndex()
@@ -102,8 +108,12 @@ class Post extends Resource
 
     public static function afterUpdate(Request $request, $model)
     {
+        foreach ($model->translations as $translation) {
+            if (blank($model->translateOrNew($translation->locale)->dev_to_article_id)) {
+                event(new PostCreatedEvent($model->translateOrNew($translation->locale)));
+            }
+        }
         event(new PostUpdatedEvent($model));
-
     }
 
     /**

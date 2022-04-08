@@ -53,8 +53,13 @@ class Snippet extends Resource
             BelongsTo::make('User'),
 
             Text::make('Url', function () {
-                $link = route('snippet', $this->slug);
-                return "<a href='{$link}'>Go to the Snippet</a>";
+                foreach ($this->translations as $translation) {
+                    if (!empty($this->translateOrNew($translation->locale)->slug)) {
+                        $link = route('snippet', $this->translateOrNew($translation->locale)->slug);
+                        return "<a href='{$link}'>Go to the Snippet</a>";
+                    }
+                }
+                return "No Link!";
             })
                 ->asHtml()
                 ->showOnIndex()
@@ -95,6 +100,11 @@ class Snippet extends Resource
 
     public static function afterUpdate(Request $request, $model)
     {
+        foreach ($model->translations as $translation) {
+            if (blank($model->translateOrNew($translation->locale)->dev_to_article_id)) {
+                event(new SnippetCreatedEvent($model->translateOrNew($translation->locale)));
+            }
+        }
         event(new SnippetUpdatedEvent($model));
 
     }
