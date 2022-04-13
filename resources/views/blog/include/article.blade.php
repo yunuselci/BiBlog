@@ -2,7 +2,7 @@
 @section('title')
     @isset($posts)
         @foreach($posts as $post)
-            {{ $post->title }} | Web Development Blog
+            {{ $post->title }} | {{ __('article.title') }}
         @endforeach
     @endisset
 @endsection
@@ -36,7 +36,7 @@
                             <a href="{{ $post->link }}">
                                 <button
                                     class="rounded-full text-white font-bold bg-blue-500 hover:bg-blue-700 py-3 px-6 mt-4">
-                                    See On Github
+                                    {{ __('article.github') }}
                                 </button>
                             </a>
                         @endisset
