@@ -3,34 +3,49 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
-use App\Models\PostTranslation;
-use App\Models\Snippet;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class PostController extends Controller
 {
-
     public function index()
     {
-        $posts = Post::all();
-        return view('blog.include.articles', compact('posts'));
-    }
+        $this->setSeo('Anasayfa', __('Güven Atbakan\'s personal blog page.'));
 
+        $posts = Post::query()->isPublished()->get();
+
+        return view('posts.index')->with(['posts' => $posts]);
+    }
 
     public function show($slug)
     {
-        $postTranslation = PostTranslation::where('slug', $slug)->get();
-        if (!empty($postTranslation->all())) {
-            $postId = $postTranslation->pluck('post_id');
-            $posts = Post::where('id', $postId[0])->get();
-            $previous = Post::where('id', '<', $postId)->max('id');
-            $next = Post::where('id', '>', $postId)->min('id');
-            $previousPost = Post::where('id', $previous)->get();
-            $nextPost = Post::where('id', $next)->get();
-            return view('blog.include.article', compact('posts', 'previousPost', 'nextPost'));
-        } else {
-            abort(404);
-        }
+        $post = Post::query()
+            ->whereTranslation('slug', $slug)
+            ->isPublished()
+            ->firstOrFail();
 
+        $this->setSeo($post->title, $post->short_description);
+        $this->incrementViewCount($post);
+
+        $relatedPosts = Post::query()
+            ->where('id', '!=', $post->id)
+            ->isPublished()
+            ->limit(3)
+            ->get();
+
+        return view('posts.show')
+            ->with([
+                'post' => $post,
+                'relatedPosts' => $relatedPosts,
+            ]);
+    }
+
+    private function incrementViewCount(Post $post)
+    {
+        $key = 'post_'.$post->id;
+        if (!Session::has($key)) {
+            $post->increment('view_count');
+
+            Session::put($key, 1);
+        }
     }
 }

@@ -2,7 +2,7 @@ import hljs from 'highlight.js';
 
 setTimeout(function () {
     hljs.configure({
-       languages: ['php','java','javascript']
+       languages: ['php', 'javascript']
     });
     document
         .querySelectorAll('pre')

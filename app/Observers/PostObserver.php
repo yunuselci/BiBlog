@@ -16,13 +16,11 @@ class PostObserver
         }
         foreach ($post->translations as $translation) {
             if (
-                $post->translateOrNew($translation->locale)->isDirty('title')
-                &&
+                $post->translateOrNew($translation->locale)->isDirty('title') &&
                 $post->translateOrNew($translation->locale)->isClean('slug')
             ) {
                 $post->translateOrNew($translation->locale)->slug = Str::slug($translation->title);
             }
         }
     }
-
 }

@@ -2,10 +2,13 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
 use Astrotomic\Translatable\Translatable;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class Post extends Model implements TranslatableContract
 {
@@ -22,4 +25,33 @@ class Post extends Model implements TranslatableContract
         return $this->belongsTo(User::class);
     }
 
+    public function scopeIsPublished(Builder $builder)
+    {
+        return $builder->whereTranslation('published', true);
+    }
+
+    public function getImageUrlAttribute()
+    {
+        return $this->image ? Storage::disk('public')->url($this->image) : null;
+    }
+
+    public function getShortDescriptionAttribute()
+    {
+        return $this->subtitle ?: Str::limit(strip_tags($this->description));
+    }
+
+    public function getUrlAttribute()
+    {
+        return route('posts.show', [$this->slug]);
+    }
+
+    public function getHumanizedCreatedAtAttribute()
+    {
+        return $this->created_at->formatLocalized('%B %d, %Y');
+    }
+
+    public function getMarkdownAttribute()
+    {
+        return $this->description;
+    }
 }
