@@ -27,6 +27,7 @@ APP_URL=http://localhost:8000
 
 - Run `composer install`
 - Run `npm install`
+- Run `npm run dev`
 - Run `php artisan key:generate`
 - Run `php artisan vendor:publish --provider="Ek0519\Quilljs\FieldServiceProvider"`
 - Run `php artisan migrate`
