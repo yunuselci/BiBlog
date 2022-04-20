@@ -2,7 +2,7 @@
 @section('title')
     @isset($snippets)
         @foreach($snippets as $snippet)
-            {{ $snippet->title }} | Web Development Blog
+            {{ $snippet->title }} | {{ __('snippet.title') }}
         @endforeach
     @endisset
 @endsection
@@ -30,7 +30,7 @@
                             <a href="{{ $snippet->link }}">
                                 <button
                                     class="rounded-full text-white font-bold bg-blue-500 hover:bg-blue-700 py-3 px-6 mt-4">
-                                    See On Github
+                                    {{ __('snippet.github') }}
                                 </button>
                             </a>
                         @endisset
