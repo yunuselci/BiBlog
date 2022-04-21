@@ -102,6 +102,11 @@ class Post extends Resource
 
     public static function afterUpdate(Request $request, $model)
     {
+        foreach ($model->translations as $translation) {
+            if (blank($model->translateOrNew($translation->locale)->dev_to_article_id)) {
+                self::createPostOnDevTo($model->translateOrNew($translation->locale));
+            }
+        }
         self::updatePostOnDevTo($model);
     }
 
@@ -181,12 +186,9 @@ class Post extends Resource
         }
     }
 
-    public static function updatePostOnDevTo(Model $post, $publish_to_dev_to = NULL)
+    public static function updatePostOnDevTo(Model $post)
     {
         foreach ($post->translations as $translation) {
-            if (is_null($publish_to_dev_to)) {
-                $publish_to_dev_to = $post->translateOrNew($translation->locale)->publish_to_dev_to;
-            }
             $secret = User::pluck('dev_to_secret')[0];
             //Update an article on dev.to
 
@@ -196,8 +198,8 @@ class Post extends Resource
             ])->put('https://dev.to/api/articles/' . $post->translateOrNew($translation->locale)->dev_to_article_id, [
                 'article' => [
                     'title' => $post->translateOrNew($translation->locale)->title,
-                    'published' => $publish_to_dev_to,
-                    "body_markdown" => $post->translateOrNew($translation->locale)->description
+                    'published' => $post->translateOrNew($translation->locale)->publish_to_dev_to,
+                    'body_markdown' => $post->translateOrNew($translation->locale)->description
                 ]
             ]);
 

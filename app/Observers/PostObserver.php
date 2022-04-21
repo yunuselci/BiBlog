@@ -56,7 +56,7 @@ class PostObserver
                 'article' => [
                     'title' => $post->translateOrNew($translation->locale)->title,
                     'published' => false,
-                    "body_markdown" => $post->translateOrNew($translation->locale)->description
+                    'body_markdown' => $post->translateOrNew($translation->locale)->description
                 ]
             ]);
 
