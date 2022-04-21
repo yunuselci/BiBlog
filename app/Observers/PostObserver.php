@@ -2,11 +2,13 @@
 
 namespace App\Observers;
 
+use App\Events\PostUpdatedEvent;
 use App\Models\Post;
 use Illuminate\Support\Str;
 
 class PostObserver
 {
+
     public function saving(Post $post)
     {
         if (blank($post->slug)) {
@@ -22,5 +24,17 @@ class PostObserver
                 $post->translateOrNew($translation->locale)->slug = Str::slug($translation->title);
             }
         }
+
+    }
+
+    /**
+     * Handle the Post "deleted" event.
+     *
+     * @param Post $post
+     * @return void
+     */
+    public function deleted(Post $post)
+    {
+        event(new PostUpdatedEvent($post,false));
     }
 }

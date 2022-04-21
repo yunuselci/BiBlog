@@ -78,7 +78,27 @@ class Post extends Resource
             Translatable::make(__('Published (1 True/ 0 False)'), 'published')
                 ->nullable()
                 ->singleLine(),
+
+            Translatable::make(__('Publish to Dev.to (1 True/ 0 False)'), 'publish_to_dev_to')
+                ->nullable()
+                ->singleLine(),
+
         ];
+    }
+
+    public static function afterCreate(Request $request, $model)
+    {
+        event(new PostCreatedEvent($model));
+    }
+
+    public static function afterUpdate(Request $request, $model)
+    {
+        foreach ($model->translations as $translation) {
+            if (blank($model->translateOrNew($translation->locale)->dev_to_article_id)) {
+                event(new PostCreatedEvent($model->translateOrNew($translation->locale)));
+            }
+        }
+        event(new PostUpdatedEvent($model));
     }
 
     /**

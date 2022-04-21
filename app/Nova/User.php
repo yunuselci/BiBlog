@@ -45,6 +45,7 @@ class User extends Resource
     {
         return [
             ID::make()->sortable(),
+
             Gravatar::make()->maxWidth(50),
 
             Text::make('Name')
@@ -61,6 +62,9 @@ class User extends Resource
                 ->onlyOnForms()
                 ->creationRules('required', 'string', 'min:8')
                 ->updateRules('nullable', 'string', 'min:8'),
+
+            Text::make(__('Dev.To Secret'), 'dev_to_secret')
+                ->rules('nullable'),
 
             HasMany::make('Posts'),
         ];
