@@ -2,6 +2,7 @@
 
 namespace App\Nova;
 
+use App\Observers\PostObserver;
 use Ek0519\Quilljs\Quilljs;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
@@ -9,9 +10,13 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Text;
 use YesWeDev\Nova\Translatable\Translatable;
+use Ganyicz\NovaCallbacks\HasCallbacks;
+
 
 class Post extends Resource
 {
+    use HasCallbacks;
+
     /**
      * The model the resource corresponds to.
      *
@@ -85,20 +90,9 @@ class Post extends Resource
 
         ];
     }
-
-    public static function afterCreate(Request $request, $model)
-    {
-        event(new PostCreatedEvent($model));
-    }
-
     public static function afterUpdate(Request $request, $model)
     {
-        foreach ($model->translations as $translation) {
-            if (blank($model->translateOrNew($translation->locale)->dev_to_article_id)) {
-                event(new PostCreatedEvent($model->translateOrNew($translation->locale)));
-            }
-        }
-        event(new PostUpdatedEvent($model));
+        (new PostObserver)->updated($model);
     }
 
     /**

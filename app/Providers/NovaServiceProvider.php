@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Gate;
 use Laravel\Nova\Cards\Help;
 use Laravel\Nova\Nova;
 use Laravel\Nova\NovaApplicationServiceProvider;
+use Laravel\Nova\Observable;
 
 class NovaServiceProvider extends NovaApplicationServiceProvider
 {
@@ -23,6 +24,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
         Nova::serving(function () {
             Post::observe(PostObserver::class);
         });
+
     }
 
     /**
