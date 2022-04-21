@@ -47,7 +47,7 @@ class PostObserver
         foreach ($post->translations as $translation) {
 
             $secret = User::pluck('dev_to_secret')[0];
-            //Update an article on dev.to
+            //Disables the post on dev.to
 
             Http::withHeaders([
                 'api-key' => $secret,
