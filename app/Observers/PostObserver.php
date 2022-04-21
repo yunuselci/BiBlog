@@ -98,7 +98,7 @@ class PostObserver
      * @param Post $post
      * @return void
      */
-    public function created(Post $post)
+    public function createAPost(Post $post)
     {
         $this->createPostOnDevTo($post);
     }
@@ -109,7 +109,7 @@ class PostObserver
      * @param Post $post
      * @return void
      */
-    public function updated(Post $post)
+    public function updateAPost(Post $post)
     {
         foreach ($post->translations as $translation) {
             if (blank($post->translateOrNew($translation->locale)->dev_to_article_id)) {

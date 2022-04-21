@@ -4,11 +4,13 @@ namespace App\Nova;
 
 use App\Observers\PostObserver;
 use Ek0519\Quilljs\Quilljs;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Http\Requests\NovaRequest;
 use YesWeDev\Nova\Translatable\Translatable;
 use Ganyicz\NovaCallbacks\HasCallbacks;
 
@@ -90,9 +92,14 @@ class Post extends Resource
 
         ];
     }
+    public static function afterCreate(NovaRequest $request, Model $model)
+    {
+        (new PostObserver)->createAPost($model);
+    }
+
     public static function afterUpdate(Request $request, $model)
     {
-        (new PostObserver)->updated($model);
+        (new PostObserver)->updateAPost($model);
     }
 
     /**
