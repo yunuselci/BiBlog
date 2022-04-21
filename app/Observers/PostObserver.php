@@ -49,7 +49,6 @@ class PostObserver
 
     private function updatePostOnDevTo(Model $post, $publish_to_dev_to = NULL)
     {
-        logger()->info($publish_to_dev_to);
         foreach ($post->translations as $translation) {
             if (is_null($publish_to_dev_to)) {
                 $publish_to_dev_to = $post->translateOrNew($translation->locale)->publish_to_dev_to;
@@ -57,7 +56,7 @@ class PostObserver
             $secret = User::pluck('dev_to_secret')[0];
             //Update an article on dev.to
 
-            $response = Http::withHeaders([
+            Http::withHeaders([
                 'api-key' => $secret,
                 'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.96 Safari/537.36'
             ])->put('https://dev.to/api/articles/' . $post->translateOrNew($translation->locale)->dev_to_article_id, [
@@ -67,7 +66,6 @@ class PostObserver
                     "body_markdown" => $post->translateOrNew($translation->locale)->description
                 ]
             ]);
-            logger()->info($response);
 
         }
     }
@@ -113,7 +111,6 @@ class PostObserver
      */
     public function updated(Post $post)
     {
-        logger()->info("sa");
         foreach ($post->translations as $translation) {
             if (blank($post->translateOrNew($translation->locale)->dev_to_article_id)) {
                 $this->createPostOnDevTo(($post->translateOrNew($translation->locale)));
