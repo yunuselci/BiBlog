@@ -2,10 +2,12 @@
 
 namespace App\Nova;
 
+use App\Models\User;
 use App\Observers\PostObserver;
 use Ek0519\Quilljs\Quilljs;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Image;
@@ -92,14 +94,15 @@ class Post extends Resource
 
         ];
     }
+
     public static function afterCreate(NovaRequest $request, Model $model)
     {
-        (new PostObserver)->createAPost($model);
+        self::createPostOnDevTo($model);
     }
 
     public static function afterUpdate(Request $request, $model)
     {
-        (new PostObserver)->updateAPost($model);
+        self::updatePostOnDevTo($model);
     }
 
     /**
@@ -140,5 +143,64 @@ class Post extends Resource
     public function actions(Request $request)
     {
         return [];
+    }
+
+    public static function createPostOnDevTo(Model $post)
+    {
+        $secret = User::pluck('dev_to_secret')[0];
+        if (blank($post->translations)) {
+            $response = Http::withHeaders([
+                'api-key' => $secret,
+                'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.96 Safari/537.36'
+            ])->post('https://dev.to/api/articles', [
+                'article' => [
+                    'title' => $post->title,
+                    'published' => $post->publish_to_dev_to,
+                    'body_markdown' => $post->description
+                ]
+            ]);
+            $post->dev_to_article_id = $response['id'];
+            $post->save();
+        } else {
+            foreach ($post->translations as $translation) {
+                //Create an article on dev.to
+
+                $response = Http::withHeaders([
+                    'api-key' => $secret,
+                    'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.96 Safari/537.36'
+                ])->post('https://dev.to/api/articles', [
+                    'article' => [
+                        'title' => $post->translateOrNew($translation->locale)->title,
+                        'published' => $post->translateOrNew($translation->locale)->publish_to_dev_to,
+                        'body_markdown' => $post->translateOrNew($translation->locale)->description
+                    ]
+                ]);
+                $post->translateOrNew($translation->locale)->dev_to_article_id = $response['id'];
+                $post->save();
+            }
+        }
+    }
+
+    public static function updatePostOnDevTo(Model $post, $publish_to_dev_to = NULL)
+    {
+        foreach ($post->translations as $translation) {
+            if (is_null($publish_to_dev_to)) {
+                $publish_to_dev_to = $post->translateOrNew($translation->locale)->publish_to_dev_to;
+            }
+            $secret = User::pluck('dev_to_secret')[0];
+            //Update an article on dev.to
+
+            Http::withHeaders([
+                'api-key' => $secret,
+                'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.96 Safari/537.36'
+            ])->put('https://dev.to/api/articles/' . $post->translateOrNew($translation->locale)->dev_to_article_id, [
+                'article' => [
+                    'title' => $post->translateOrNew($translation->locale)->title,
+                    'published' => $publish_to_dev_to,
+                    "body_markdown" => $post->translateOrNew($translation->locale)->description
+                ]
+            ]);
+
+        }
     }
 }
