@@ -59070,7 +59070,7 @@ __webpack_require__.r(__webpack_exports__);
 
 setTimeout(function () {
   highlight_js__WEBPACK_IMPORTED_MODULE_0__["default"].configure({
-    languages: ['php', 'java', 'javascript']
+    languages: ['php', 'javascript']
   });
   document.querySelectorAll('pre').forEach(function (block) {
     return highlight_js__WEBPACK_IMPORTED_MODULE_0__["default"].highlightElement(block);

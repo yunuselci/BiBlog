@@ -1,13 +1,11 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Translations;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class SnippetTranslation extends Model
+class PostTranslation extends Model
 {
-    use HasFactory;
 
     protected $fillable = ['title', 'subtitle', 'slug', 'description', 'published', 'publish_to_dev_to', 'dev_to_article_id'];
     public $timestamps = false;

@@ -3,9 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Post;
-use App\Models\Snippet;
 use App\Observers\PostObserver;
-use App\Observers\SnippetObserver;
 use Illuminate\Support\Facades\Gate;
 use Laravel\Nova\Cards\Help;
 use Laravel\Nova\Nova;
@@ -23,8 +21,9 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     {
         parent::boot();
 
-        Observable::make(Post::class, PostObserver::class);
-        Observable::make(Snippet::class, SnippetObserver::class);
+        Nova::serving(function () {
+            Post::observe(PostObserver::class);
+        });
 
     }
 
@@ -52,7 +51,6 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     {
         Gate::define('viewNova', function ($user) {
             return in_array($user->email, [
-                //
             ]);
         });
     }
@@ -65,7 +63,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     protected function cards()
     {
         return [
-            new Help,
+            new Help(),
         ];
     }
 
@@ -96,6 +94,5 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
      */
     public function register()
     {
-        //
     }
 }

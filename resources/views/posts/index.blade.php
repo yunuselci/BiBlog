@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+    {{ __('Home') }}
+@endsection
 @section('content')
     <!-- ====== Banner Section Start -->
     <div
@@ -9,7 +12,7 @@
         md:pt-[130px]
         lg:pt-[160px]
         pb-[100px]
-        bg-dark
+        bg-black
         overflow-hidden
       "
     >
@@ -17,7 +20,7 @@
             <div class="flex flex-wrap items-center -mx-4">
                 <div class="w-full px-4">
                     <div class="text-center">
-                        <h1 class="font-semibold text-white text-4xl">404 Page</h1>
+                        <h1 class="font-semibold text-white text-4xl">{{ __('Blog') }}</h1>
                     </div>
                 </div>
             </div>
@@ -90,68 +93,36 @@
     </div>
     <!-- ====== Banner Section End -->
 
-    <!-- ====== 404 Section Start -->
-    <section class="bg-white py-14 lg:py-20">
+    <!-- ====== Products Section Start -->
+    <section class="pt-20 lg:pt-[120px] pb-10 lg:pb-20">
         <div class="container">
             <div class="flex flex-wrap -mx-4">
-                <div class="w-full px-4">
-                    <div
-                        class="
-                            max-w-[850px]
-                            mx-auto
-                            text-center
-                            bg-white
-                            rounded-lg
-                            relative
-                            overflow-hidden
-                            py-20
-                            px-8
-                            sm:px-12
-                            md:px-[60px]
-                            shadow-lg
-                            wow
-                            fadeInUp
-                          "
-                        data-wow-delay=".2s"
-                    >
-                        <h2
-                            class="
-                              font-bold
-                              mb-8
-                              text-dark text-3xl
-                              sm:text-4xl
-                              lg:text-[40px]
-                              xl:text-[42px]
-                            "
-                        >
-                            404 - We couldn't find that page.
-                        </h2>
-                        <ul class="flex flex-wrap justify-center">
-                            <li>
-                                <a
-                                    href="{{ route('home') }}"
-                                    class="
-                                      text-base
-                                      font-medium
-                                      py-3
-                                      px-6
-                                      text-dark
-                                      rounded-md
-                                      mx-2
-                                      my-1
-                                      inline-block
-                                      bg-[#f5f8ff]
-                                      hover:bg-primary hover:text-white
-                                    "
-                                >
-                                    Home
+                @foreach($posts as $post)
+                    <div class="w-full px-4 md:w-1/2 lg:w-1/3">
+                        <div class="wow fadeInUp group mb-10" data-wow-delay=".1s" style="visibility: visible; animation-delay: 0.1s;">
+                            <div class="mb-8 overflow-hidden rounded">
+                                <a href="{{ $post->url }}" class="block">
+                                    <img src="{{ $post->image_url }}" alt="image" class="w-full transition group-hover:rotate-6 group-hover:scale-125">
                                 </a>
-                            </li>
-                        </ul>
+                            </div>
+                            <div>
+                                <span class="mb-5 inline-block rounded bg-primary py-1 px-4 text-center text-xs font-semibold leading-loose text-white">
+                                  {{ $post->humanized_created_at }}
+                                </span>
+                                <h3>
+                                    <a href="{{ $post->url }}" class="mb-4 inline-block text-xl font-semibold text-dark hover:text-primary sm:text-2xl lg:text-xl xl:text-2xl">
+                                        {{ $post->title }}
+                                    </a>
+                                </h3>
+                                <p class="text-base text-body-color">
+                                    {!! $post->short_description !!}
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
-    <!-- ====== 404 Section End -->
+    <!-- ====== Products Section End -->
 @endsection
