@@ -57,7 +57,13 @@ class Post extends Resource
             BelongsTo::make('User'),
 
             Text::make('Url', function () {
-                return "<a href='{$this->url}'>Go to the Post</a>";
+                foreach ($this->translations as $translation) {
+                    if (!empty($this->translateOrNew($translation->locale)->slug)) {
+                        $link = route('posts.show', $this->translateOrNew($translation->locale)->slug);
+                        return "<a href='{$link}'>Go to the Post</a>";
+                    }
+                }
+                return "No Link!";
             })
                 ->asHtml()
                 ->showOnIndex()

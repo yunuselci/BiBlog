@@ -24,7 +24,9 @@
             <div class="flex flex-wrap items-center -mx-4">
                 <div class="w-full px-4">
                     <div class="text-center">
+                        @if($post->published)
                         <h1 class="font-semibold text-white text-4xl">{{ $post->title }}</h1>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -96,8 +98,9 @@
         </div>
     </div>
     <!-- ====== Banner Section End -->
+    @if($post->published)
 
-    <!-- ====== Blog Details Section Start -->
+        <!-- ====== Blog Details Section Start -->
     <section class="pt-20 lg:pt-[120px] pb-10 lg:pb-20">
         <div class="container">
             <div class="flex flex-wrap justify-center -mx-4">
@@ -402,6 +405,8 @@
         </div>
     </section>
     <!-- ====== Blog Details Section End -->
+    @endif
+
 @endsection
 
 @push('js')

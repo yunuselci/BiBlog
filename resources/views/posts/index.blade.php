@@ -98,7 +98,7 @@
         <div class="container">
             <div class="flex flex-wrap -mx-4">
                 @foreach($posts as $post)
-                    @if(!blank($post->url))
+                    @if(!blank($post->url) && $post->published)
                     <div class="w-full px-4 md:w-1/2 lg:w-1/3">
                         <div class="wow fadeInUp group mb-10" data-wow-delay=".1s" style="visibility: visible; animation-delay: 0.1s;">
                             <div class="mb-8 overflow-hidden rounded">
