@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Translations\PostTranslation;
 use Illuminate\Support\Facades\Session;
 
 class PostController extends Controller
@@ -18,6 +19,7 @@ class PostController extends Controller
 
     public function show($slug)
     {
+
         $post = Post::query()
             ->whereTranslation('slug', $slug)
             ->isPublished()
@@ -41,7 +43,7 @@ class PostController extends Controller
 
     private function incrementViewCount(Post $post)
     {
-        $key = 'post_'.$post->id;
+        $key = 'post_' . $post->id;
         if (!Session::has($key)) {
             $post->increment('view_count');
 

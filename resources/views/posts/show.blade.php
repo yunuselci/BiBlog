@@ -257,7 +257,8 @@
                                               {{ __('Share This Post') }}
                                             </span>
                                             <div class="flex items-center">
-                                                <a href="https://www.facebook.com/sharer/sharer.php?u={{ $post->url }}" target="_blank" rel="nofollow noreferrer" class="mr-4 mb-2">
+                                                <a href="https://www.facebook.com/sharer/sharer.php?u={{ $post->url }}"
+                                                   target="_blank" rel="nofollow noreferrer" class="mr-4 mb-2">
                                                     <svg
                                                         width="32"
                                                         height="32"
@@ -275,7 +276,8 @@
                                                         />
                                                     </svg>
                                                 </a>
-                                                <a href="https://twitter.com/intent/tweet?text={{ $post->title }}&url={{ $post->url }}" target="_blank" rel="nofollow noreferrer" class="mr-4 mb-2">
+                                                <a href="https://twitter.com/intent/tweet?text={{ $post->title }}&url={{ $post->url }}"
+                                                   target="_blank" rel="nofollow noreferrer" class="mr-4 mb-2">
                                                     <svg
                                                         width="32"
                                                         height="33"
@@ -291,7 +293,8 @@
                                                         />
                                                     </svg>
                                                 </a>
-                                                <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ $post->url }}" target="_blank" rel="nofollow noreferrer" class="mb-2">
+                                                <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ $post->url }}"
+                                                   target="_blank" rel="nofollow noreferrer" class="mb-2">
                                                     <svg
                                                         width="33"
                                                         height="32"
@@ -318,38 +321,39 @@
             </div>
 
             @if(!$relatedPosts->isEmpty())
-            <div class="flex flex-wrap -mx-4">
-                <div class="w-full px-4 mt-14 wow fadeInUp" data-wow-delay=".2s">
-                    <h2
-                        class="
+                <div class="flex flex-wrap -mx-4">
+                    <div class="w-full px-4 mt-14 wow fadeInUp" data-wow-delay=".2s">
+                        <h2
+                            class="
                             font-semibold
                             text-dark text-2xl
                             sm:text-[28px]
                             pb-5
                             relative
                           "
-                    >
-                        {{ __('Related Articles') }}
-                    </h2>
-                    <span class="h-[2px] bg-primary w-20 mb-10 inline-block"></span>
-                </div>
-                @foreach($relatedPosts as $relatedPost)
-                <div class="w-full md:w-1/2 lg:w-1/3 px-4">
-                    <div class="mb-10 group wow fadeInUp" data-wow-delay=".1s">
-                        <div class="rounded overflow-hidden mb-8">
-                            <a href="{{ $relatedPost->url }}" class="block">
-                                <img
-                                    src="{{ $relatedPost->image_url }}"
-                                    alt="image"
-                                    class="
+                        >
+                            {{ __('Related Articles') }}
+                        </h2>
+                        <span class="h-[2px] bg-primary w-20 mb-10 inline-block"></span>
+                    </div>
+                    @foreach($relatedPosts as $relatedPost)
+                        @if(!blank($relatedPost->url))
+                            <div class="w-full md:w-1/2 lg:w-1/3 px-4">
+                                <div class="mb-10 group wow fadeInUp" data-wow-delay=".1s">
+                                    <div class="rounded overflow-hidden mb-8">
+                                        <a href="{{ $relatedPost->url }}" class="block">
+                                            <img
+                                                src="{{ $relatedPost->image_url }}"
+                                                alt="image"
+                                                class="
                                       w-full
                                       transition
                                       group-hover:scale-125 group-hover:rotate-6
                                     "
-                                />
-                            </a>
-                        </div>
-                        <div>
+                                            />
+                                        </a>
+                                    </div>
+                                    <div>
                             <span
                                 class="
                                 bg-primary
@@ -367,10 +371,10 @@
                             >
                               {{ $relatedPost->humanized_created_at }}
                             </span>
-                            <h3>
-                                <a
-                                    href="blog-details.html"
-                                    class="
+                                        <h3>
+                                            <a
+                                                href="{{ $relatedPost->url }}"
+                                                class="
                                       font-semibold
                                       text-xl
                                       sm:text-2xl
@@ -381,18 +385,19 @@
                                       text-dark
                                       hover:text-primary
                                     "
-                                >
-                                    {{ $relatedPost->title }}
-                                </a>
-                            </h3>
-                            <p class="text-base text-body-color">
-                                {{ $relatedPost->short_description }}
-                            </p>
-                        </div>
-                    </div>
+                                            >
+                                                {{ $relatedPost->title }}
+                                            </a>
+                                        </h3>
+                                        <p class="text-base text-body-color">
+                                            {{ $relatedPost->short_description }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+                    @endforeach
                 </div>
-                @endforeach
-            </div>
             @endif
         </div>
     </section>
