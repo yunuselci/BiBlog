@@ -18,7 +18,6 @@ return new class extends Migration
             $table->foreignId('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('image');
-            $table->string('link')->nullable();
             $table->integer('view_count')->default(0);
             $table->timestamps();
         });

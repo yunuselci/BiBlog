@@ -81,9 +81,6 @@ class Post extends Resource
                 ->withFiles('public')
                 ->rules('required'),
 
-            Text::make('Link')
-                ->nullable(),
-
             Translatable::make(__('Published (1 True/ 0 False)'), 'published')
                 ->nullable()
                 ->singleLine(),
