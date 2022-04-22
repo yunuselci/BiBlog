@@ -7,7 +7,10 @@
     {{ $post->title }}
 @endsection
 @section('content')
-    @if($post->published)
+    @if(!$post->published)
+        <script>window.location = "/";</script>
+    @else
+
         <!-- ====== Banner Section Start -->
         <div
             class="
@@ -403,8 +406,6 @@
             </div>
         </section>
         <!-- ====== Blog Details Section End -->
-    @else
-        <script>window.location = "/";</script>
     @endif
 
 @endsection
