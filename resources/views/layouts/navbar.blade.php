@@ -61,7 +61,7 @@
                   lg:block lg:static lg:shadow-none
                 "
                     >
-                        <ul class="blcok lg:flex justify-between">
+                        <ul class="block lg:flex justify-between">
                             <li class="relative group">
                                 <a
                                     href="{{ route('home') }}"
@@ -124,7 +124,7 @@
                                         w-[250px]
                                         top-full
                                         lg:top-[110%]
-                                        left-0
+                                        right-0
                                         rounded-sm
                                         lg:shadow-lg
                                         py-1
