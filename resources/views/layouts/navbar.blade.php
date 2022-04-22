@@ -139,7 +139,7 @@
                                       "
                                 >
                                     <a
-                                        href="/tr"
+                                        href="{{ LaravelLocalization::getLocalizedURL('tr', null, [] ,true) }}"
                                         class="
                                           block
                                           text-sm text-body-color
@@ -152,7 +152,7 @@
                                         Türkçe
                                     </a>
                                     <a
-                                        href="/en"
+                                        href="{{ LaravelLocalization::getLocalizedURL('en', null, [] ,true) }}"
                                         class="
                                           block
                                           text-sm text-body-color
