@@ -43,7 +43,9 @@ class Post extends Model implements TranslatableContract
 
     public function getUrlAttribute()
     {
-        return route('posts.show', [$this->slug]);
+        if (!blank($this->slug)){
+            return route('posts.show', $this->slug);
+        }
     }
 
     public function getHumanizedCreatedAtAttribute()
