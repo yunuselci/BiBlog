@@ -7,9 +7,10 @@
     {{ $post->title }}
 @endsection
 @section('content')
-    <!-- ====== Banner Section Start -->
-    <div
-        class="
+    @if($post->published)
+        <!-- ====== Banner Section Start -->
+        <div
+            class="
         relative
         z-10
         pt-[120px]
@@ -19,19 +20,17 @@
         bg-black
         overflow-hidden
       "
-    >
-        <div class="container">
-            <div class="flex flex-wrap items-center -mx-4">
-                <div class="w-full px-4">
-                    <div class="text-center">
-                        @if($post->published)
-                        <h1 class="font-semibold text-white text-4xl">{{ $post->title }}</h1>
-                        @endif
+        >
+            <div class="container">
+                <div class="flex flex-wrap items-center -mx-4">
+                    <div class="w-full px-4">
+                        <div class="text-center">
+                            <h1 class="font-semibold text-white text-4xl">{{ $post->title }}</h1>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div>
+            <div>
         <span class="absolute top-0 left-0 z-[-1]">
           <svg
               width="495"
@@ -63,7 +62,7 @@
             />
           </svg>
         </span>
-            <span class="absolute top-0 right-0 z-[-1]">
+                <span class="absolute top-0 right-0 z-[-1]">
           <svg
               width="493"
               height="470"
@@ -95,18 +94,17 @@
             />
           </svg>
         </span>
+            </div>
         </div>
-    </div>
-    <!-- ====== Banner Section End -->
-    @if($post->published)
+        <!-- ====== Banner Section End -->
 
         <!-- ====== Blog Details Section Start -->
-    <section class="pt-20 lg:pt-[120px] pb-10 lg:pb-20">
-        <div class="container">
-            <div class="flex flex-wrap justify-center -mx-4">
-                <div class="w-full px-4">
-                    <div
-                        class="
+        <section class="pt-20 lg:pt-[120px] pb-10 lg:pb-20">
+            <div class="container">
+                <div class="flex flex-wrap justify-center -mx-4">
+                    <div class="w-full px-4">
+                        <div
+                            class="
                 relative
                 rounded
                 overflow-hidden
@@ -118,16 +116,16 @@
                 wow
                 fadeInUp
               "
-                        data-wow-delay=".1s
+                            data-wow-delay=".1s
               "
-                    >
-                        <img
-                            src="{{ $post->image_url }}"
-                            alt="image"
-                            class="w-full h-full object-cover object-center"
-                        />
-                        <div
-                            class="
+                        >
+                            <img
+                                src="{{ $post->image_url }}"
+                                alt="image"
+                                class="w-full h-full object-cover object-center"
+                            />
+                            <div
+                                class="
                   absolute
                   w-full
                   h-full
@@ -140,23 +138,23 @@
                   from-dark-700
                   to-transparent
                 "
-                        >
-                            <div class="flex flex-wrap items-center p-4 sm:p-8 pb-4">
-                                <div class="flex items-center mb-4 mr-5 md:mr-10">
-                                    <div class="w-10 h-10 rounded-full overflow-hidden mr-4">
-                                        <img
-                                            src="https://media-exp1.licdn.com/dms/image/C5603AQF9oO-6y3m-yw/profile-displayphoto-shrink_100_100/0/1516524095090?e=1655942400&v=beta&t=Ebq7ke8De8y1KW5T5QtbXyTe-eLetC4Fd7Nt6CpxaeQ"
-                                            alt="image"
-                                            class="w-full"
-                                        />
+                            >
+                                <div class="flex flex-wrap items-center p-4 sm:p-8 pb-4">
+                                    <div class="flex items-center mb-4 mr-5 md:mr-10">
+                                        <div class="w-10 h-10 rounded-full overflow-hidden mr-4">
+                                            <img
+                                                src="https://media-exp1.licdn.com/dms/image/C5603AQF9oO-6y3m-yw/profile-displayphoto-shrink_100_100/0/1516524095090?e=1655942400&v=beta&t=Ebq7ke8De8y1KW5T5QtbXyTe-eLetC4Fd7Nt6CpxaeQ"
+                                                alt="image"
+                                                class="w-full"
+                                            />
+                                        </div>
+                                        <p class="text-base text-white font-medium">
+                                            By Güven Atbakan
+                                        </p>
                                     </div>
-                                    <p class="text-base text-white font-medium">
-                                        By Güven Atbakan
-                                    </p>
-                                </div>
-                                <div class="flex items-center mb-4">
-                                    <p
-                                        class="
+                                    <div class="flex items-center mb-4">
+                                        <p
+                                            class="
                                             flex
                                             items-center
                                             text-sm
@@ -165,7 +163,7 @@
                                             mr-5
                                             md:mr-8
                                           "
-                                    >
+                                        >
                                       <span class="mr-3">
                                         <svg
                                             width="15"
@@ -202,10 +200,10 @@
                                           />
                                         </svg>
                                       </span>
-                                        {{ $post->humanized_created_at }}
-                                    </p>
+                                            {{ $post->humanized_created_at }}
+                                        </p>
 
-                                    <p class="flex items-center text-sm font-medium text-white">
+                                        <p class="flex items-center text-sm font-medium text-white">
                                       <span class="mr-3">
                                         <svg
                                             width="20"
@@ -221,17 +219,17 @@
                                           />
                                         </svg>
                                       </span>
-                                        {{ $post->view_count }}
-                                    </p>
+                                            {{ $post->view_count }}
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="flex flex-wrap -mx-4">
-                        <div class="w-full px-4">
-                            <div>
-                                <h2
-                                    class="
+                        <div class="flex flex-wrap -mx-4">
+                            <div class="w-full px-4">
+                                <div>
+                                    <h2
+                                        class="
                                       font-bold
                                       text-dark text-[26px]
                                       sm:text-3xl
@@ -243,76 +241,77 @@
                                       wow
                                       fadeInUp
                                     "
-                                    data-wow-delay=".1s"
-                                >
-                                    {{ $post->title }}
-                                </h2>
-                                <div class="prose max-w-full mb-8 wow fadeInUp" data-wow-delay=".1s">
-                                    {!! $post->markdown !!}
-                                </div>
-                                <div class="flex flex-wrap items-center -mx-4 mb-12">
-                                    <div class="w-full px-4">
-                                        <div
-                                            class="flex items-center md:justify-end wow fadeInUp"
-                                            data-wow-delay=".1s"
-                                        >
+                                        data-wow-delay=".1s"
+                                    >
+                                        {{ $post->title }}
+                                    </h2>
+                                    <div class="prose max-w-full mb-8 wow fadeInUp" data-wow-delay=".1s">
+                                        {!! $post->markdown !!}
+                                    </div>
+                                    <div class="flex flex-wrap items-center -mx-4 mb-12">
+                                        <div class="w-full px-4">
+                                            <div
+                                                class="flex items-center md:justify-end wow fadeInUp"
+                                                data-wow-delay=".1s"
+                                            >
                                             <span class="text-sm text-body-color font-medium mr-5">
                                               {{ __('Share This Post') }}
                                             </span>
-                                            <div class="flex items-center">
-                                                <a href="https://www.facebook.com/sharer/sharer.php?u={{ $post->url }}"
-                                                   target="_blank" rel="nofollow noreferrer" class="mr-4 mb-2">
-                                                    <svg
-                                                        width="32"
-                                                        height="32"
-                                                        viewBox="0 0 32 32"
-                                                        fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                    >
-                                                        <path
-                                                            d="M0 16C0 7.16344 7.16344 0 16 0C24.8366 0 32 7.16344 32 16C32 24.8366 24.8366 32 16 32C7.16344 32 0 24.8366 0 16Z"
-                                                            fill="#4064AC"
-                                                        />
-                                                        <path
-                                                            d="M19.439 14.4H18.1992H17.7564V13.8839V12.2839V11.7677H18.1992H19.1291C19.3726 11.7677 19.5719 11.5613 19.5719 11.2516V8.51613C19.5719 8.23226 19.3947 8 19.1291 8H17.5128C15.7638 8 14.5461 9.44516 14.5461 11.5871V13.8323V14.3484H14.1033H12.5978C12.2878 14.3484 12 14.6323 12 15.0452V16.9032C12 17.2645 12.2435 17.6 12.5978 17.6H14.059H14.5018V18.1161V23.3032C14.5018 23.6645 14.7454 24 15.0996 24H17.1807C17.3136 24 17.4243 23.9226 17.5128 23.8194C17.6014 23.7161 17.6678 23.5355 17.6678 23.3806V18.1419V17.6258H18.1328H19.1291C19.4169 17.6258 19.6383 17.4194 19.6826 17.1097V17.0839V17.0581L19.9925 15.2774C20.0147 15.0968 19.9925 14.8903 19.8597 14.6839C19.8154 14.5548 19.6161 14.4258 19.439 14.4Z"
-                                                            fill="white"
-                                                        />
-                                                    </svg>
-                                                </a>
-                                                <a href="https://twitter.com/intent/tweet?text={{ $post->title }}&url={{ $post->url }}"
-                                                   target="_blank" rel="nofollow noreferrer" class="mr-4 mb-2">
-                                                    <svg
-                                                        width="32"
-                                                        height="33"
-                                                        viewBox="0 0 32 33"
-                                                        fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                    >
-                                                        <path
-                                                            fill-rule="evenodd"
-                                                            clip-rule="evenodd"
-                                                            d="M32 16.7347C32 25.5713 24.8366 32.7347 16 32.7347C7.16344 32.7347 0 25.5713 0 16.7347C0 7.89818 7.16344 0.734741 16 0.734741C24.8366 0.734741 32 7.89818 32 16.7347ZM23.6036 12.8349C24.3771 12.7431 25.1147 12.5375 25.8004 12.2334C25.2878 13.0004 24.6395 13.6738 23.8917 14.2128C23.8991 14.3765 23.9028 14.5417 23.9028 14.7074C23.9028 19.7617 20.0558 25.5892 13.0213 25.5892C10.8616 25.5892 8.85088 24.9563 7.15927 23.8708C7.45789 23.9064 7.76307 23.9244 8.07111 23.9244C9.8634 23.9244 11.5122 23.3132 12.8214 22.2873C11.1474 22.2562 9.73534 21.1504 9.24876 19.6313C9.48206 19.6758 9.72136 19.6995 9.96836 19.6995C10.3166 19.6995 10.6552 19.653 10.9757 19.5652C9.22651 19.2141 7.90768 17.6685 7.90768 15.8154C7.90768 15.7995 7.90768 15.7832 7.90796 15.767C8.42335 16.0542 9.01346 16.2262 9.64007 16.2458C8.61444 15.5602 7.93876 14.3891 7.93876 13.0625C7.93876 12.3618 8.12758 11.7044 8.45672 11.1396C10.3431 13.4541 13.1613 14.9766 16.3398 15.1361C16.2742 14.856 16.2402 14.5642 16.2402 14.2644C16.2402 12.1527 17.953 10.44 20.0647 10.44C21.1653 10.44 22.1593 10.9043 22.8569 11.6473C23.7277 11.4759 24.5466 11.1579 25.2856 10.7195C24.9995 11.6131 24.3934 12.3618 23.6036 12.8349Z"
-                                                            fill="#55ACEE"
-                                                        />
-                                                    </svg>
-                                                </a>
-                                                <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ $post->url }}"
-                                                   target="_blank" rel="nofollow noreferrer" class="mb-2">
-                                                    <svg
-                                                        width="33"
-                                                        height="32"
-                                                        viewBox="0 0 33 32"
-                                                        fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                    >
-                                                        <path
-                                                            fill-rule="evenodd"
-                                                            clip-rule="evenodd"
-                                                            d="M32.7861 16C32.7861 24.8366 25.6227 32 16.7861 32C7.94958 32 0.786133 24.8366 0.786133 16C0.786133 7.16344 7.94958 0 16.7861 0C25.6227 0 32.7861 7.16344 32.7861 16ZM8.50669 8.82376C8.50669 7.69545 9.36262 6.83666 10.6709 6.83666C11.9795 6.83666 12.7835 7.69545 12.8089 8.82376C12.8089 9.92811 11.9795 10.8117 10.6455 10.8117H10.6207C9.33781 10.8117 8.50669 9.92811 8.50669 8.82376ZM26.3457 23.884V17.2875C26.3457 13.7551 24.4593 12.1112 21.9431 12.1112C19.9109 12.1112 19.0045 13.2292 18.4963 14.0113V12.3813H14.6712C14.7226 13.4602 14.6712 23.8837 14.6712 23.8837H18.496V17.4595C18.496 17.1147 18.5219 16.7733 18.6226 16.5274C18.8998 15.8395 19.5276 15.129 20.5843 15.129C21.969 15.129 22.5212 16.1843 22.5212 17.7296V23.884H26.3457ZM18.4963 14.0113V14.0489H18.4709C18.4745 14.0424 18.4793 14.0358 18.4841 14.0292L18.4841 14.0291C18.4883 14.0232 18.4926 14.0173 18.4963 14.0113ZM8.73421 23.8839H12.5575V12.3812H8.73421V23.8839Z"
-                                                            fill="#007AB9"
-                                                        />
-                                                    </svg>
-                                                </a>
+                                                <div class="flex items-center">
+                                                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ $post->url }}"
+                                                       target="_blank" rel="nofollow noreferrer" class="mr-4 mb-2">
+                                                        <svg
+                                                            width="32"
+                                                            height="32"
+                                                            viewBox="0 0 32 32"
+                                                            fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                        >
+                                                            <path
+                                                                d="M0 16C0 7.16344 7.16344 0 16 0C24.8366 0 32 7.16344 32 16C32 24.8366 24.8366 32 16 32C7.16344 32 0 24.8366 0 16Z"
+                                                                fill="#4064AC"
+                                                            />
+                                                            <path
+                                                                d="M19.439 14.4H18.1992H17.7564V13.8839V12.2839V11.7677H18.1992H19.1291C19.3726 11.7677 19.5719 11.5613 19.5719 11.2516V8.51613C19.5719 8.23226 19.3947 8 19.1291 8H17.5128C15.7638 8 14.5461 9.44516 14.5461 11.5871V13.8323V14.3484H14.1033H12.5978C12.2878 14.3484 12 14.6323 12 15.0452V16.9032C12 17.2645 12.2435 17.6 12.5978 17.6H14.059H14.5018V18.1161V23.3032C14.5018 23.6645 14.7454 24 15.0996 24H17.1807C17.3136 24 17.4243 23.9226 17.5128 23.8194C17.6014 23.7161 17.6678 23.5355 17.6678 23.3806V18.1419V17.6258H18.1328H19.1291C19.4169 17.6258 19.6383 17.4194 19.6826 17.1097V17.0839V17.0581L19.9925 15.2774C20.0147 15.0968 19.9925 14.8903 19.8597 14.6839C19.8154 14.5548 19.6161 14.4258 19.439 14.4Z"
+                                                                fill="white"
+                                                            />
+                                                        </svg>
+                                                    </a>
+                                                    <a href="https://twitter.com/intent/tweet?text={{ $post->title }}&url={{ $post->url }}"
+                                                       target="_blank" rel="nofollow noreferrer" class="mr-4 mb-2">
+                                                        <svg
+                                                            width="32"
+                                                            height="33"
+                                                            viewBox="0 0 32 33"
+                                                            fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                        >
+                                                            <path
+                                                                fill-rule="evenodd"
+                                                                clip-rule="evenodd"
+                                                                d="M32 16.7347C32 25.5713 24.8366 32.7347 16 32.7347C7.16344 32.7347 0 25.5713 0 16.7347C0 7.89818 7.16344 0.734741 16 0.734741C24.8366 0.734741 32 7.89818 32 16.7347ZM23.6036 12.8349C24.3771 12.7431 25.1147 12.5375 25.8004 12.2334C25.2878 13.0004 24.6395 13.6738 23.8917 14.2128C23.8991 14.3765 23.9028 14.5417 23.9028 14.7074C23.9028 19.7617 20.0558 25.5892 13.0213 25.5892C10.8616 25.5892 8.85088 24.9563 7.15927 23.8708C7.45789 23.9064 7.76307 23.9244 8.07111 23.9244C9.8634 23.9244 11.5122 23.3132 12.8214 22.2873C11.1474 22.2562 9.73534 21.1504 9.24876 19.6313C9.48206 19.6758 9.72136 19.6995 9.96836 19.6995C10.3166 19.6995 10.6552 19.653 10.9757 19.5652C9.22651 19.2141 7.90768 17.6685 7.90768 15.8154C7.90768 15.7995 7.90768 15.7832 7.90796 15.767C8.42335 16.0542 9.01346 16.2262 9.64007 16.2458C8.61444 15.5602 7.93876 14.3891 7.93876 13.0625C7.93876 12.3618 8.12758 11.7044 8.45672 11.1396C10.3431 13.4541 13.1613 14.9766 16.3398 15.1361C16.2742 14.856 16.2402 14.5642 16.2402 14.2644C16.2402 12.1527 17.953 10.44 20.0647 10.44C21.1653 10.44 22.1593 10.9043 22.8569 11.6473C23.7277 11.4759 24.5466 11.1579 25.2856 10.7195C24.9995 11.6131 24.3934 12.3618 23.6036 12.8349Z"
+                                                                fill="#55ACEE"
+                                                            />
+                                                        </svg>
+                                                    </a>
+                                                    <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ $post->url }}"
+                                                       target="_blank" rel="nofollow noreferrer" class="mb-2">
+                                                        <svg
+                                                            width="33"
+                                                            height="32"
+                                                            viewBox="0 0 33 32"
+                                                            fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                        >
+                                                            <path
+                                                                fill-rule="evenodd"
+                                                                clip-rule="evenodd"
+                                                                d="M32.7861 16C32.7861 24.8366 25.6227 32 16.7861 32C7.94958 32 0.786133 24.8366 0.786133 16C0.786133 7.16344 7.94958 0 16.7861 0C25.6227 0 32.7861 7.16344 32.7861 16ZM8.50669 8.82376C8.50669 7.69545 9.36262 6.83666 10.6709 6.83666C11.9795 6.83666 12.7835 7.69545 12.8089 8.82376C12.8089 9.92811 11.9795 10.8117 10.6455 10.8117H10.6207C9.33781 10.8117 8.50669 9.92811 8.50669 8.82376ZM26.3457 23.884V17.2875C26.3457 13.7551 24.4593 12.1112 21.9431 12.1112C19.9109 12.1112 19.0045 13.2292 18.4963 14.0113V12.3813H14.6712C14.7226 13.4602 14.6712 23.8837 14.6712 23.8837H18.496V17.4595C18.496 17.1147 18.5219 16.7733 18.6226 16.5274C18.8998 15.8395 19.5276 15.129 20.5843 15.129C21.969 15.129 22.5212 16.1843 22.5212 17.7296V23.884H26.3457ZM18.4963 14.0113V14.0489H18.4709C18.4745 14.0424 18.4793 14.0358 18.4841 14.0292L18.4841 14.0291C18.4883 14.0232 18.4926 14.0173 18.4963 14.0113ZM8.73421 23.8839H12.5575V12.3812H8.73421V23.8839Z"
+                                                                fill="#007AB9"
+                                                            />
+                                                        </svg>
+                                                    </a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -321,42 +320,41 @@
                         </div>
                     </div>
                 </div>
-            </div>
 
-            @if(!$relatedPosts->isEmpty())
-                <div class="flex flex-wrap -mx-4">
-                    <div class="w-full px-4 mt-14 wow fadeInUp" data-wow-delay=".2s">
-                        <h2
-                            class="
+                @if(!$relatedPosts->isEmpty())
+                    <div class="flex flex-wrap -mx-4">
+                        <div class="w-full px-4 mt-14 wow fadeInUp" data-wow-delay=".2s">
+                            <h2
+                                class="
                             font-semibold
                             text-dark text-2xl
                             sm:text-[28px]
                             pb-5
                             relative
                           "
-                        >
-                            {{ __('Related Articles') }}
-                        </h2>
-                        <span class="h-[2px] bg-primary w-20 mb-10 inline-block"></span>
-                    </div>
-                    @foreach($relatedPosts as $relatedPost)
-                        @if(!blank($relatedPost->url))
-                            <div class="w-full md:w-1/2 lg:w-1/3 px-4">
-                                <div class="mb-10 group wow fadeInUp" data-wow-delay=".1s">
-                                    <div class="rounded overflow-hidden mb-8">
-                                        <a href="{{ $relatedPost->url }}" class="block">
-                                            <img
-                                                src="{{ $relatedPost->image_url }}"
-                                                alt="image"
-                                                class="
+                            >
+                                {{ __('Related Articles') }}
+                            </h2>
+                            <span class="h-[2px] bg-primary w-20 mb-10 inline-block"></span>
+                        </div>
+                        @foreach($relatedPosts as $relatedPost)
+                            @if(!blank($relatedPost->url))
+                                <div class="w-full md:w-1/2 lg:w-1/3 px-4">
+                                    <div class="mb-10 group wow fadeInUp" data-wow-delay=".1s">
+                                        <div class="rounded overflow-hidden mb-8">
+                                            <a href="{{ $relatedPost->url }}" class="block">
+                                                <img
+                                                    src="{{ $relatedPost->image_url }}"
+                                                    alt="image"
+                                                    class="
                                       w-full
                                       transition
                                       group-hover:scale-125 group-hover:rotate-6
                                     "
-                                            />
-                                        </a>
-                                    </div>
-                                    <div>
+                                                />
+                                            </a>
+                                        </div>
+                                        <div>
                             <span
                                 class="
                                 bg-primary
@@ -374,10 +372,10 @@
                             >
                               {{ $relatedPost->humanized_created_at }}
                             </span>
-                                        <h3>
-                                            <a
-                                                href="{{ $relatedPost->url }}"
-                                                class="
+                                            <h3>
+                                                <a
+                                                    href="{{ $relatedPost->url }}"
+                                                    class="
                                       font-semibold
                                       text-xl
                                       sm:text-2xl
@@ -388,23 +386,25 @@
                                       text-dark
                                       hover:text-primary
                                     "
-                                            >
-                                                {{ $relatedPost->title }}
-                                            </a>
-                                        </h3>
-                                        <p class="text-base text-body-color">
-                                            {{ $relatedPost->short_description }}
-                                        </p>
+                                                >
+                                                    {{ $relatedPost->title }}
+                                                </a>
+                                            </h3>
+                                            <p class="text-base text-body-color">
+                                                {{ $relatedPost->short_description }}
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        @endif
-                    @endforeach
-                </div>
-            @endif
-        </div>
-    </section>
-    <!-- ====== Blog Details Section End -->
+                            @endif
+                        @endforeach
+                    </div>
+                @endif
+            </div>
+        </section>
+        <!-- ====== Blog Details Section End -->
+    @else
+        <script>window.location = "/";</script>
     @endif
 
 @endsection
