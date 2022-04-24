@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Post;
+use App\Models\User;
 use App\Observers\PostObserver;
 use Illuminate\Support\Facades\Gate;
 use Laravel\Nova\Cards\Help;
@@ -49,8 +50,10 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
      */
     protected function gate()
     {
-        Gate::define('viewNova', function ($user) {
+        //TODO: make more meaningful gate for nova users
+        Gate::define('viewNova', function (?User $user) {
             return in_array($user->email, [
+                'guvenatbakan@gmail.com',
             ]);
         });
     }
