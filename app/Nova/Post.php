@@ -4,6 +4,7 @@ namespace App\Nova;
 
 use App\Models\User;
 use Ek0519\Quilljs\Quilljs;
+use Ganyicz\NovaCallbacks\HasCallbacks;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
@@ -13,8 +14,6 @@ use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use YesWeDev\Nova\Translatable\Translatable;
-use Ganyicz\NovaCallbacks\HasCallbacks;
-
 
 class Post extends Resource
 {
@@ -59,10 +58,12 @@ class Post extends Resource
                 foreach ($this->translations as $translation) {
                     if (!empty($this->translateOrNew($translation->locale)->slug)) {
                         $link = route('posts.show', $this->translateOrNew($translation->locale)->slug);
+
                         return "<a href='{$link}'>Go to the Post</a>";
                     }
                 }
-                return "No Link!";
+
+                return 'No Link!';
             })
                 ->asHtml()
                 ->showOnIndex()
@@ -73,14 +74,15 @@ class Post extends Resource
                 ->rules('required'),
 
             Translatable::make('Subtitle')
-                ->singleLine(),
+                ->nullable(),
 
             Translatable::make('Slug')
-                ->singleLine(),
+                ->singleLine()
+                ->nullable(),
 
             Image::make('Image')
                 ->disk('public')
-                ->required(),
+                ->nullable(),
 
             Quilljs::make('Description')
                 ->withFiles('public')
@@ -93,7 +95,6 @@ class Post extends Resource
             Translatable::make(__('Publish to Dev.to (1 True/ 0 False)'), 'publish_to_dev_to')
                 ->nullable()
                 ->singleLine(),
-
         ];
     }
 
@@ -159,36 +160,35 @@ class Post extends Resource
             if (blank($post->translations)) {
                 $response = Http::withHeaders([
                     'api-key' => $secret,
-                    'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.96 Safari/537.36'
+                    'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.96 Safari/537.36',
                 ])->post('https://dev.to/api/articles', [
                     'article' => [
                         'title' => $post->title,
                         'published' => $post->publish_to_dev_to,
-                        'body_markdown' => $post->description
-                    ]
+                        'body_markdown' => $post->description,
+                    ],
                 ]);
                 $post->dev_to_article_id = $response['id'];
                 $post->save();
             } else {
                 foreach ($post->translations as $translation) {
-                    //Create an article on dev.to
+                    // Create an article on dev.to
 
                     $response = Http::withHeaders([
                         'api-key' => $secret,
-                        'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.96 Safari/537.36'
+                        'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.96 Safari/537.36',
                     ])->post('https://dev.to/api/articles', [
                         'article' => [
                             'title' => $post->translateOrNew($translation->locale)->title,
                             'published' => $post->translateOrNew($translation->locale)->publish_to_dev_to,
-                            'body_markdown' => $post->translateOrNew($translation->locale)->description
-                        ]
+                            'body_markdown' => $post->translateOrNew($translation->locale)->description,
+                        ],
                     ]);
                     $post->translateOrNew($translation->locale)->dev_to_article_id = $response['id'];
                     $post->save();
                 }
             }
         }
-
     }
 
     public static function updatePostOnDevTo(Model $post)
@@ -196,22 +196,19 @@ class Post extends Resource
         $secret = User::pluck('dev_to_secret')[0];
         if (!blank($secret)) {
             foreach ($post->translations as $translation) {
-
-                //Update an article on dev.to
+                // Update an article on dev.to
 
                 Http::withHeaders([
                     'api-key' => $secret,
-                    'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.96 Safari/537.36'
-                ])->put('https://dev.to/api/articles/' . $post->translateOrNew($translation->locale)->dev_to_article_id, [
+                    'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.96 Safari/537.36',
+                ])->put('https://dev.to/api/articles/'.$post->translateOrNew($translation->locale)->dev_to_article_id, [
                     'article' => [
                         'title' => $post->translateOrNew($translation->locale)->title,
                         'published' => $post->translateOrNew($translation->locale)->publish_to_dev_to,
-                        'body_markdown' => $post->translateOrNew($translation->locale)->description
-                    ]
+                        'body_markdown' => $post->translateOrNew($translation->locale)->description,
+                    ],
                 ]);
-
             }
-
         }
     }
 }

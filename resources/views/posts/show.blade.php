@@ -106,6 +106,7 @@
             <div class="container">
                 <div class="flex flex-wrap justify-center -mx-4">
                     <div class="w-full px-4">
+                        @if(!blank($post->image_url))
                         <div
                             class="
                 relative
@@ -228,6 +229,7 @@
                                 </div>
                             </div>
                         </div>
+                        @endif
                         <div class="flex flex-wrap -mx-4">
                             <div class="w-full px-4">
                                 <div>
@@ -344,10 +346,11 @@
                             @if(!blank($relatedPost->url))
                                 <div class="w-full md:w-1/2 lg:w-1/3 px-4">
                                     <div class="mb-10 group wow fadeInUp" data-wow-delay=".1s">
+                                        @if(!blank($relatedPost->image_url))
                                         <div class="rounded overflow-hidden mb-8">
                                             <a href="{{ $relatedPost->url }}" class="block">
                                                 <img
-                                                    src="{{ $relatedPost->image_url }}"
+                                                    src="{{ $relatedPost->image_url  }}"
                                                     alt="image"
                                                     class="
                                       w-full
@@ -357,6 +360,7 @@
                                                 />
                                             </a>
                                         </div>
+                                        @endif
                                         <div>
                             <span
                                 class="

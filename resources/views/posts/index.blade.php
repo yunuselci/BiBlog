@@ -101,11 +101,13 @@
                     @if(!blank($post->url) && $post->published)
                     <div class="w-full px-4 md:w-1/2 lg:w-1/3">
                         <div class="wow fadeInUp group mb-10" data-wow-delay=".1s" style="visibility: visible; animation-delay: 0.1s;">
+                            @if(!blank($post->image_url))
                             <div class="mb-8 overflow-hidden rounded">
                                 <a href="{{ $post->url }}" class="block">
                                     <img src="{{ $post->image_url }}" alt="image" class="w-full transition group-hover:rotate-6 group-hover:scale-125">
                                 </a>
                             </div>
+                            @endif
                             <div>
                                 <span class="mb-5 inline-block rounded bg-primary py-1 px-4 text-center text-xs font-semibold leading-loose text-white">
                                   {{ $post->humanized_created_at }}
