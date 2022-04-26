@@ -250,7 +250,7 @@
                                     >
                                         {{ $post->title }}
                                     </h2>
-                                    <div class="prose max-w-full mb-8 wow fadeInUp" data-wow-delay=".1s">
+                                    <div class="markdown-body max-w-full mb-8 wow fadeInUp" data-wow-delay=".1s">
                                         @markdown($post->markdown)
                                     </div>
                                     <div class="flex flex-wrap items-center -mx-4 mb-12">
