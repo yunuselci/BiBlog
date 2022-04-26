@@ -14,6 +14,7 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Markdown;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Post extends Resource
@@ -80,7 +81,9 @@ class Post extends Resource
                     'en' => 'İngilizce',
                 ]),
 
-            Text::make('Subtitle')
+            Textarea::make('Subtitle')
+                ->alwaysShow()
+                ->rows(3)
                 ->nullable()
                 ->translatable([
                     'tr' => 'Türkçe',

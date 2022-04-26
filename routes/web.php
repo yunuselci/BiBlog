@@ -22,6 +22,7 @@ Route::group(
     ],
     function () {
         Route::get('/', [PostController::class, 'index'])->name('home');
-        Route::get(LaravelLocalization::transRoute('routes.posts.show'), [PostController::class, 'show'])->name('posts.show');
+        Route::get(LaravelLocalization::transRoute('routes.posts.show'), [PostController::class, 'show'])
+            ->name('posts.show');
     }
 );
