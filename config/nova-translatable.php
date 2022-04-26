@@ -1,10 +1,7 @@
 <?php
 
-
-
 return [
-
-    /**
+    /*
      * The locales which the `translatable` wrapper will use by default.
      *
      * Can be a:
@@ -13,8 +10,7 @@ return [
      */
 
     'locales' => [
-        'en' => 'English',
-        'tr' => 'Turkish'
+        'tr' => 'Türkçe',
+        'en' => 'İngilizce',
     ],
-
 ];
