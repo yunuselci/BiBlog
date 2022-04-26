@@ -107,8 +107,8 @@
                 <div class="flex flex-wrap justify-center -mx-4">
                     <div class="w-full px-4">
                         @if(!blank($post->image_url))
-                        <div
-                            class="
+                            <div
+                                class="
                 relative
                 rounded
                 overflow-hidden
@@ -120,16 +120,16 @@
                 wow
                 fadeInUp
               "
-                            data-wow-delay=".1s
+                                data-wow-delay=".1s
               "
-                        >
-                            <img
-                                src="{{ $post->image_url }}"
-                                alt="image"
-                                class="w-full h-full object-cover object-center"
-                            />
-                            <div
-                                class="
+                            >
+                                <img
+                                    src="{{ $post->image_url }}"
+                                    alt="image"
+                                    class="w-full h-full object-cover object-center"
+                                />
+                                <div
+                                    class="
                   absolute
                   w-full
                   h-full
@@ -142,23 +142,23 @@
                   from-dark-700
                   to-transparent
                 "
-                            >
-                                <div class="flex flex-wrap items-center p-4 sm:p-8 pb-4">
-                                    <div class="flex items-center mb-4 mr-5 md:mr-10">
-                                        <div class="w-10 h-10 rounded-full overflow-hidden mr-4">
-                                            <img
-                                                src="https://media-exp1.licdn.com/dms/image/C5603AQF9oO-6y3m-yw/profile-displayphoto-shrink_100_100/0/1516524095090?e=1655942400&v=beta&t=Ebq7ke8De8y1KW5T5QtbXyTe-eLetC4Fd7Nt6CpxaeQ"
-                                                alt="image"
-                                                class="w-full"
-                                            />
+                                >
+                                    <div class="flex flex-wrap items-center p-4 sm:p-8 pb-4">
+                                        <div class="flex items-center mb-4 mr-5 md:mr-10">
+                                            <div class="w-10 h-10 rounded-full overflow-hidden mr-4">
+                                                <img
+                                                    src="https://media-exp1.licdn.com/dms/image/C5603AQF9oO-6y3m-yw/profile-displayphoto-shrink_100_100/0/1516524095090?e=1655942400&v=beta&t=Ebq7ke8De8y1KW5T5QtbXyTe-eLetC4Fd7Nt6CpxaeQ"
+                                                    alt="image"
+                                                    class="w-full"
+                                                />
+                                            </div>
+                                            <p class="text-base text-white font-medium">
+                                                By Güven Atbakan
+                                            </p>
                                         </div>
-                                        <p class="text-base text-white font-medium">
-                                            By Güven Atbakan
-                                        </p>
-                                    </div>
-                                    <div class="flex items-center mb-4">
-                                        <p
-                                            class="
+                                        <div class="flex items-center mb-4">
+                                            <p
+                                                class="
                                             flex
                                             items-center
                                             text-sm
@@ -167,7 +167,7 @@
                                             mr-5
                                             md:mr-8
                                           "
-                                        >
+                                            >
                                       <span class="mr-3">
                                         <svg
                                             width="15"
@@ -204,10 +204,10 @@
                                           />
                                         </svg>
                                       </span>
-                                            {{ $post->humanized_created_at }}
-                                        </p>
+                                                {{ $post->humanized_created_at }}
+                                            </p>
 
-                                        <p class="flex items-center text-sm font-medium text-white">
+                                            <p class="flex items-center text-sm font-medium text-white">
                                       <span class="mr-3">
                                         <svg
                                             width="20"
@@ -223,12 +223,12 @@
                                           />
                                         </svg>
                                       </span>
-                                            {{ $post->view_count }}
-                                        </p>
+                                                {{ $post->view_count }}
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                         @endif
                         <div class="flex flex-wrap -mx-4">
                             <div class="w-full px-4">
@@ -251,7 +251,7 @@
                                         {{ $post->title }}
                                     </h2>
                                     <div class="prose max-w-full mb-8 wow fadeInUp" data-wow-delay=".1s">
-                                        {!! $post->markdown !!}
+                                        @markdown($post->markdown)
                                     </div>
                                     <div class="flex flex-wrap items-center -mx-4 mb-12">
                                         <div class="w-full px-4">
@@ -347,19 +347,19 @@
                                 <div class="w-full md:w-1/2 lg:w-1/3 px-4">
                                     <div class="mb-10 group wow fadeInUp" data-wow-delay=".1s">
                                         @if(!blank($relatedPost->image_url))
-                                        <div class="rounded overflow-hidden mb-8">
-                                            <a href="{{ $relatedPost->url }}" class="block">
-                                                <img
-                                                    src="{{ $relatedPost->image_url  }}"
-                                                    alt="image"
-                                                    class="
+                                            <div class="rounded overflow-hidden mb-8">
+                                                <a href="{{ $relatedPost->url }}" class="block">
+                                                    <img
+                                                        src="{{ $relatedPost->image_url  }}"
+                                                        alt="image"
+                                                        class="
                                       w-full
                                       transition
                                       group-hover:scale-125 group-hover:rotate-6
                                     "
-                                                />
-                                            </a>
-                                        </div>
+                                                    />
+                                                </a>
+                                            </div>
                                         @endif
                                         <div>
                             <span

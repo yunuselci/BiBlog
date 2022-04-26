@@ -3,21 +3,23 @@
 namespace App\Nova;
 
 use App\Models\User;
-use Ek0519\Quilljs\Quilljs;
 use Ganyicz\NovaCallbacks\HasCallbacks;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use KraenkVisuell\NovaAstrotranslatable\HandlesTranslatable;
 use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Image;
+use Laravel\Nova\Fields\Markdown;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
-use YesWeDev\Nova\Translatable\Translatable;
 
 class Post extends Resource
 {
     use HasCallbacks;
+    use HandlesTranslatable;
 
     /**
      * The model the resource corresponds to.
@@ -52,7 +54,7 @@ class Post extends Resource
         return [
             ID::make(__('ID'), 'id')->sortable(),
 
-            BelongsTo::make('User'),
+            BelongsTo::make('User')->rules('required'),
 
             Text::make('Url', function () {
                 foreach ($this->translations as $translation) {
@@ -69,32 +71,56 @@ class Post extends Resource
                 ->showOnIndex()
                 ->showOnDetail(),
 
-            Translatable::make('Title')
-                ->singleLine()
-                ->rules('required'),
+            Text::make('Title')
+                ->rulesFor('tr', [
+                    'required',
+                ])
+                ->translatable([
+                    'tr' => 'Türkçe',
+                    'en' => 'İngilizce',
+                ]),
 
-            Translatable::make('Subtitle')
-                ->nullable(),
+            Text::make('Subtitle')
+                ->nullable()
+                ->translatable([
+                    'tr' => 'Türkçe',
+                    'en' => 'İngilizce',
+                ]),
 
-            Translatable::make('Slug')
-                ->singleLine()
-                ->nullable(),
+            Text::make('Slug')
+                ->nullable()
+                ->translatable([
+                    'tr' => 'Türkçe',
+                    'en' => 'İngilizce',
+                ]),
 
             Image::make('Image')
                 ->disk('public')
                 ->nullable(),
 
-            Quilljs::make('Description')
-                ->withFiles('public')
-                ->rules('required'),
+            Markdown::make('Description')
+                ->rulesFor('tr', [
+                    'required',
+                ])
+                ->alwaysShow()
+                ->translatable([
+                    'tr' => 'Türkçe',
+                    'en' => 'İngilizce',
+                ]),
 
-            Translatable::make(__('Published (1 True/ 0 False)'), 'published')
+            Boolean::make('Published')
                 ->nullable()
-                ->singleLine(),
+                ->translatable([
+                    'tr' => 'Türkçe',
+                    'en' => 'İngilizce',
+                ]),
 
-            Translatable::make(__('Publish to Dev.to (1 True/ 0 False)'), 'publish_to_dev_to')
+            Boolean::make(__('Publish to Dev.to'), 'publish_to_dev_to')
                 ->nullable()
-                ->singleLine(),
+                ->translatable([
+                    'tr' => 'Türkçe',
+                    'en' => 'İngilizce',
+                ]),
         ];
     }
 

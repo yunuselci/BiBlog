@@ -1559,7 +1559,7 @@ function expandOrCloneMode(mode) {
   return mode;
 }
 
-var version = "11.5.0";
+var version = "11.5.1";
 
 class HTMLInjectionError extends Error {
   constructor(reason, html) {

@@ -4,8 +4,144 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "28f14ac247a30d644f1905c6a8e0c356",
+    "content-hash": "7aad208d3efa5b959aabe57a61ba36bf",
     "packages": [
+        {
+            "name": "arcanedev/laravel-markdown",
+            "version": "6.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ARCANEDEV/LaravelMarkdown.git",
+                "reference": "83506b5934a482c69a3809c89d37c0777ccbe45c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ARCANEDEV/LaravelMarkdown/zipball/83506b5934a482c69a3809c89d37c0777ccbe45c",
+                "reference": "83506b5934a482c69a3809c89d37c0777ccbe45c",
+                "shasum": ""
+            },
+            "require": {
+                "arcanedev/support": "^9.0",
+                "league/commonmark": "^2.2",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "laravel/framework": "^9.0",
+                "orchestra/testbench": "^7.0",
+                "phpunit/phpunit": "^9.5.8"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-develop": "6.x-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Arcanedev\\LaravelMarkdown\\MarkdownServiceProvider",
+                        "Arcanedev\\LaravelMarkdown\\Providers\\DeferredServicesProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "files": [
+                    "helpers.php"
+                ],
+                "psr-4": {
+                    "Arcanedev\\LaravelMarkdown\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "ARCANEDEV",
+                    "email": "arcanedev.maroc@gmail.com",
+                    "homepage": "https://github.com/arcanedev-maroc",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Markdown parsing for Laravel with blade directives",
+            "homepage": "https://github.com/ARCANEDEV/LaravelMarkdown",
+            "keywords": [
+                "arcanedev",
+                "blade",
+                "laravel",
+                "markdown",
+                "md",
+                "parser",
+                "parsing"
+            ],
+            "support": {
+                "issues": "https://github.com/ARCANEDEV/LaravelMarkdown/issues",
+                "source": "https://github.com/ARCANEDEV/LaravelMarkdown/tree/6.0.0"
+            },
+            "time": "2022-02-12T01:11:51+00:00"
+        },
+        {
+            "name": "arcanedev/support",
+            "version": "9.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ARCANEDEV/Support.git",
+                "reference": "046d87b2d638cd0687b4ba06991947df2422970d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ARCANEDEV/Support/zipball/046d87b2d638cd0687b4ba06991947df2422970d",
+                "reference": "046d87b2d638cd0687b4ba06991947df2422970d",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "^9.0",
+                "illuminate/support": "^9.0",
+                "php": "^8.0.2"
+            },
+            "require-dev": {
+                "laravel/framework": "^9.0",
+                "orchestra/testbench-core": "^7.0",
+                "phpunit/phpunit": "^9.5.8"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-develop": "10.x-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "helpers.php"
+                ],
+                "psr-4": {
+                    "Arcanedev\\Support\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "ARCANEDEV",
+                    "email": "arcanedev.maroc@gmail.com",
+                    "homepage": "https://github.com/arcanedev-maroc"
+                }
+            ],
+            "description": "ARCANEDEV Support Helpers",
+            "homepage": "https://github.com/ARCANEDEV/Support",
+            "keywords": [
+                "arcanedev",
+                "arcanesoft",
+                "laravel",
+                "support"
+            ],
+            "support": {
+                "issues": "https://github.com/ARCANEDEV/Support/issues",
+                "source": "https://github.com/ARCANEDEV/Support/tree/9.0.0"
+            },
+            "time": "2022-02-10T19:52:50+00:00"
+        },
         {
             "name": "artesaos/seotools",
             "version": "v0.22.0",
@@ -1067,50 +1203,6 @@
             "time": "2021-10-11T09:18:27+00:00"
         },
         {
-            "name": "ek0519/quilljs",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/yunuselci/nova-quilljs.git",
-                "reference": "d5e7a13c3dca3779bfb8ab21cd65fab578a6bece"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/yunuselci/nova-quilljs/zipball/d5e7a13c3dca3779bfb8ab21cd65fab578a6bece",
-                "reference": "d5e7a13c3dca3779bfb8ab21cd65fab578a6bece",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.1.0"
-            },
-            "default-branch": true,
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Ek0519\\Quilljs\\FieldServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Ek0519\\Quilljs\\": "src/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "A Laravel Nova field.",
-            "keywords": [
-                "laravel",
-                "nova"
-            ],
-            "support": {
-                "source": "https://github.com/yunuselci/nova-quilljs/tree/master"
-            },
-            "time": "2022-04-06T09:46:59+00:00"
-        },
-        {
             "name": "fruitcake/php-cors",
             "version": "v1.2.0",
             "source": {
@@ -1611,6 +1703,66 @@
                 }
             ],
             "time": "2022-03-20T21:55:58+00:00"
+        },
+        {
+            "name": "kraenkvisuell/nova-astrotranslatable",
+            "version": "v2.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kraenkvisuell/nova-astrotranslatable.git",
+                "reference": "02c8aaec5d5f2ea45a1382de73d49beefd254db2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kraenkvisuell/nova-astrotranslatable/zipball/02c8aaec5d5f2ea45a1382de73d49beefd254db2",
+                "reference": "02c8aaec5d5f2ea45a1382de73d49beefd254db2",
+                "shasum": ""
+            },
+            "require": {
+                "astrotomic/laravel-translatable": "^11.5",
+                "laravel/nova": "^2.9 || ^3.0",
+                "php": "^7.4|^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "KraenkVisuell\\NovaAstrotranslatable\\FieldServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "KraenkVisuell\\NovaAstrotranslatable\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Optimist Digital",
+                    "homepage": "https://github.com/optimistdigital"
+                },
+                {
+                    "name": "Kraenk Visuell",
+                    "homepage": "https://github.com/kraenkvisuell"
+                }
+            ],
+            "description": "An Astrotomic Translatable extension for Laravel Nova.",
+            "keywords": [
+                "i18n",
+                "laravel",
+                "nova",
+                "translatable",
+                "translate"
+            ],
+            "support": {
+                "issues": "https://github.com/kraenkvisuell/nova-astrotranslatable/issues",
+                "source": "https://github.com/kraenkvisuell/nova-astrotranslatable/tree/v2.0.5"
+            },
+            "time": "2021-10-28T11:05:20+00:00"
         },
         {
             "name": "laravel/framework",
@@ -2326,16 +2478,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "3.0.17",
+            "version": "3.0.18",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "29eb78cac0be0c22237c5e0f6f98234d97037d79"
+                "reference": "c8e137e594948240b03372e012344b07c61b9193"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/29eb78cac0be0c22237c5e0f6f98234d97037d79",
-                "reference": "29eb78cac0be0c22237c5e0f6f98234d97037d79",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/c8e137e594948240b03372e012344b07c61b9193",
+                "reference": "c8e137e594948240b03372e012344b07c61b9193",
                 "shasum": ""
             },
             "require": {
@@ -2396,7 +2548,7 @@
             ],
             "support": {
                 "issues": "https://github.com/thephpleague/flysystem/issues",
-                "source": "https://github.com/thephpleague/flysystem/tree/3.0.17"
+                "source": "https://github.com/thephpleague/flysystem/tree/3.0.18"
             },
             "funding": [
                 {
@@ -2412,7 +2564,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-04-14T14:57:13+00:00"
+            "time": "2022-04-25T18:55:04+00:00"
         },
         {
             "name": "league/mime-type-detection",
@@ -6218,53 +6370,6 @@
                 "source": "https://github.com/webmozarts/assert/tree/1.10.0"
             },
             "time": "2021-03-09T10:59:23+00:00"
-        },
-        {
-            "name": "yeswedev/nova-translatable",
-            "version": "0.9",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/yeswedev-team/ywd_nova-translatable.git",
-                "reference": "48aac4ec6b9526b3e04e2efc49f87ed9c8e2605a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/yeswedev-team/ywd_nova-translatable/zipball/48aac4ec6b9526b3e04e2efc49f87ed9c8e2605a",
-                "reference": "48aac4ec6b9526b3e04e2efc49f87ed9c8e2605a",
-                "shasum": ""
-            },
-            "require": {
-                "astrotomic/laravel-translatable": "^11.1",
-                "php": ">=7.1.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "YesWeDev\\Nova\\Translatable\\FieldServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "YesWeDev\\Nova\\Translatable\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "A Laravel Nova field for dimsav/laravel-translatable.",
-            "keywords": [
-                "laravel",
-                "nova",
-                "translatable"
-            ],
-            "support": {
-                "issues": "https://github.com/yeswedev-team/ywd_nova-translatable/issues",
-                "source": "https://github.com/yeswedev-team/ywd_nova-translatable/tree/0.9"
-            },
-            "time": "2019-06-21T11:48:55+00:00"
         }
     ],
     "packages-dev": [
@@ -8709,16 +8814,16 @@
         },
         {
             "name": "spatie/ignition",
-            "version": "1.2.7",
+            "version": "1.2.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/ignition.git",
-                "reference": "2f059cf42b48f7c522efbba1c05ad59fc2c1a3f2"
+                "reference": "db25202fab2d5c14613b8914a1bb374998bbf870"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/ignition/zipball/2f059cf42b48f7c522efbba1c05ad59fc2c1a3f2",
-                "reference": "2f059cf42b48f7c522efbba1c05ad59fc2c1a3f2",
+                "url": "https://api.github.com/repos/spatie/ignition/zipball/db25202fab2d5c14613b8914a1bb374998bbf870",
+                "reference": "db25202fab2d5c14613b8914a1bb374998bbf870",
                 "shasum": ""
             },
             "require": {
@@ -8775,7 +8880,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-03-29T08:48:34+00:00"
+            "time": "2022-04-23T20:37:21+00:00"
         },
         {
             "name": "spatie/laravel-ignition",
@@ -8920,9 +9025,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "ek0519/quilljs": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
