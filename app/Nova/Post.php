@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Text;
@@ -80,7 +81,7 @@ class Post extends Resource
 
             Image::make('Image')
                 ->disk('public')
-                ->required(),
+                ->nullable(),
 
             Quilljs::make('Description')
                 ->withFiles('public')
@@ -93,6 +94,8 @@ class Post extends Resource
             Translatable::make(__('Publish to Dev.to (1 True/ 0 False)'), 'publish_to_dev_to')
                 ->nullable()
                 ->singleLine(),
+
+            DateTime::make('Created At', 'created_at')->required(),
 
         ];
     }
@@ -154,7 +157,8 @@ class Post extends Resource
 
     public static function createPostOnDevTo(Model $post)
     {
-        $secret = User::pluck('dev_to_secret')[0];
+        //TODO: Login olmuş kullanıcının dev_to_secret bilgisine bakılmalı.
+        $secret = User::pluck('dev_to_secret')[0] ?? null;
         if (!blank($secret)) {
             if (blank($post->translations)) {
                 $response = Http::withHeaders([
@@ -193,7 +197,8 @@ class Post extends Resource
 
     public static function updatePostOnDevTo(Model $post)
     {
-        $secret = User::pluck('dev_to_secret')[0];
+        //TODO: Login olmuş kullanıcının dev_to_secret bilgisine bakılmalı.
+        $secret = User::pluck('dev_to_secret')[0] ?? null;
         if (!blank($secret)) {
             foreach ($post->translations as $translation) {
 

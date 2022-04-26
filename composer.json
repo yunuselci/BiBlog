@@ -11,6 +11,7 @@
         "php": "^8.0.2",
         "artesaos/seotools": "^0.22.0",
         "astrotomic/laravel-translatable": "^11.10",
+        "doctrine/dbal": "^3.3",
         "ek0519/quilljs": "dev-master",
         "ganyicz/nova-callbacks": "^1.1",
         "guzzlehttp/guzzle": "^7.2",
