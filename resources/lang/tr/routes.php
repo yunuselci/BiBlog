@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'posts.show' => '{slug}',
+    'posts.show' => 'blog/{slug}',
 ];
