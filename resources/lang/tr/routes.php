@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'posts.show' => 'makale/{slug}',
+    'posts.show' => 'blog/{slug}',
 ];

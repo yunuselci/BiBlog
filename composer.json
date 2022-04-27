@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
+        "arcanedev/laravel-markdown": "^6.0",
         "artesaos/seotools": "^0.22.0",
         "astrotomic/laravel-translatable": "^11.10",
         "doctrine/dbal": "^3.3",
