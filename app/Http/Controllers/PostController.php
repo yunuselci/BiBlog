@@ -10,9 +10,10 @@ class PostController extends Controller
 {
     public function index()
     {
-        $this->setSeo('Anasayfa', __('Güven Atbakan\'s personal blog page.'));
+        $this->setSeo(config('app.name'), __('Güven Atbakan\'s personal blog page.'));
 
         $posts = Post::query()->isPublished()->get();
+        //TODO: Paginate.
 
         return view('posts.index')->with(['posts' => $posts]);
     }

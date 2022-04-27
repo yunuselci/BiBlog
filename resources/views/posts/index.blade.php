@@ -103,9 +103,11 @@
                         <div class="wow fadeInUp group mb-10" data-wow-delay=".1s" style="visibility: visible; animation-delay: 0.1s;">
                             @if(!blank($post->image_url))
                             <div class="mb-8 overflow-hidden rounded">
+                                @if ($post->image_url)
                                 <a href="{{ $post->url }}" class="block">
                                     <img src="{{ $post->image_url }}" alt="image" class="w-full transition group-hover:rotate-6 group-hover:scale-125">
                                 </a>
+                                @endif
                             </div>
                             @endif
                             <div>

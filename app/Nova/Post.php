@@ -158,7 +158,8 @@ class Post extends Resource
 
     public static function createPostOnDevTo(Model $post)
     {
-        $secret = User::pluck('dev_to_secret')[0];
+        // TODO: Login olmuş kullanıcının dev_to_secret bilgisine bakılmalı.
+        $secret = User::pluck('dev_to_secret')[0] ?? null;
         if (!blank($secret)) {
             if (blank($post->translations)) {
                 $response = Http::withHeaders([
@@ -196,7 +197,8 @@ class Post extends Resource
 
     public static function updatePostOnDevTo(Model $post)
     {
-        $secret = User::pluck('dev_to_secret')[0];
+        // TODO: Login olmuş kullanıcının dev_to_secret bilgisine bakılmalı.
+        $secret = User::pluck('dev_to_secret')[0] ?? null;
         if (!blank($secret)) {
             foreach ($post->translations as $translation) {
                 // Update an article on dev.to
