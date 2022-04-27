@@ -97,7 +97,7 @@ class Post extends Resource
                 ->nullable()
                 ->singleLine(),
 
-            DateTime::make('Created At', 'created_at')->required(),
+            DateTime::make('Created At', 'created_at')->rules('required'),
         ];
     }
 
