@@ -21,6 +21,8 @@ class Post extends Model implements TranslatableContract
 
     public $translatedAttributes = ['title', 'subtitle', 'slug', 'description', 'published', 'publish_to_dev_to', 'dev_to_article_id'];
 
+    protected $fillable = ['id', 'user_id', 'image', 'view_count', 'created_at', 'updated_at'];
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
@@ -43,7 +45,7 @@ class Post extends Model implements TranslatableContract
 
     public function getUrlAttribute()
     {
-        if (!blank($this->slug)){
+        if (!blank($this->slug)) {
             return route('posts.show', $this->slug);
         }
     }
