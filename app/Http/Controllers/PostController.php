@@ -12,7 +12,7 @@ class PostController extends Controller
     {
         $this->setSeo(config('app.name'), __('Güven Atbakan\'s personal blog page.'));
 
-        $posts = Post::query()->isPublished()->get();
+        $posts = Post::query()->isPublished()->orderBy('created_at', 'DESC')->get();
         //TODO: Paginate.
 
         return view('posts.index')->with(['posts' => $posts]);
