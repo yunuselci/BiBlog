@@ -55,7 +55,7 @@ class PostTranslation extends Resource
 
             Textarea::make('Subtitle')->nullable(),
 
-            Trix::make('Description')->rules('required'),
+            Textarea::make('Description')->rules('required'),
 
             Text::make('Slug')->nullable(),
 
