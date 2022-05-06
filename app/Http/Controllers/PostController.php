@@ -12,15 +12,17 @@ class PostController extends Controller
     {
         $this->setSeo(config('app.name'), __('Güven Atbakan\'s personal blog page.'));
 
-        $posts = Post::query()->isPublished()->orderBy('created_at', 'DESC')->get();
-        //TODO: Paginate.
+        $posts = Post::query()
+            ->isPublished()
+            ->latest()
+            ->get();
+        //TODO: Paginate ?.
 
         return view('posts.index')->with(['posts' => $posts]);
     }
 
     public function show($slug)
     {
-
         $post = Post::query()
             ->whereTranslation('slug', $slug)
             ->isPublished()
@@ -29,16 +31,18 @@ class PostController extends Controller
         $this->setSeo($post->title, $post->short_description);
         $this->incrementViewCount($post);
 
-        $relatedPosts = Post::query()
+        //TODO: Aynı dil üzerindeki makalelerin gösterilmesi lazım.
+        $latestPosts = Post::query()
             ->where('id', '!=', $post->id)
             ->isPublished()
             ->limit(3)
+            ->latest()
             ->get();
 
         return view('posts.show')
             ->with([
                 'post' => $post,
-                'relatedPosts' => $relatedPosts,
+                'latestPosts' => $latestPosts,
             ]);
     }
 

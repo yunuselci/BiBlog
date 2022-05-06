@@ -326,7 +326,7 @@
                     </div>
                 </div>
 
-                @if(!$relatedPosts->isEmpty())
+                @if(!$latestPosts->isEmpty())
                     <div class="flex flex-wrap -mx-4">
                         <div class="w-full px-4 mt-14 wow fadeInUp" data-wow-delay=".2s">
                             <h2
@@ -338,19 +338,19 @@
                             relative
                           "
                             >
-                                {{ __('Related Articles') }}
+                                {{ __('Latest Articles') }}
                             </h2>
                             <span class="h-[2px] bg-primary w-20 mb-10 inline-block"></span>
                         </div>
-                        @foreach($relatedPosts as $relatedPost)
-                            @if(!blank($relatedPost->url))
+                        @foreach($latestPosts as $latestPost)
+                            @if(!blank($latestPost->url))
                                 <div class="w-full md:w-1/2 lg:w-1/3 px-4">
                                     <div class="mb-10 group wow fadeInUp" data-wow-delay=".1s">
-                                        @if(!blank($relatedPost->image_url))
+                                        @if(!blank($latestPost->image_url))
                                         <div class="rounded overflow-hidden mb-8">
-                                            <a href="{{ $relatedPost->url }}" class="block">
+                                            <a href="{{ $latestPost->url }}" class="block">
                                                 <img
-                                                    src="{{ $relatedPost->image_url  }}"
+                                                    src="{{ $latestPost->image_url  }}"
                                                     alt="image"
                                                     class="
                                       w-full
@@ -377,11 +377,11 @@
                                 mb-5
                               "
                             >
-                              {{ $relatedPost->humanized_created_at }}
+                              {{ $latestPost->humanized_created_at }}
                             </span>
                                             <h3>
                                                 <a
-                                                    href="{{ $relatedPost->url }}"
+                                                    href="{{ $latestPost->url }}"
                                                     class="
                                       font-semibold
                                       text-xl
@@ -394,11 +394,11 @@
                                       hover:text-primary
                                     "
                                                 >
-                                                    {{ $relatedPost->title }}
+                                                    {{ $latestPost->title }}
                                                 </a>
                                             </h3>
                                             <p class="text-base text-body-color">
-                                                {{ $relatedPost->short_description }}
+                                                {{ $latestPost->short_description }}
                                             </p>
                                         </div>
                                     </div>
