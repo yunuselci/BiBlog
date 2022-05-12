@@ -33,7 +33,7 @@ class PostController extends Controller
 
         $latestPosts = Post::query()
             ->where('id', '!=', $post->id)
-            ->whereRelation('translations', 'locale', $post->locale)
+            ->whereRelation('translations', 'locale', $post->translations->first()->locale)
             ->isPublished()
             ->limit(3)
             ->latest()
