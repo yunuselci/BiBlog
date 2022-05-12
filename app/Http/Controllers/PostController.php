@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
-use App\Models\Translations\PostTranslation;
 use Illuminate\Support\Facades\Session;
 
 class PostController extends Controller
@@ -23,17 +22,18 @@ class PostController extends Controller
 
     public function show($slug)
     {
+        /** @var Post $post */
         $post = Post::query()
-            ->whereTranslation('slug', $slug)
+            ->whereRelation('translations', 'slug', $slug)
             ->isPublished()
             ->firstOrFail();
 
         $this->setSeo($post->title, $post->short_description);
         $this->incrementViewCount($post);
 
-        //TODO: Aynı dil üzerindeki makalelerin gösterilmesi lazım.
         $latestPosts = Post::query()
             ->where('id', '!=', $post->id)
+            ->whereRelation('translations', 'locale', $post->locale)
             ->isPublished()
             ->limit(3)
             ->latest()
@@ -48,7 +48,7 @@ class PostController extends Controller
 
     private function incrementViewCount(Post $post)
     {
-        $key = 'post_' . $post->id;
+        $key = 'post_'.$post->id;
         if (!Session::has($key)) {
             $post->increment('view_count');
 

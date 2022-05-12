@@ -68,3 +68,12 @@ body {
         @apply block;
     }
 }
+
+.markdown-body {
+    ol {
+        @apply list-decimal;
+    }
+    ul {
+        @apply list-disc;
+    }
+}
