@@ -7,7 +7,7 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 Route::group(
     [
         'prefix' => LaravelLocalization::setLocale(),
-        'middleware' => ['localize', 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath'],
+        'middleware' => ['localize', 'localizationRedirect', 'localeViewPath'],
     ],
     function () {
         Route::get('/', [PostController::class, 'index'])->name('home');
