@@ -28,7 +28,7 @@
                 <div class="w-full md:w-1/3 lg:w-1/2 px-4 md:pt-0 pt-6">
                     <div class="flex justify-center md:justify-end my-1">
                         <p class="text-base text-[#f3f4fe]">
-                            {{ __('All rights reserved.') }}
+                            {{ __('Licensed under WTFPL') }}
                         </p>
                     </div>
                 </div>
