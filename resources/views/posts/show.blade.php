@@ -8,6 +8,7 @@
 @endsection
 @section('content')
     @if(!$post->published)
+        {{--//TODO: PHP üzerinden yapalım bunu.--}}
         <script>window.location = "/";</script>
     @else
 
@@ -252,6 +253,23 @@
                                     </h2>
                                     <div class="markdown-body max-w-full mb-8 wow fadeInUp" data-wow-delay=".1s">
                                         @markdown($post->markdown)
+                                    </div>
+                                    <div class="markdown-body max-w-full mb-8">
+                                        <div id="disqus_thread"></div>
+                                        <script>
+                                            var disqus_config = function () {
+                                                this.page.url = '{{$post->url}}';
+                                                this.page.identifier = 'post_{{$post->id}}';
+                                            };
+
+                                            (function() { // DON'T EDIT BELOW THIS LINE
+                                                var d = document, s = d.createElement('script');
+                                                s.src = 'https://guven-atbakan-blog.disqus.com/embed.js';
+                                                s.setAttribute('data-timestamp', +new Date());
+                                                (d.head || d.body).appendChild(s);
+                                            })();
+                                        </script>
+                                        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
                                     </div>
                                     <div class="flex flex-wrap items-center -mx-4 mb-12">
                                         <div class="w-full px-4">
