@@ -1,4 +1,4 @@
-<div
+    <div
     class="
         ud-header
         bg-transparent
@@ -64,7 +64,7 @@
                         <ul class="block lg:flex justify-between">
                             <li class="relative group">
                                 <a
-                                    href="{{ route('home') }}"
+                                    href="{{ LaravelLocalization::localizeUrl(route('home')) }}"
                                     class="
                                     ud-menu-scroll
                                     text-base text-dark
@@ -113,7 +113,7 @@
                                         uppercase
                                       "
                                 >
-                                    {{ app()->getLocale() }}
+                                    {{ LaravelLocalization::getCurrentLocale() }}
                                 </a>
                                 <div
                                     class="
@@ -138,7 +138,7 @@
                                         duration-300
                                       "
                                 >
-                                    <a
+                                    <a rel="alternate" hreflang="tr"
                                         href="{{ LaravelLocalization::getLocalizedURL('tr', null, [] ,true) }}"
                                         class="
                                           block
@@ -151,7 +151,7 @@
                                     >
                                         Türkçe
                                     </a>
-                                    <a
+                                    <a rel="alternate" hreflang="en"
                                         href="{{ LaravelLocalization::getLocalizedURL('en', null, [] ,true) }}"
                                         class="
                                           block

@@ -258,7 +258,7 @@
                                         <div id="disqus_thread"></div>
                                         <script>
                                             var disqus_config = function () {
-                                                this.page.url = '{{$post->url}}';
+                                                this.page.url = '{{ LaravelLocalization::localizeUrl($post->url) }}';
                                                 this.page.identifier = 'post_{{$post->id}}';
                                             };
 
@@ -281,7 +281,7 @@
                                               {{ __('Share This Post') }}
                                             </span>
                                                 <div class="flex items-center">
-                                                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ $post->url }}"
+                                                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ LaravelLocalization::localizeUrl($post->url) }}"
                                                        target="_blank" rel="nofollow noreferrer" class="mr-4 mb-2">
                                                         <svg
                                                             width="32"
@@ -300,7 +300,7 @@
                                                             />
                                                         </svg>
                                                     </a>
-                                                    <a href="https://twitter.com/intent/tweet?text={{ $post->title }}&url={{ $post->url }}"
+                                                    <a href="https://twitter.com/intent/tweet?text={{ $post->title }}&url={{ LaravelLocalization::localizeUrl($post->url) }}"
                                                        target="_blank" rel="nofollow noreferrer" class="mr-4 mb-2">
                                                         <svg
                                                             width="32"
@@ -317,7 +317,7 @@
                                                             />
                                                         </svg>
                                                     </a>
-                                                    <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ $post->url }}"
+                                                    <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ LaravelLocalization::localizeUrl($post->url) }}"
                                                        target="_blank" rel="nofollow noreferrer" class="mb-2">
                                                         <svg
                                                             width="33"
@@ -366,7 +366,7 @@
                                     <div class="mb-10 group wow fadeInUp" data-wow-delay=".1s">
                                         @if(!blank($latestPost->image_url))
                                         <div class="rounded overflow-hidden mb-8">
-                                            <a href="{{ $latestPost->url }}" class="block">
+                                            <a href="{{ LaravelLocalization::localizeUrl($latestPost->url) }}" class="block">
                                                 <img
                                                     src="{{ $latestPost->image_url  }}"
                                                     alt="image"
@@ -399,7 +399,7 @@
                             </span>
                                             <h3>
                                                 <a
-                                                    href="{{ $latestPost->url }}"
+                                                    href="{{ LaravelLocalization::localizeUrl($latestPost->url) }}"
                                                     class="
                                       font-semibold
                                       text-xl
