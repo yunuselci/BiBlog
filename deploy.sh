@@ -7,9 +7,5 @@ php artisan migrate --force
 npm install
 npm run prod
 
-php artisan route:trans:clear
-
-php artisan optimize
-php artisan route:trans:cache
 
 chown -R www-data.www-data /var/www/blog
