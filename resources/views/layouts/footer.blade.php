@@ -17,7 +17,7 @@
                               "
                         >
                             <a
-                                href="{{ route('home') }}"
+                                href="{{ LaravelLocalization::localizeUrl(route('home')) }}"
                                 class="text-base text-[#f3f4fe] hover:text-primary px-3"
                             >
                                 {{ __('Home') }}

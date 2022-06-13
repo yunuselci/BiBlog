@@ -7,15 +7,10 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 Route::group(
     [
         'prefix' => LaravelLocalization::setLocale(),
-        'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath'],
+        'middleware' => ['localizationRedirect', 'localeViewPath'],
     ],
     function () {
         Route::get('/', [PostController::class, 'index'])->name('home');
-
-        // TODO: Aşağıdaki senaryonun fixlenmesi gerekiyor.
-        // Siteyi ingilizce olarak açalım.
-        // Türkçe bir makaleye link üzerinden açalım.
-        // Makaleyi göstermek yerinde İngilizce sitenin anasayfasına yönlendiriyor.
         Route::get(LaravelLocalization::transRoute('routes.posts.show'), [PostController::class, 'show'])->name('posts.show');
     }
 );

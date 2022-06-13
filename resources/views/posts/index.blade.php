@@ -104,7 +104,7 @@
                             @if(!blank($post->image_url))
                             <div class="mb-8 overflow-hidden rounded">
                                 @if ($post->image_url)
-                                <a href="{{ $post->url }}" class="block">
+                                <a href="{{ LaravelLocalization::localizeUrl($post->url) }}" class="block">
                                     <img src="{{ $post->image_url }}" alt="image" class="w-full transition group-hover:rotate-6 group-hover:scale-125">
                                 </a>
                                 @endif
@@ -115,7 +115,7 @@
                                   {{ $post->humanized_created_at }}
                                 </span>
                                 <h3>
-                                    <a href="{{ $post->url }}" class="mb-4 inline-block text-xl font-semibold text-dark hover:text-primary sm:text-2xl lg:text-xl xl:text-2xl">
+                                    <a href="{{ LaravelLocalization::localizeUrl($post->url) }}" class="mb-4 inline-block text-xl font-semibold text-dark hover:text-primary sm:text-2xl lg:text-xl xl:text-2xl">
                                         {{ $post->title }}
                                     </a>
                                 </h3>
