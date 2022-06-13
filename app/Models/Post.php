@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
-use Mcamara\LaravelLocalization\Interfaces\LocalizedUrlRoutable;
 
 class Post extends Model implements TranslatableContract
 {
