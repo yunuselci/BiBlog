@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Mcamara\LaravelLocalization\Interfaces\LocalizedUrlRoutable;
 
-class Post extends Model implements TranslatableContract, LocalizedUrlRoutable
+class Post extends Model implements TranslatableContract
 {
     use Translatable;
 
@@ -59,12 +59,5 @@ class Post extends Model implements TranslatableContract, LocalizedUrlRoutable
     public function getMarkdownAttribute()
     {
         return $this->description;
-    }
-
-    public function getLocalizedRouteKey($locale)
-    {
-        $forLog = $this->slug->where('locale', $locale)->first()->slug;
-        logger()->info($forLog);
-        return $this->slug->where('locale', $locale)->first()->slug;
     }
 }
