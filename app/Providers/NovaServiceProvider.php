@@ -25,7 +25,6 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
         Nova::serving(function () {
             Post::observe(PostObserver::class);
         });
-
     }
 
     /**

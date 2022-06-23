@@ -10,5 +10,4 @@ class PostTranslation extends Model
     public $timestamps = false;
 
     protected $guarded = [];
-
 }
