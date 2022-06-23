@@ -20,7 +20,7 @@ class AddTrixTable extends Migration
             $table->string('disk');
             $table->timestamps();
         });
-        
+
         Schema::create('nova_trix_attachments', function (Blueprint $table) {
             $table->increments('id');
             $table->string('attachable_type');
@@ -29,7 +29,7 @@ class AddTrixTable extends Migration
             $table->string('disk');
             $table->string('url')->index();
             $table->timestamps();
-        
+
             $table->index(['attachable_type', 'attachable_id']);
         });
     }
