@@ -101,12 +101,12 @@ class Post extends Resource
         ];
     }
 
-    public static function afterCreate(NovaRequest $request, Model $model)
+    public static function afterCreate(NovaRequest $request, Model $model): void
     {
         self::createPostOnDevTo($model);
     }
 
-    public static function afterUpdate(Request $request, $model)
+    public static function afterUpdate(Request $request, $model): void
     {
         foreach ($model->translations as $translation) {
             if (blank($model->translateOrNew($translation->locale)->dev_to_article_id)) {
@@ -156,7 +156,7 @@ class Post extends Resource
         return [];
     }
 
-    public static function createPostOnDevTo(Model $post)
+    public static function createPostOnDevTo(Model $post): void
     {
         // TODO: Login olmuş kullanıcının dev_to_secret bilgisine bakılmalı.
         $secret = User::pluck('dev_to_secret')[0] ?? null;
@@ -195,7 +195,7 @@ class Post extends Resource
         }
     }
 
-    public static function updatePostOnDevTo(Model $post)
+    public static function updatePostOnDevTo(Model $post): void
     {
         // TODO: Login olmuş kullanıcının dev_to_secret bilgisine bakılmalı.
         $secret = User::pluck('dev_to_secret')[0] ?? null;

@@ -15,11 +15,11 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     /**
      * Bootstrap any application services.
      */
-    public function boot()
+    public function boot(): void
     {
         parent::boot();
 
-        Nova::serving(function () {
+        Nova::serving(function (): void {
             Post::observe(PostObserver::class);
         });
     }
@@ -37,14 +37,14 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     /**
      * Register any application services.
      */
-    public function register()
+    public function register(): void
     {
     }
 
     /**
      * Register the Nova routes.
      */
-    protected function routes()
+    protected function routes(): void
     {
         Nova::routes()
             ->withAuthenticationRoutes()
@@ -58,7 +58,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
      *
      * This gate determines who can access Nova in non-local environments.
      */
-    protected function gate()
+    protected function gate(): void
     {
         // TODO: make more meaningful gate for nova users
         Gate::define('viewNova', function (?User $user) {

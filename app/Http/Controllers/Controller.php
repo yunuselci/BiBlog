@@ -16,14 +16,14 @@ class Controller extends BaseController
     use DispatchesJobs;
     use ValidatesRequests;
 
-    public function prepareOgMeta()
+    public function prepareOgMeta(): void
     {
         OpenGraph::addProperty('url', url()->current());
         OpenGraph::setSiteName(config('app.name'));
         OpenGraph::addProperty('image', asset('favicon.png'));
     }
 
-    public function setSeo($title, $description = null, $keywords = null)
+    public function setSeo($title, $description = null, $keywords = null): void
     {
         SEOMeta::setTitle($title);
         SEOMeta::setDescription($description);

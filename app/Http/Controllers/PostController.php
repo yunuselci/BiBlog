@@ -50,7 +50,7 @@ class PostController extends Controller
         ;
     }
 
-    private function incrementViewCount(Post $post)
+    private function incrementViewCount(Post $post): void
     {
         $key = 'post_'.$post->id;
         if (!Session::has($key)) {

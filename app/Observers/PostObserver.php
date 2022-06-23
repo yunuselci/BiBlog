@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 
 class PostObserver
 {
-    public function saving(Post $post)
+    public function saving(Post $post): void
     {
         if (blank($post->slug)) {
             foreach ($post->translations as $translation) {
@@ -29,7 +29,7 @@ class PostObserver
     /**
      * Handle the Post "deleted" event.
      */
-    public function deleted(Post $post)
+    public function deleted(Post $post): void
     {
         foreach ($post->translations as $translation) {
             $secret = User::pluck('dev_to_secret')[0];
