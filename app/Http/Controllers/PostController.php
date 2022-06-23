@@ -14,8 +14,9 @@ class PostController extends Controller
         $posts = Post::query()
             ->isPublished()
             ->latest()
-            ->get();
-        //TODO: Paginate ?.
+            ->get()
+        ;
+        // TODO: Paginate ?.
 
         return view('posts.index')->with(['posts' => $posts]);
     }
@@ -26,7 +27,8 @@ class PostController extends Controller
         $post = Post::query()
             ->whereRelation('translations', 'slug', $slug)
             ->isPublished()
-            ->firstOrFail();
+            ->firstOrFail()
+        ;
 
         $this->setSeo($post->title, $post->short_description);
         $this->incrementViewCount($post);
@@ -37,16 +39,18 @@ class PostController extends Controller
             ->isPublished()
             ->limit(3)
             ->latest()
-            ->get();
+            ->get()
+        ;
 
         return view('posts.show')
             ->with([
                 'post' => $post,
                 'latestPosts' => $latestPosts,
-            ]);
+            ])
+        ;
     }
 
-    private function incrementViewCount(Post $post)
+    private function incrementViewCount(Post $post): void
     {
         $key = 'post_'.$post->id;
         if (!Session::has($key)) {
