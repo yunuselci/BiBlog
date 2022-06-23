@@ -1,19 +1,17 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class AddTrixTable extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
-    public function up()
+    public function up(): void
     {
-        Schema::create('nova_pending_trix_attachments', function (Blueprint $table) {
+        Schema::create('nova_pending_trix_attachments', function (Blueprint $table): void {
             $table->increments('id');
             $table->string('draft_id')->index();
             $table->string('attachment');
@@ -21,7 +19,7 @@ class AddTrixTable extends Migration
             $table->timestamps();
         });
 
-        Schema::create('nova_trix_attachments', function (Blueprint $table) {
+        Schema::create('nova_trix_attachments', function (Blueprint $table): void {
             $table->increments('id');
             $table->string('attachable_type');
             $table->unsignedInteger('attachable_id');
@@ -36,11 +34,8 @@ class AddTrixTable extends Migration
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
-    public function down()
+    public function down(): void
     {
-        //
     }
 }

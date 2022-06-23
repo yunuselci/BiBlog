@@ -4,21 +4,20 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class () extends Migration {
+return new class() extends Migration {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
-    public function up()
+    public function up(): void
     {
-        Schema::create('post_translations', function (Blueprint $table) {
+        Schema::create('post_translations', function (Blueprint $table): void {
             $table->id();
             $table->string('locale')->index();
             $table->unsignedBigInteger('post_id');
-            $table->unique(['post_id','locale']);
+            $table->unique(['post_id', 'locale']);
             $table->foreign('post_id')->references('id')->on('posts')
-                ->onDelete('cascade');
+                ->onDelete('cascade')
+            ;
             $table->string('title');
             $table->string('subtitle')->nullable();
             $table->longText('description');
@@ -31,10 +30,8 @@ return new class () extends Migration {
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
-    public function down()
+    public function down(): void
     {
         Schema::dropIfExists('post_translations');
     }
