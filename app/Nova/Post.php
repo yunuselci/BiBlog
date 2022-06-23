@@ -18,19 +18,6 @@ use YesWeDev\Nova\Translatable\Translatable;
 
 class Post extends Resource
 {
-
-
-
-
-
-
-
-
-
-
-
-
-
     use HasCallbacks;
 
     /**
