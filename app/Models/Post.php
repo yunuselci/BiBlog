@@ -14,12 +14,12 @@ class Post extends Model implements TranslatableContract
 {
     use Translatable;
 
+    public $translatedAttributes = ['title', 'subtitle', 'slug', 'description', 'published', 'publish_to_dev_to', 'dev_to_article_id'];
+
     protected $casts = [
         'published' => 'boolean',
         'publish_to_dev_to' => 'boolean',
     ];
-
-    public $translatedAttributes = ['title', 'subtitle', 'slug', 'description', 'published', 'publish_to_dev_to', 'dev_to_article_id'];
 
     protected $fillable = ['id', 'user_id', 'image', 'view_count', 'created_at', 'updated_at'];
 

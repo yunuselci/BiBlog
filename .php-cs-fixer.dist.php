@@ -16,7 +16,6 @@ $config
         'array_syntax' => ['syntax' => 'short'],
         'declare_strict_types' => false,
 
-        '@PHP71Migration:risky' => true,
         '@PHPUnit75Migration:risky' => true,
         '@PhpCsFixer' => true,
         '@PhpCsFixer:risky' => true,

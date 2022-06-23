@@ -9,9 +9,6 @@ use Illuminate\Support\Str;
 
 class PostObserver
 {
-    /**
-     * @return void
-     */
     public function saving(Post $post)
     {
         if (blank($post->slug)) {
@@ -21,8 +18,8 @@ class PostObserver
         }
         foreach ($post->translations as $translation) {
             if (
-                $post->translateOrNew($translation->locale)->isDirty('title') &&
-                $post->translateOrNew($translation->locale)->isClean('slug')
+                $post->translateOrNew($translation->locale)->isDirty('title')
+                && $post->translateOrNew($translation->locale)->isClean('slug')
             ) {
                 $post->translateOrNew($translation->locale)->slug = Str::slug($translation->title);
             }
@@ -31,14 +28,12 @@ class PostObserver
 
     /**
      * Handle the Post "deleted" event.
-     *
-     * @return void
      */
     public function deleted(Post $post)
     {
         foreach ($post->translations as $translation) {
             $secret = User::pluck('dev_to_secret')[0];
-            //Disables the post on dev.to
+            // Disables the post on dev.to
 
             Http::withHeaders([
                 'api-key' => $secret,
