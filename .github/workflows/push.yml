@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - name: PHP-CS-Fixer
-      uses: docker://oskarstark/php-cs-fixer-ga
+    - name: OSKAR-PHP-CS-Fixer
+      uses: OskarStark/php-cs-fixer-ga@3.8.0
       with:
         args: --diff --dry-run
