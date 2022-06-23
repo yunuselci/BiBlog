@@ -14,6 +14,7 @@ $config
         '@Symfony' => true,
         '@PSR2' => true,
         'array_syntax' => ['syntax' => 'short'],
+        'declare_strict_types' => false,
 
         '@PHP71Migration:risky' => true,
         '@PHPUnit75Migration:risky' => true,
