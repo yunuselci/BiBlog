@@ -1,4 +1,4 @@
-on: [ push, pull_request ]
+on: [push, pull_request]
 name: Lint
 jobs:
   php-cs-fixer:
@@ -7,6 +7,6 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: PHP-CS-Fixer
-          uses: docker://oskarstark/php-cs-fixer-ga
+        uses: docker://oskarstark/php-cs-fixer-ga
         with:
           args: --diff --dry-run
