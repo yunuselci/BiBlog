@@ -11,6 +11,7 @@ use Laravel\Nova\Fields\Textarea;
 
 class PostTranslation extends Resource
 {
+    
     /**
      * The model the resource corresponds to.
      *
