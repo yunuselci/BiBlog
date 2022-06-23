@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     /* -----------------------------------------------------------------
      |  Parsers
      | -----------------------------------------------------------------
@@ -11,11 +10,10 @@ return [
 
     'parsers' => [
         'commonmark' => [
-            'class'   => Arcanedev\LaravelMarkdown\Parsers\CommonMarkParser::class,
+            'class' => Arcanedev\LaravelMarkdown\Parsers\CommonMarkParser::class,
             'options' => [
                 'allow_unsafe_links' => false,
             ],
         ],
     ],
-
 ];

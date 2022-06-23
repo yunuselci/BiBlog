@@ -9,7 +9,7 @@ Route::group(
         'prefix' => LaravelLocalization::setLocale(),
         'middleware' => ['localizationRedirect', 'localeViewPath'],
     ],
-    function () {
+    function (): void {
         Route::get('/', [PostController::class, 'index'])->name('home');
         Route::get(LaravelLocalization::transRoute('routes.posts.show'), [PostController::class, 'show'])->name('posts.show');
     }
