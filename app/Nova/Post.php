@@ -13,6 +13,7 @@ use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use YesWeDev\Nova\Translatable\Translatable;
 
@@ -85,7 +86,7 @@ class Post extends Resource
                 ->disk('public')
                 ->nullable(),
 
-            Quilljs::make('Description')
+            Translatable::make('Description')
                 ->withFiles('public')
                 ->rules('required'),
 

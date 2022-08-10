@@ -3,6 +3,7 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Number;
@@ -31,7 +32,8 @@ class PostTranslation extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'title',
+        'id',
+        'title',
     ];
 
     /**
@@ -43,6 +45,8 @@ class PostTranslation extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
+
+            BelongsTo::make('Post'),
 
             Text::make('Locale')->rules('required'),
 
